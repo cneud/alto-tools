@@ -31,6 +31,6 @@ if __name__ == "__main__":
         for filename in files:
             if filename.endswith('.xml') or filename.endswith('.alto'):
                 fh = open(os.path.join(root, filename))
-                # for f in fh:  # Dunno what to do with this? :)
-                parse_alto(fh)
+                for f in fh:  # loop over items 'fh'
+                	parse_alto(fh)
                 fh.close()
