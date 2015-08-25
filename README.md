@@ -1,5 +1,6 @@
 # alto-ocr-confidence
-Calculates the OCR confidence score per page in [ALTO](http://www.loc.gov/standards/alto/) files.
+Calculates the OCR confidence score per page in [ALTO](http://www.loc.gov/standards/alto/) files. The method is simple:
+build the sum of all word confidence ([WC](https://github.com/altoxml/schema/blob/master/v2/alto-2-0.xsd#L381)) scores and divide by their count.
 
 Use like:
 
