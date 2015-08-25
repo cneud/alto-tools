@@ -10,7 +10,7 @@ namespace = {'alto-1': 'http://schema.ccs-gmbh.com/ALTO',
              'alto-3': 'http://www.loc.gov/standards/alto/ns-v3#'}
 
 
-def parse_alto(fh, filename):
+def parse_alto(fh):
     tree = ET.parse(fh)
     score = 0
     count = 0
@@ -31,6 +31,6 @@ if __name__ == "__main__":
         for filename in files:
             if filename.endswith('.xml') or filename.endswith('.alto'):
                 fh = open(os.path.join(root, filename))
-                for f in fh:  # Dunno what to do with this?
-                    parse_alto(fh, filename)
+                # for f in fh:  # Dunno what to do with this? :)
+                parse_alto(fh)
                 fh.close()
