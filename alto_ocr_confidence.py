@@ -20,7 +20,7 @@ def parse_alto(fh, filename):
             count += 1
     confidence = score / count
     result = round(100 * confidence, 2)
-    print('Filename: %s, Confidence: %s' % (filename, result))
+    print('File: %s, Confidence: %s' % (fh.name, result))
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:
