@@ -9,19 +9,21 @@ namespace = {'alto-1': 'http://schema.ccs-gmbh.com/ALTO',
              'alto-2': 'http://www.loc.gov/standards/alto/ns-v2#',
              'alto-3': 'http://www.loc.gov/standards/alto/ns-v3#'}
 
-
 def parse_alto(fh):
     tree = ET.parse(fh)
     score = 0
     count = 0
     xmlns = tree.getroot().tag.split('}')[0].strip('{') # extract namespace from root
-    for elem in tree.iterfind('.//{%s}String' % xmlns):
-            wc = elem.attrib.get('WC')
-            score += float(wc)
-            count += 1
-    confidence = score / count
-    result = round(100 * confidence, 2)
-    print('File: %s, Confidence: %s' % (fh.name, result))
+    if xmlns in namespace.values():
+        for elem in tree.iterfind('.//{%s}String' % xmlns):
+                wc = elem.attrib.get('WC')
+                score += float(wc)
+                count += 1
+        confidence = score / count
+        result = round(100 * confidence, 2)
+        print('File: %s, Confidence: %s' % (fh.name, result))
+    else:
+        print('ERROR: File "%s" does not appear to be a valid ALTO file (namespace declaration missing)' % fh.name)
 
 
 if __name__ == "__main__":
