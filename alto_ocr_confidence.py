@@ -14,13 +14,15 @@ def parse_alto(fh):
     tree = ET.parse(fh)
     score = 0
     count = 0
-    for elem in tree.iterfind('.//alto-2:String', namespace):
+    xmlns = tree.getroot().tag.split('}')[0].strip('{') # extract namespace from root
+    for elem in tree.iterfind('.//{%s}String' % xmlns):
             wc = elem.attrib.get('WC')
             score += float(wc)
             count += 1
     confidence = score / count
     result = round(100 * confidence, 2)
     print('File: %s, Confidence: %s' % (fh.name, result))
+
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:
@@ -32,5 +34,5 @@ if __name__ == "__main__":
             if filename.endswith('.xml') or filename.endswith('.alto'):
                 fh = open(os.path.join(root, filename))
                 for f in fh: # loop over items in 'fh'
-                	parse_alto(fh)
+                    parse_alto(fh)
                 fh.close()
