@@ -3,7 +3,7 @@
 
 import os
 import sys
-import xml.etree.cElementTree as ET
+import xml.etree.ElementTree as ET
 
 namespace = {'alto-1': 'http://schema.ccs-gmbh.com/ALTO',
              'alto-2': 'http://www.loc.gov/standards/alto/ns-v2#',
