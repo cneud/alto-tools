@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-# Usage: python alto_to_text.py <altofile>
+# Usage: python alto_ocr_text.py <altofile>
 
 import codecs
 import os
