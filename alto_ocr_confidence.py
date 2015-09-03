@@ -13,7 +13,7 @@ def parse_alto(fh):
     tree = ET.parse(fh)
     score = 0
     count = 0
-    xmlns = tree.getroot().tag.split('}')[0].strip('{') # extract namespace from root
+    xmlns = tree.getroot().tag.split('}')[0].strip('{')  # extract namespace from root
     if xmlns in namespace.values():
         for elem in tree.iterfind('.//{%s}String' % xmlns):
                 wc = elem.attrib.get('WC')
