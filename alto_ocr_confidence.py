@@ -19,9 +19,12 @@ def parse_alto(fh):
                 wc = elem.attrib.get('WC')
                 score += float(wc)
                 count += 1
-        confidence = score / count
-        result = round(100 * confidence, 2)
-        sys.stdout.write('\nFile: %s, Confidence: %s' % (fh.name, result))
+        if count > 0:
+            confidence = score / count
+            result = round(100 * confidence, 2)
+            sys.stdout.write('\nFile: %s, Confidence: %s' % (fh.name, result))
+        else:
+            sys.stdout.write('\nFile: %s, Confidence: 00.00' % (fh.name))
     else:
         sys.stdout.write('\nERROR: File "%s" does not appear to be a valid ALTO file (namespace declaration missing)' % fh.name)
 
