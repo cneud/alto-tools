@@ -34,7 +34,7 @@ if __name__ == "__main__":
     for root, dirs, files in os.walk(sys.argv[1]):
         for filename in files:
             if filename.endswith('.xml') or filename.endswith('.alto'):
-                fh = open(os.path.join(root, filename))
+                fh = open(os.path.join(root, filename), 'r', encoding='UTF8')
                 for f in fh:
                     parse_alto(fh)
                 fh.close()
