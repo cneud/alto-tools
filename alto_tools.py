@@ -1,6 +1,6 @@
 #!/usr/bin/env python
  
-''' alto_tools.py: simple methods to perform operations on ALTO xml files'''
+'''alto_tools.py: simple methods to perform operations on ALTO xml files'''
 
 import os
 import sys
@@ -23,7 +23,7 @@ def alto_parse(f):
         xml = ET.parse(f)
     except ET.ParseError as e:
         sys.stdout.write('\nERROR: Failed parsing "%s" - ' % fh.name + str(e))
-    #Register known namespaces    
+    #Register ALTO namespaces    
     namespace = {'alto-1': 'http://schema.ccs-gmbh.com/ALTO', 
                  'alto-2': 'http://www.loc.gov/standards/alto/ns-v2#',
                  'alto-3': 'http://www.loc.gov/standards/alto/ns-v3#'}
@@ -39,14 +39,16 @@ def alto_parse(f):
 def alto_text(xml, xmlns):
     ''' Extract text content from ALTO xml file '''
     xml, xmlns = alto_parse(fh)
+    # Make sure to use UTF-8
     if sys.stdout.encoding != 'UTF-8':
         sys.stdout = codecs.getwriter('utf-8')(sys.stdout.buffer, 'strict')
         # Find all TextLine elements
         for lines in xml.iterfind('.//{%s}TextLine' % xmlns):
+            # New line after every TextLine element
             sys.stdout.write('\n')
             # Find all String elements
             for line in lines.findall('{%s}String' % xmlns):
-                # Get value of attribute CONTENT of all String elements
+                # Get value of attribute CONTENT from all String elements
                 text = line.attrib.get('CONTENT') + ' '
                 sys.stdout.write(text)
 
@@ -70,7 +72,7 @@ def alto_confidence(xml, xmlns):
 
 def alto_transform(xml, xmlns, xsl):
     ''' Transform ALTO xml with XSLT '''
-    # Detect operating system
+    # Detect if running on Windows
     if os.name == 'nt':
         # Check if msxsl.exe is present
         from os.path import join
@@ -393,31 +395,66 @@ def alto_metadata(xml, xmlns):
             '\napplicationDescription     =   -- NOT_DEFINED --')  
     sys.stdout.write('\n')
 
+# def alto_query():
+#     #TODO
+
+# def write_output():
+#     if len(output) == 0:
+#         sys.stdout.write()
+#     else:
+#         if args.text == True:
+#           output_filename = alto.name + '.txt'
+#           sys.stdout = open('output_filename', 'w')
+#         if args.metadata == True:
+#           output_filename = alto.name + '.md.txt'
+#           sys.stdout = open('output_filename', 'w')        
+#         if args.confidence == True:
+#           output_filename = alto.name + '.conf.txt'
+#           sys.stdout = open('output_filename', 'w')
+#         if args.transform == True:
+#           output_filename = alto.name
+#           sys.stdout = open('output_filename', 'w')
+
 def parse_arguments():
     parser = argparse.ArgumentParser(
         description="ALTO Tools: simple methods to perform operations on ALTO \
         xml files",
         add_help=True,
         prog='alto_tools.py', 
-        usage='python %(prog)s INPUT OUTPUT [options]')
+        usage='python %(prog)s INPUT [options]')
     parser.add_argument('INPUT',
         help='path to ALTO file or directory containing ALTO file(s)')
-    parser.add_argument('OUTPUT',
-        help='path to output directory (will use stdout if none given)')
+    parser.add_argument('-o', '--output',
+        default='',
+        dest='output',
+        help='path to output directory (if none specified, stdout is used)')
     parser.add_argument('-v', '--version', 
         action='version', 
         version=__version__,
         help='show version number and exit')
-    subparsers = parser.add_subparsers(
-        help='supported operations')
-    parser_c = subparsers.add_parser('-c', 
+    parser.add_argument('-c', '--confidence',
+        action ='store_true',
+        default=False,
+        dest='confidence',
         help='calculate page confidence of the ALTO document(s)')
-    parser_t = subparsers.add_parser('-t', 
+    parser.add_argument('-t', '--text',
+        action ='store_true',
+        default=False,
+        dest='text',
         help='extract text content of the ALTO document(s)')
-    parser_m = subparsers.add_parser('-m', 
+    parser.add_argument('-m', '--metadata',
+        action ='store_true',
+        default=False,
+        dest='metadata',
         help='extract metadata of the ALTO document(s)')
-    parser_x = subparsers.add_parser('-x', 
+    parser.add_argument('-x', '--transform',
+        action ='store_true',
+        default=False,
+        dest='transform',
         help='transform ALTO document(s) to target format')
+    parser.add_argument('-q', '--query',
+        dest='query',
+        help='query elements and attributes of the ALTO document(s)')
     args=parser.parse_args()
     return(args)
 
@@ -428,19 +465,26 @@ def main():
         for filename in files:
             if filename.endswith('.xml') or filename.endswith('.alto'):
                 fh = open(os.path.join(root, filename), 'r', encoding='UTF8')
-                # TODO: implement optional arguments switch
-                for f in fh:
+                for alto in fh:
                     try:
-                        parse_alto(fh)
+                        alto_parse(alto)
                     except ET.ParseError as e:
                         sys.stdout.write('\nERROR: Failed parsing "%s" - ' % \
                             fh.name + str(e))
-                    alto_parse(f)
-                    alto_text()
-                    alto_confidence()
-                    alto_metadata()
-                    alto_transform()
-                fh.close()
+                        # Supported operations
+                        if args.confidence == True:
+                            alto_confidence()
+                        elif args.text == True:
+                            alto_text()
+                        elif args.metadata == True:
+                            alto_metadata()
+                        elif args.transform == True:
+                            alto_transform
+                        elif args.query == True:
+                            alto_query
+                        else:
+                            fh.close()
+                            sys.stdout.write('\nNo operation specified, aborting.')
 
 
 if __name__ == "__main__":
