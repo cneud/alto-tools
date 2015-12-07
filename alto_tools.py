@@ -498,7 +498,7 @@ def web_app(alto):
     class get_attributes:
         def GET(self, elements):
             for child in root:
-                if child.attrib['id'] == user:
+                if child.attrib['id'] == some:
                     return str(child.attrib)
 
 def parse_arguments():
