@@ -11,3 +11,4 @@ Intended features:
 * [extract metadata of the ALTO document(s)](https://github.com/cneud/alto-ocr-metadata)
 * transform ALTO document(s) to target format
 * query elements and attributes of the ALTO document(s)
+* provide a REST-interface for ALTO document(s)
