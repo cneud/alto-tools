@@ -1,12 +1,11 @@
 #!/usr/bin/env python
 
-'''alto_tools.py: simple methods to perform operations on ALTO xml files'''
+""" alto_tools.py: simple methods to perform operations on ALTO xml files """
 
 import os
 import sys
 import codecs
 import argparse
-
 import xml.etree.ElementTree as ET
 
 # Define scriptName when called from Java/Jython
@@ -14,30 +13,37 @@ scriptPath, scriptName = os.path.split(sys.argv[0])
 if len(scriptName) == 0:
     scriptName = 'alto_tools'
 
-__version__= '0.0.1'
+__version__ = '0.0.1'
 
 
 def alto_parse(alto):
-    ''' Convert ALTO xml file to element tree '''
+    """ Convert ALTO xml file to element tree
+    :param alto: ALTO xml file
+    """
+    global xml
     try:
         xml = ET.parse(alto)
     except ET.ParseError as e:
         sys.stdout.write('\nERROR: Failed parsing "%s" - ' % alto.name + str(e))
-    #Register ALTO namespaces    
-    namespace = {'alto-1': 'http://schema.ccs-gmbh.com/ALTO', 
+    # Register ALTO namespaces
+    namespace = {'alto-1': 'http://schema.ccs-gmbh.com/ALTO',
                  'alto-2': 'http://www.loc.gov/standards/alto/ns-v2#',
                  'alto-3': 'http://www.loc.gov/standards/alto/ns-v3#'}
-                 # TODO: Handle xsi/xlink
+    # TODO: Handle xsi/xlink
     # Extract namespace from document root
     xmlns = xml.getroot().tag.split('}')[0].strip('{')
     if xmlns in namespace.values():
         return xml, xmlns
     else:
-        sys.stdout.write('ERROR: File "%s" appears not to be a valid ALTO \
-            file (namespace declaration missing or not registered)' % alto.name)
+        sys.stdout.write('\nWARNING: File "%s" appears not to be a valid ALTO \
+file (namespace declaration missing or not registered)' % alto.name)
+
 
 def alto_text(alto):
-    ''' Extract text content from ALTO xml file '''
+    """ Extract text content from ALTO xml file
+    :param alto: ALTO xml file
+    """
+    global xml
     xml, xmlns = alto_parse(alto)
     # Make sure to use UTF-8
     if sys.stdout.encoding != 'UTF-8':
@@ -52,8 +58,12 @@ def alto_text(alto):
                 text = line.attrib.get('CONTENT') + ' '
                 sys.stdout.write(text)
 
+
 def alto_confidence(alto):
-    ''' Calculate word confidence for ALTO xml file '''
+    """ Calculate word confidence for ALTO xml file
+    :param alto: ALTO xml file
+    """
+    global xml
     xml, xmlns = alto_parse(alto)
     score = 0
     count = 0
@@ -70,8 +80,13 @@ def alto_confidence(alto):
         result = round(100 * confidence, 2)
         sys.stdout.write('\nFile: %s, Confidence: %s' % (alto.name, result))
 
+
 def alto_transform(alto, xsl):
-    ''' Transform ALTO xml with XSLT '''
+    """ Transform ALTO xml with XSLT
+    :param xsl: XSL stylesheet
+    :param alto: ALTO xml file
+    """
+    global xml
     xml, xmlns = alto_parse(alto)
     xsl = open('xsl', 'r', encoding='UTF8')
     # Detect if running on Windows
@@ -87,7 +102,7 @@ def alto_transform(alto, xsl):
                 print('No suitable XSLT processor found. Please make sure \
                 "msxsl.exe" is installed.')
     else:
-        try: 
+        try:
             import lxml.etree.XSLT as X
         except ImportError:
             raise ImportError('No suitable XSLT processor found. Please make \
@@ -96,317 +111,327 @@ def alto_transform(alto, xsl):
     xslt = ET.parse(xsl)
     transform = X(xslt)
     newdom = transform(dom)
-    print(ET.tostring(newdom, pretty_print=True))
+    print(ET.tostring(newdom))
+
 
 def alto_metadata(alto):
-    ''' Extract metadata from ALTO xml file '''
+    """ Extract metadata from ALTO xml file
+    :param alto: ALTO xml file
+    """
+    global xml
     xml, xmlns = alto_parse(alto)
     # Description
     sys.stdout.write('\n<Description>\n')
     try:
-        xml.find('.//{%s}Description' % xmlns).find\
-        ('{%s}sourceImageInformation' % xmlns).find\
-        ('{%s}fileName' % xmlns).text != None
-        sys.stdout.write('\nfileName                   =   %s' % xml.find\
-            ('.//{%s}Description' % xmlns).find\
-            ('{%s}sourceImageInformation' % xmlns).find\
+        xml.find('.//{%s}Description' % xmlns).find \
+            ('{%s}sourceImageInformation' % xmlns).find \
+            ('{%s}fileName' % xmlns).text is not None
+        sys.stdout.write('\nfileName                   =   %s' % xml.find \
+            ('.//{%s}Description' % xmlns).find \
+            ('{%s}sourceImageInformation' % xmlns).find \
             ('{%s}fileName' % xmlns).text)
     except AttributeError:
         sys.stdout.write(
             '\nfileName                   =   -- NOT_DEFINED --')
     try:
-        xml.find('.//{%s}Description' % xmlns).find\
-        ('{%s}sourceImageInformation' % xmlns).find\
-        ('{%s}fileIdentifier' % xmlns).text != None
-        sys.stdout.write('\nfileIdentifier             =   %s' % xml.find\
-            ('.//{%s}Description' % xmlns).find\
-            ('{%s}sourceImageInformation' % xmlns).find\
+        xml.find('.//{%s}Description' % xmlns).find \
+            ('{%s}sourceImageInformation' % xmlns).find \
+            ('{%s}fileIdentifier' % xmlns).text is not None
+        sys.stdout.write('\nfileIdentifier             =   %s' % xml.find \
+            ('.//{%s}Description' % xmlns).find \
+            ('{%s}sourceImageInformation' % xmlns).find \
             ('{%s}fileIdentifier' % xmlns).text)
     except AttributeError:
         sys.stdout.write(
             '\nfileIdentifier             =   -- NOT_DEFINED --')
     try:
-        xml.find('.//{%s}Description' % xmlns).find\
-        ('{%s}sourceImageInformation' % xmlns).find\
-        ('{%s}documentIdentifier' % xmlns).text != None
-        sys.stdout.write('\ndocumentIdentifier         =   %s' % xml.find\
-            ('.//{%s}Description' % xmlns).find\
-            ('{%s}sourceImageInformation' % xmlns).find\
+        xml.find('.//{%s}Description' % xmlns).find \
+            ('{%s}sourceImageInformation' % xmlns).find \
+            ('{%s}documentIdentifier' % xmlns).text is not None
+        sys.stdout.write('\ndocumentIdentifier         =   %s' % xml.find \
+            ('.//{%s}Description' % xmlns).find \
+            ('{%s}sourceImageInformation' % xmlns).find \
             ('{%s}documentIdentifier' % xmlns).text)
     except AttributeError:
         sys.stdout.write(
             '\ndocumentIdentifier         =   -- NOT_DEFINED --')
-    try: 
-        xml.find('.//{%s}Description' % xmlns).find\
-        ('{%s}MeasurementUnit' % xmlns).text != None
-        sys.stdout.write('\nMeasurementUnit            =   %s' % xml.find\
-            ('.//{%s}Description' % xmlns).find\
+    try:
+        xml.find('.//{%s}Description' % xmlns).find \
+            ('{%s}MeasurementUnit' % xmlns).text is not None
+        sys.stdout.write('\nMeasurementUnit            =   %s' % xml.find \
+            ('.//{%s}Description' % xmlns).find \
             ('{%s}MeasurementUnit' % xmlns).text)
     except AttributeError:
         sys.stdout.write(
             '\nMeasurementUnit            =   -- NOT_DEFINED --')
     # OCRProcessing
     sys.stdout.write('\n\n<OCRProcessing>\n')
-    try: 
-        xml.find('.//{%s}OCRProcessing' % xmlns).text != None
-        sys.stdout.write('\nID                         =   %s' % xml.find\
+    try:
+        xml.find('.//{%s}OCRProcessing' % xmlns).text is not None
+        sys.stdout.write('\nID                         =   %s' % xml.find \
             ('.//{%s}OCRProcessing' % xmlns).attrib.get('ID'))
     except AttributeError:
         sys.stdout.write(
             '\nID                         =   -- NOT_DEFINED --')
     # preProcessingStep
     sys.stdout.write('\n\n<preProcessingStep>\n')
-    try: 
-        xml.find('.//{%s}preProcessingStep' % xmlns).find\
-        ('{%s}processingDateTime' % xmlns).text != None
-        sys.stdout.write('\nprocessingDateTime         =   %s' % xml.find\
-            ('.//{%s}preProcessingStep' % xmlns).find\
+    try:
+        xml.find('.//{%s}preProcessingStep' % xmlns).find \
+            ('{%s}processingDateTime' % xmlns).text is not None
+        sys.stdout.write('\nprocessingDateTime         =   %s' % xml.find \
+            ('.//{%s}preProcessingStep' % xmlns).find \
             ('{%s}processingDateTime' % xmlns).text)
     except AttributeError:
         sys.stdout.write(
             '\nprocessingDateTime         =   -- NOT_DEFINED --')
-    try: 
-        xml.find('.//{%s}preProcessingStep' % xmlns).find\
-        ('{%s}processingAgency' % xmlns).text != None
-        sys.stdout.write('\nprocessingAgency           =   %s' % xml.find\
-            ('.//{%s}preProcessingStep' % xmlns).find\
+    try:
+        xml.find('.//{%s}preProcessingStep' % xmlns).find \
+            ('{%s}processingAgency' % xmlns).text is not None
+        sys.stdout.write('\nprocessingAgency           =   %s' % xml.find \
+            ('.//{%s}preProcessingStep' % xmlns).find \
             ('{%s}processingAgency' % xmlns).text)
     except AttributeError:
         sys.stdout.write(
             '\nprocessingAgency           =   -- NOT_DEFINED --')
-    try: 
-        xml.find('.//{%s}preProcessingStep' % xmlns).find\
-        ('{%s}processingStepDescription' % xmlns).text != None
-        sys.stdout.write('\nprocessingStepDescription  =   %s' % xml.find\
-            ('.//{%s}preProcessingStep' % xmlns).find\
+    try:
+        xml.find('.//{%s}preProcessingStep' % xmlns).find \
+            ('{%s}processingStepDescription' % xmlns).text is not None
+        sys.stdout.write('\nprocessingStepDescription  =   %s' % xml.find \
+            ('.//{%s}preProcessingStep' % xmlns).find \
             ('{%s}processingStepDescription' % xmlns).text)
     except AttributeError:
         sys.stdout.write(
             '\nprocessingStepDescription  =   -- NOT_DEFINED --')
-    try: 
-        xml.find('.//{%s}preProcessingStep' % xmlns).find\
-        ('{%s}processingStepSettings' % xmlns).text != None
-        sys.stdout.write('\nprocessingStepSettings     =   %s' % xml.find\
-            ('.//{%s}preProcessingStep' % xmlns).find\
+    try:
+        xml.find('.//{%s}preProcessingStep' % xmlns).find \
+            ('{%s}processingStepSettings' % xmlns).text is not None
+        sys.stdout.write('\nprocessingStepSettings     =   %s' % xml.find \
+            ('.//{%s}preProcessingStep' % xmlns).find \
             ('{%s}processingStepSettings' % xmlns).text)
     except AttributeError:
         sys.stdout.write(
             '\nprocessingStepSettings     =   -- NOT_DEFINED --')
-    try: 
-        xml.find('.//{%s}preProcessingStep' % xmlns).find\
-        ('{%s}processingSoftware' % xmlns).find\
-        ('{%s}softwareCreator' % xmlns).text != None
-        sys.stdout.write('\nsoftwareCreator            =   %s' % xml.find\
-            ('.//{%s}preProcessingStep' % xmlns).find\
-            ('{%s}processingSoftware' % xmlns).find\
+    try:
+        xml.find('.//{%s}preProcessingStep' % xmlns).find \
+            ('{%s}processingSoftware' % xmlns).find \
+            ('{%s}softwareCreator' % xmlns).text is not None
+        sys.stdout.write('\nsoftwareCreator            =   %s' % xml.find \
+            ('.//{%s}preProcessingStep' % xmlns).find \
+            ('{%s}processingSoftware' % xmlns).find \
             ('{%s}softwareCreator' % xmlns).text)
     except AttributeError:
         sys.stdout.write(
             '\nsoftwareCreator            =   -- NOT_DEFINED --')
-    try: 
-        xml.find('.//{%s}preProcessingStep' % xmlns).find\
-        ('{%s}processingSoftware' % xmlns).find\
-        ('{%s}softwareName' % xmlns).text != None
-        sys.stdout.write('\nsoftwareName               =   %s' % xml.find\
-            ('.//{%s}preProcessingStep' % xmlns).find\
-            ('{%s}processingSoftware' % xmlns).find\
+    try:
+        xml.find('.//{%s}preProcessingStep' % xmlns).find \
+            ('{%s}processingSoftware' % xmlns).find \
+            ('{%s}softwareName' % xmlns).text is not None
+        sys.stdout.write('\nsoftwareName               =   %s' % xml.find \
+            ('.//{%s}preProcessingStep' % xmlns).find \
+            ('{%s}processingSoftware' % xmlns).find \
             ('{%s}softwareName' % xmlns).text)
     except AttributeError:
         sys.stdout.write(
             '\nsoftwareName               =   -- NOT_DEFINED --')
-    try: 
-        xml.find('.//{%s}preProcessingStep' % xmlns).find\
-        ('{%s}processingSoftware' % xmlns).find\
-        ('{%s}softwareVersion' % xmlns).text != None
-        sys.stdout.write('\nsoftwareVersion            =   %s' % xml.find\
-            ('.//{%s}preProcessingStep' % xmlns).find\
-            ('{%s}processingSoftware' % xmlns).find\
+    try:
+        xml.find('.//{%s}preProcessingStep' % xmlns).find \
+            ('{%s}processingSoftware' % xmlns).find \
+            ('{%s}softwareVersion' % xmlns).text is not None
+        sys.stdout.write('\nsoftwareVersion            =   %s' % xml.find \
+            ('.//{%s}preProcessingStep' % xmlns).find \
+            ('{%s}processingSoftware' % xmlns).find \
             ('{%s}softwareVersion' % xmlns).text)
     except AttributeError:
         sys.stdout.write(
             '\nsoftwareVersion            =   -- NOT_DEFINED --')
-    try: 
-        xml.find('.//{%s}preProcessingStep' % xmlns).find\
-        ('{%s}processingSoftware' % xmlns).find\
-        ('{%s}applicationDescription' % xmlns).text != None
-        sys.stdout.write('\napplicationDescription     =   %s' % xml.find\
-            ('.//{%s}preProcessingStep' % xmlns).find\
-            ('{%s}processingSoftware' % xmlns).find\
-            ('{%s}applicationDescription' % xmlns).text)
+    try:
+        xml.find('.//{%s}preProcessingStep' % xmlns).find \
+            ('{%s}processingSoftware' % xmlns).find \
+            ('{%s}applicationDescription' % xmlns).text is not None
+        sys.stdout.write('\napplicationDescription     =   %s' % xml.find \
+                        ('.//{%s}preProcessingStep' % xmlns).find \
+                        ('{%s}processingSoftware' % xmlns).find \
+                        ('{%s}applicationDescription' % xmlns).text)
     except AttributeError:
         sys.stdout.write(
             '\napplicationDescription     =   -- NOT_DEFINED --')
     # ocrProcessingStep
     sys.stdout.write('\n\n<ocrProcessingStep>\n')
-    try: 
-        xml.find('.//{%s}ocrProcessingStep' % xmlns).find\
-        ('{%s}processingDateTime' % xmlns).text != None
-        sys.stdout.write('\nprocessingDateTime         =   %s' % xml.find\
-            ('.//{%s}ocrProcessingStep' % xmlns).find\
+    try:
+        xml.find('.//{%s}ocrProcessingStep' % xmlns).find \
+            ('{%s}processingDateTime' % xmlns).text is not None
+        sys.stdout.write('\nprocessingDateTime         =   %s' % xml.find \
+            ('.//{%s}ocrProcessingStep' % xmlns).find \
             ('{%s}processingDateTime' % xmlns).text)
     except AttributeError:
         sys.stdout.write(
             '\nprocessingDateTime         =   -- NOT_DEFINED --')
-    try: 
-        xml.find('.//{%s}ocrProcessingStep' % xmlns).find\
-        ('{%s}processingAgency' % xmlns).text != None
-        sys.stdout.write('\nprocessingAgency           =   %s' % xml.find\
-            ('.//{%s}ocrProcessingStep' % xmlns).find\
+    try:
+        xml.find('.//{%s}ocrProcessingStep' % xmlns).find \
+            ('{%s}processingAgency' % xmlns).text is not None
+        sys.stdout.write('\nprocessingAgency           =   %s' % xml.find \
+            ('.//{%s}ocrProcessingStep' % xmlns).find \
             ('{%s}processingAgency' % xmlns).text)
     except AttributeError:
         sys.stdout.write(
             '\nprocessingAgency           =   -- NOT_DEFINED --')
-    try: 
-        xml.find('.//{%s}ocrProcessingStep' % xmlns).find\
-        ('{%s}processingStepDescription' % xmlns).text != None
-        sys.stdout.write('\nprocessingStepDescription  =   %s' % xml.find\
-            ('.//{%s}ocrProcessingStep' % xmlns).find\
+    try:
+        xml.find('.//{%s}ocrProcessingStep' % xmlns).find \
+            ('{%s}processingStepDescription' % xmlns).text is not None
+        sys.stdout.write('\nprocessingStepDescription  =   %s' % xml.find \
+            ('.//{%s}ocrProcessingStep' % xmlns).find \
             ('{%s}processingStepDescription' % xmlns).text)
     except AttributeError:
         sys.stdout.write(
             '\nprocessingStepDescription  =   -- NOT_DEFINED --')
-    try: 
-        xml.find('.//{%s}ocrProcessingStep' % xmlns).find\
-        ('{%s}processingStepSettings' % xmlns).text != None
-        sys.stdout.write('\nprocessingStepSettings     =   %s' % xml.find\
-            ('.//{%s}ocrProcessingStep' % xmlns).find\
+    try:
+        xml.find('.//{%s}ocrProcessingStep' % xmlns).find \
+            ('{%s}processingStepSettings' % xmlns).text is not None
+        sys.stdout.write('\nprocessingStepSettings     =   %s' % xml.find \
+            ('.//{%s}ocrProcessingStep' % xmlns).find \
             ('{%s}processingStepSettings' % xmlns).text)
     except AttributeError:
         sys.stdout.write(
             '\nprocessingStepSettings     =   -- NOT_DEFINED --')
-    try: 
-        xml.find('.//{%s}ocrProcessingStep' % xmlns).find\
-        ('{%s}processingSoftware' % xmlns).find\
-        ('{%s}softwareCreator' % xmlns).text != None
-        sys.stdout.write('\nsoftwareCreator            =   %s' % xml.find\
-            ('.//{%s}ocrProcessingStep' % xmlns).find\
-            ('{%s}processingSoftware' % xmlns).find\
+    try:
+        xml.find('.//{%s}ocrProcessingStep' % xmlns).find \
+            ('{%s}processingSoftware' % xmlns).find \
+            ('{%s}softwareCreator' % xmlns).text is not None
+        sys.stdout.write('\nsoftwareCreator            =   %s' % xml.find \
+            ('.//{%s}ocrProcessingStep' % xmlns).find \
+            ('{%s}processingSoftware' % xmlns).find \
             ('{%s}softwareCreator' % xmlns).text)
     except AttributeError:
         sys.stdout.write(
             '\nsoftwareCreator            =   -- NOT_DEFINED --')
-    try: 
-        xml.find('.//{%s}ocrProcessingStep' % xmlns).find\
-        ('{%s}processingSoftware' % xmlns).find\
-        ('{%s}softwareName' % xmlns).text != None
-        sys.stdout.write('\nsoftwareName               =   %s' % xml.find\
-            ('.//{%s}ocrProcessingStep' % xmlns).find\
-            ('{%s}processingSoftware' % xmlns).find\
+    try:
+        xml.find('.//{%s}ocrProcessingStep' % xmlns).find \
+            ('{%s}processingSoftware' % xmlns).find \
+            ('{%s}softwareName' % xmlns).text is not None
+        sys.stdout.write('\nsoftwareName               =   %s' % xml.find \
+            ('.//{%s}ocrProcessingStep' % xmlns).find \
+            ('{%s}processingSoftware' % xmlns).find \
             ('{%s}softwareName' % xmlns).text)
     except AttributeError:
         sys.stdout.write(
             '\nsoftwareName               =   -- NOT_DEFINED --')
-    try: 
-        xml.find('.//{%s}ocrProcessingStep' % xmlns).find\
-        ('{%s}processingSoftware' % xmlns).find\
-        ('{%s}softwareVersion' % xmlns).text != None
-        sys.stdout.write('\nsoftwareVersion            =   %s' % xml.find\
-            ('.//{%s}ocrProcessingStep' % xmlns).find\
-            ('{%s}processingSoftware' % xmlns).find\
+    try:
+        xml.find('.//{%s}ocrProcessingStep' % xmlns).find \
+            ('{%s}processingSoftware' % xmlns).find \
+            ('{%s}softwareVersion' % xmlns).text is not None
+        sys.stdout.write('\nsoftwareVersion            =   %s' % xml.find \
+            ('.//{%s}ocrProcessingStep' % xmlns).find \
+            ('{%s}processingSoftware' % xmlns).find \
             ('{%s}softwareVersion' % xmlns).text)
     except AttributeError:
         sys.stdout.write(
             '\nsoftwareVersion            =   -- NOT_DEFINED --')
-    try: 
-        xml.find('.//{%s}ocrProcessingStep' % xmlns).find\
-        ('{%s}processingSoftware' % xmlns).find\
-        ('{%s}applicationDescription' % xmlns).text != None
-        sys.stdout.write('\napplicationDescription     =   %s' % xml.find\
-            ('.//{%s}ocrProcessingStep' % xmlns).find\
-            ('{%s}processingSoftware' % xmlns).find\
+    try:
+        xml.find('.//{%s}ocrProcessingStep' % xmlns).find \
+            ('{%s}processingSoftware' % xmlns).find \
+            ('{%s}applicationDescription' % xmlns).text is not None
+        sys.stdout.write('\napplicationDescription     =   %s' % xml.find \
+            ('.//{%s}ocrProcessingStep' % xmlns).find \
+            ('{%s}processingSoftware' % xmlns).find \
             ('{%s}applicationDescription' % xmlns).text)
     except AttributeError:
         sys.stdout.write(
             '\napplicationDescription     =   -- NOT_DEFINED --')
     # postProcessingStep 
     sys.stdout.write('\n\n<postProcessingStep>\n')
-    try: 
-        xml.find('.//{%s}postProcessingStep' % xmlns).find\
-        ('{%s}processingDateTime' % xmlns).text != None
-        sys.stdout.write('\nprocessingDateTime         =   %s' % xml.find\
-            ('.//{%s}postProcessingStep' % xmlns).find\
+    try:
+        xml.find('.//{%s}postProcessingStep' % xmlns).find \
+            ('{%s}processingDateTime' % xmlns).text is not None
+        sys.stdout.write('\nprocessingDateTime         =   %s' % xml.find \
+            ('.//{%s}postProcessingStep' % xmlns).find \
             ('{%s}processingDateTime' % xmlns).text)
     except AttributeError:
         sys.stdout.write(
             '\nprocessingDateTime         =   -- NOT_DEFINED --')
-    try: 
-        xml.find('.//{%s}postProcessingStep' % xmlns).find\
-        ('{%s}processingAgency' % xmlns).text != None
-        sys.stdout.write('\nprocessingAgency           =   %s' % xml.find\
-            ('.//{%s}postProcessingStep' % xmlns).find\
+    try:
+        xml.find('.//{%s}postProcessingStep' % xmlns).find \
+            ('{%s}processingAgency' % xmlns).text is not None
+        sys.stdout.write('\nprocessingAgency           =   %s' % xml.find \
+            ('.//{%s}postProcessingStep' % xmlns).find \
             ('{%s}processingAgency' % xmlns).text)
     except AttributeError:
         sys.stdout.write(
             '\nprocessingAgency           =   -- NOT_DEFINED --')
-    try: 
-        xml.find('.//{%s}postProcessingStep' % xmlns).find\
-        ('{%s}processingStepDescription' % xmlns).text != None
-        sys.stdout.write('\nprocessingStepDescription  =   %s' % xml.find\
-            ('.//{%s}postProcessingStep' % xmlns).find\
+    try:
+        xml.find('.//{%s}postProcessingStep' % xmlns).find \
+            ('{%s}processingStepDescription' % xmlns).text is not None
+        sys.stdout.write('\nprocessingStepDescription  =   %s' % xml.find \
+            ('.//{%s}postProcessingStep' % xmlns).find \
             ('{%s}processingStepDescription' % xmlns).text)
     except AttributeError:
         sys.stdout.write(
             '\nprocessingStepDescription  =   -- NOT_DEFINED --')
-    try: 
-        xml.find('.//{%s}postProcessingStep' % xmlns).find\
-        ('{%s}processingStepSettings' % xmlns).text != None
-        sys.stdout.write('\nprocessingStepSettings     =   %s' % xml.find\
-            ('.//{%s}postProcessingStep' % xmlns).find\
+    try:
+        xml.find('.//{%s}postProcessingStep' % xmlns).find \
+            ('{%s}processingStepSettings' % xmlns).text is not None
+        sys.stdout.write('\nprocessingStepSettings     =   %s' % xml.find \
+            ('.//{%s}postProcessingStep' % xmlns).find \
             ('{%s}processingStepSettings' % xmlns).text)
     except AttributeError:
         sys.stdout.write(
             '\nprocessingStepSettings     =   -- NOT_DEFINED --')
-    try: 
-        xml.find('.//{%s}postProcessingStep' % xmlns).find\
-        ('{%s}processingSoftware' % xmlns).find\
-        ('{%s}softwareCreator' % xmlns).text != None
-        sys.stdout.write('\nsoftwareCreator            =   %s' % xml.find\
-            ('.//{%s}postProcessingStep' % xmlns).find\
-            ('{%s}processingSoftware' % xmlns).find\
+    try:
+        xml.find('.//{%s}postProcessingStep' % xmlns).find \
+            ('{%s}processingSoftware' % xmlns).find \
+            ('{%s}softwareCreator' % xmlns).text is not None
+        sys.stdout.write('\nsoftwareCreator            =   %s' % xml.find \
+            ('.//{%s}postProcessingStep' % xmlns).find \
+            ('{%s}processingSoftware' % xmlns).find \
             ('{%s}softwareCreator' % xmlns).text)
     except AttributeError:
         sys.stdout.write(
             '\nsoftwareCreator            =   -- NOT_DEFINED --')
-    try: 
-        xml.find('.//{%s}postProcessingStep' % xmlns).find\
-        ('{%s}processingSoftware' % xmlns).find\
-        ('{%s}softwareName' % xmlns).text != None
-        sys.stdout.write('\nsoftwareName               =   %s' % xml.find\
-            ('.//{%s}postProcessingStep' % xmlns).find\
-            ('{%s}processingSoftware' % xmlns).find\
+    try:
+        xml.find('.//{%s}postProcessingStep' % xmlns).find \
+            ('{%s}processingSoftware' % xmlns).find \
+            ('{%s}softwareName' % xmlns).text is not None
+        sys.stdout.write('\nsoftwareName               =   %s' % xml.find \
+            ('.//{%s}postProcessingStep' % xmlns).find \
+            ('{%s}processingSoftware' % xmlns).find \
             ('{%s}softwareName' % xmlns).text)
     except AttributeError:
         sys.stdout.write(
             '\nsoftwareName               =   -- NOT_DEFINED --')
-    try: 
-        xml.find('.//{%s}postProcessingStep' % xmlns).find\
-        ('{%s}processingSoftware' % xmlns).find\
-        ('{%s}softwareVersion' % xmlns).text != None
-        sys.stdout.write('\nsoftwareVersion            =   %s' % xml.find\
-            ('.//{%s}postProcessingStep' % xmlns).find\
-            ('{%s}processingSoftware' % xmlns).find\
+    try:
+        xml.find('.//{%s}postProcessingStep' % xmlns).find \
+            ('{%s}processingSoftware' % xmlns).find \
+            ('{%s}softwareVersion' % xmlns).text is not None
+        sys.stdout.write('\nsoftwareVersion            =   %s' % xml.find \
+            ('.//{%s}postProcessingStep' % xmlns).find \
+            ('{%s}processingSoftware' % xmlns).find \
             ('{%s}softwareVersion' % xmlns).text)
     except AttributeError:
         sys.stdout.write(
             '\nsoftwareVersion            =   -- NOT_DEFINED --')
-    try: 
-        xml.find('.//{%s}postProcessingStep' % xmlns).find\
-        ('{%s}processingSoftware' % xmlns).find\
-        ('{%s}applicationDescription' % xmlns).text != None
-        sys.stdout.write('\napplicationDescription     =   %s' % xml.find\
-            ('.//{%s}postProcessingStep' % xmlns).find\
-            ('{%s}processingSoftware' % xmlns).find\
+    try:
+        xml.find('.//{%s}postProcessingStep' % xmlns).find \
+            ('{%s}processingSoftware' % xmlns).find \
+            ('{%s}applicationDescription' % xmlns).text is not None
+        sys.stdout.write('\napplicationDescription     =   %s' % xml.find \
+            ('.//{%s}postProcessingStep' % xmlns).find \
+            ('{%s}processingSoftware' % xmlns).find \
             ('{%s}applicationDescription' % xmlns).text)
     except AttributeError:
         sys.stdout.write(
-            '\napplicationDescription     =   -- NOT_DEFINED --')  
+            '\napplicationDescription     =   -- NOT_DEFINED --')
     sys.stdout.write('\n')
 
+
 def alto_query(alto, query):
-    ''' Query ALTO xml file using XPath expressions '''
+    """ Query ALTO xml file using XPath expressions
+    :param query: XPATH query
+    :param alto: ALTO xml file
+    """
+    global xml
     xml, xmlns = alto_parse(alto)
     query = []
     # TODO
+
 
 #  Supported XPath syntax
 #  ----------------------
@@ -454,101 +479,113 @@ def alto_query(alto, query):
 # |                   |  the last position (e.g. 'last()-1').                |
 #  --------------------------------------------------------------------------
 
-def write_output():
-    ''' Write output to file(s) instead of stdout '''
+
+def write_output(alto, output, args):
+    """ Write output to file(s) instead of stdout
+    :param alto: ALTO xml file
+    :param output: output from function
+    :param args: command line arguments
+    """
     if len(output) == 0:
         sys.stdout.write()
     else:
-        if args.text == True:
+        if args.text:
             output_filename = alto.name + '.txt'
             sys.stdout = open('output_filename', 'w')
-        if args.metadata == True:
+        if args.metadata:
             output_filename = alto.name + '.md.txt'
-            sys.stdout = open('output_filename', 'w')        
-        if args.confidence == True:
+            sys.stdout = open('output_filename', 'w')
+        if args.confidence:
             output_filename = alto.name + '.conf.txt'
             sys.stdout = open('output_filename', 'w')
-        if args.transform == True:
+        if args.transform:
             output_filename = alto.name
             sys.stdout = open('output_filename', 'w')
 
+
 def web_app(alto):
-    ''' Simple webapp '''
+    """ Simple webapp
+    :param alto: ALTO xml file
+    """
     import web
+    global xml
     xml, xmlns = alto_parse(alto)
     root = xml.getroot()
-    # Create a webserver to serve up the requests
+    # Create a web server to serve up the requests
     urls = (
         '/', 'index',
-        '/elements', 'list_elements',
-        '/attributes/(.*)', 'get_attributes')
+        '/elements', 'ListElements',
+        '/attributes/(.*)', 'GetAttributes')
     app = web.application(urls, globals())
     # Bind to localhost port 8888
     app.run('0.0.0.0:8888')
 
-    class list_elements:        
-        def GET(self):
-            output = 'elements:[';
+    class ListElements:
+        @staticmethod
+        def GET():
+            output = 'elements:['
             for child in root:
                 print('child', child.tag, child.attrib)
                 output += str(child.attrib) + ','
-                output += ']';
+                output += ']'
                 return output
 
-    class get_attributes:
-        def GET(self, elements):
+    class GetAttributes:
+        @staticmethod
+        def GET(value):
             output = 'attributes:['
             for child in root:
                 if child.attrib['id'] == value:
                     output += str(child.attrib) + ','
-                    output += ']';
+                    output += ']'
                     return output
+
 
 def parse_arguments():
     parser = argparse.ArgumentParser(
         description="ALTO Tools: simple methods to perform operations on ALTO \
         xml files",
         add_help=True,
-        prog='alto_tools.py', 
+        prog='alto_tools.py',
         usage='python %(prog)s INPUT [options]')
     parser.add_argument('INPUT',
-        help='path to ALTO file or directory containing ALTO file(s)')
+                        help='path to ALTO file or directory containing ALTO file(s)')
     parser.add_argument('-o', '--output',
-        default='',
-        dest='output',
-        help='path to output directory (if none specified, stdout is used)')
-    parser.add_argument('-v', '--version', 
-        action='version', 
-        version=__version__,
-        help='show version number and exit')
+                        default='',
+                        dest='output',
+                        help='path to output directory (if none specified, stdout is used)')
+    parser.add_argument('-v', '--version',
+                        action='version',
+                        version=__version__,
+                        help='show version number and exit')
     parser.add_argument('-c', '--confidence',
-        action ='store_true',
-        default=False,
-        dest='confidence',
-        help='calculate page confidence of the ALTO document(s)')
+                        action='store_true',
+                        default=False,
+                        dest='confidence',
+                        help='calculate page confidence of the ALTO document(s)')
     parser.add_argument('-t', '--text',
-        action ='store_true',
-        default=False,
-        dest='text',
-        help='extract text content of the ALTO document(s)')
+                        action='store_true',
+                        default=False,
+                        dest='text',
+                        help='extract text content of the ALTO document(s)')
     parser.add_argument('-m', '--metadata',
-        action ='store_true',
-        default=False,
-        dest='metadata',
-        help='extract metadata of the ALTO document(s)')
+                        action='store_true',
+                        default=False,
+                        dest='metadata',
+                        help='extract metadata of the ALTO document(s)')
     parser.add_argument('-x', '--transform',
-        dest='transform',
-        help='transform ALTO document(s) to target format')
+                        dest='transform',
+                        help='transform ALTO document(s) to target format')
     parser.add_argument('-q', '--query',
-        dest='query',
-        help='query elements and attributes of the ALTO document(s)')
+                        dest='query',
+                        help='query elements and attributes of the ALTO document(s)')
     parser.add_argument('-w', '--web',
-        action='store_true',
-        default=False,
-        dest='web',
-        help='start webapp')
-    args=parser.parse_args()
-    return(args)
+                        action='store_true',
+                        default=False,
+                        dest='web',
+                        help='start webapp')
+    args = parser.parse_args()
+    return args
 
 
 def main():
@@ -556,28 +593,27 @@ def main():
     for root, dirs, files in os.walk(sys.argv[1]):
         for filename in files:
             if filename.endswith('.xml') or filename.endswith('.alto'):
-                altofiles = open(os.path.join(root, filename), 'r', encoding='UTF8')
-                for alto in altofiles:
-                    try:
-                        alto_parse(alto)
-                    except ET.ParseError as e:
-                        sys.stdout.write('\nERROR: Failed parsing "%s" - ' % \
-                            altofiles.name + str(e))
-                        if args.confidence == True:
-                            alto_confidence(alto)
-                        elif args.text == True:
-                            alto_text(alto)
-                        elif args.metadata == True:
-                            alto_metadata(alto)
-                        elif args.transform == True:
-                            alto_transform(alto, xsl)
-                        elif args.query == True:
-                            alto_query(alto, query)
-                        elif args.web == True:
-                            web_app()
-                        else:
-                            altofiles.close()
-                            sys.stdout.write('\nNo operation specified, aborting.')
+                alto = open(os.path.join(root, filename), 'r', encoding='UTF8')
+                try:
+                    alto_parse(alto)
+                except ET.ParseError as e:
+                    sys.stdout.write('\nERROR: Failed parsing "%s" - ' \
+                                     % alto.name + str(e))
+                if args.confidence:
+                    alto_confidence(alto)
+                elif args.text:
+                    alto_text(alto)
+                elif args.metadata:
+                    alto_metadata(alto)
+                elif args.transform:
+                    alto_transform(alto, xsl)
+                elif args.query:
+                    alto_query(alto, query)
+                elif args.web:
+                    web_app(alto)
+                else:
+                    alto.close()
+                    sys.stdout.write('\nNo operation specified, aborting.')
 
 
 if __name__ == "__main__":
