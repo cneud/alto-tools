@@ -6,9 +6,9 @@
 
 Planned features:
 
-* [calculate page **confidence** of the ALTO document(s)](https://github.com/cneud/alto-tools/blob/master/alto_tools.py#L62)
-* [extract **text** content of the ALTO document(s)](https://github.com/cneud/alto-tools/blob/master/alto_tools.py#L42)
-* [retrieve **metadata** of the ALTO document(s)](https://github.com/cneud/alto-tools/blob/master/alto_tools.py#L117)
-* [**transform** ALTO document(s) to target format](https://github.com/cneud/alto-tools/blob/master/alto_tools.py#L84)
-* [**query** elements and attributes of the ALTO document(s)](https://github.com/cneud/alto-tools/blob/master/alto_tools.py#L425)
-* [provide a **REST**-interface for ALTO document(s)](https://github.com/cneud/alto-tools/blob/master/alto_tools.py#L506)
+* [calculate page **confidence** of the ALTO document(s)](https://github.com/cneud/alto-tools/blob/master/alto_tools.py#L61)
+* [extract **text** content of the ALTO document(s)](https://github.com/cneud/alto-tools/blob/master/alto_tools.py#L45)
+* [retrieve **metadata** of the ALTO document(s)](https://github.com/cneud/alto-tools/blob/master/alto_tools.py#L105)
+* [**transform** ALTO document(s) to target format](https://github.com/cneud/alto-tools/blob/master/alto_tools.py#L79)
+* [**query** elements and attributes of the ALTO document(s)](https://github.com/cneud/alto-tools/blob/master/alto_tools.py#L409)
+* [provide a **REST**-interface for ALTO document(s)](https://github.com/cneud/alto-tools/blob/master/alto_tools.py#L481)
