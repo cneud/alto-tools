@@ -4,7 +4,7 @@
 import codecs
 import os
 import sys
-import xml.etree.cElementTree as ET
+import xml.etree.ElementTree as ET
 
 
 namespace = {'alto-1': 'http://schema.ccs-gmbh.com/ALTO',
