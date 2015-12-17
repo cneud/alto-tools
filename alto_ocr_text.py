@@ -4,7 +4,7 @@
 import codecs
 import os
 import sys
-import xml.etree.cElementTree as ET
+import xml.etree.ElementTree as ET
 
 
 if sys.stdout.encoding != 'UTF-8':
