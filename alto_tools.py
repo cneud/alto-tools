@@ -76,6 +76,16 @@ def alto_confidence(alto, xml, xmlns):
         sys.stdout.write('\nFile: %s, Confidence: %s' % (alto.name, result))
 
 
+def alto_ngrams(alto, xml, xmlns):
+    """ Generate ngrams from ALTO xml file """
+    text = alto_text(alto, xml, xmlns)
+    # Set n 
+    n = 3
+    # Generate ngrams with zip()
+    ngrams = ["".join(j) for j in zip(*[text[i:] for i in range(n)])]
+    return ngrams
+
+
 def alto_transform(alto, xml, xmlns, xsl):
     """ Transform ALTO xml with XSLT """
     xsl = open('xsl', 'r', encoding='UTF8')
@@ -476,6 +486,9 @@ def write_output(alto, output, args):
         if args.transform:
             output_filename = alto.name
             sys.stdout = open('output_filename', 'w')
+        if arg.ngram:
+            output_filename = 'ngrams.txt'
+            sys.stdout = open('output_filename', 'w')
 
 
 def web_app(alto, xml, xmlns):
@@ -486,13 +499,17 @@ def web_app(alto, xml, xmlns):
     # Create a web server to serve up the requests
     urls = (
         '/', 'index',
-        '/elements', 'ListElements',
-        '/attributes/(.*)', 'GetAttributes')
+        '/elements', 'listElements',
+        '/attributes/(.*)', 'getAttributes')
     app = web.application(urls, globals())
     # Bind to localhost port 8888
     app.run('0.0.0.0:8888')
 
-    class ListElements:
+    class index:
+        def GET(self):
+            return '<a href="https://github.com/cneud/alto-tools">ALTO Tools</a>: simple methods to perform operations on ALTO xml files'
+
+    class listElements:
         @staticmethod
         def GET():
             output = 'elements:['
@@ -502,7 +519,7 @@ def web_app(alto, xml, xmlns):
                 output += ']'
                 return output
 
-    class GetAttributes:
+    class getAttributes:
         @staticmethod
         def GET(value):
             output = 'attributes:['
@@ -534,6 +551,11 @@ def parse_arguments():
                         default=False,
                         dest='confidence',
                         help='calculate page confidence of the ALTO document(s)')
+    parser.add_argument('-n', '--ngram',
+                        action='store_true',
+                        default=False,
+                        dest='ngram',
+                        help='generate ngrams from the ALTO document(s)')
     parser.add_argument('-t', '--text',
                         action='store_true',
                         default=False,
@@ -577,6 +599,8 @@ def main():
                         pass
                     if args.confidence:
                         alto_confidence(alto, xml, xmlns)
+                    if args.ngram:
+                        alto_ngrams(alto, xml, xmlns)
                     if args.text:
                         alto_text(alto, xml, xmlns)
                     if args.metadata:
