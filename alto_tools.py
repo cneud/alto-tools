@@ -71,9 +71,12 @@ def alto_confidence(alto, xml, xmlns):
         # Increment counter for each word
         count += 1
         # Divide sum of WC values by number of words
-        confidence = score / count
-        result = round(100 * confidence, 2)
-        sys.stdout.write('\nFile: %s, Confidence: %s' % (alto.name, result))
+        if count > 0:
+            confidence = score / count
+            result = round(100 * confidence, 2)
+            sys.stdout.write('\nFile: %s, Confidence: %s' % (alto.name, result))
+        else:
+            sys.stdout.write('\nFile: %s, Confidence: 00.00' % (alto.name))
 
 
 def alto_ngrams(alto, xml, xmlns):
