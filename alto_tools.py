@@ -58,6 +58,22 @@ def alto_text(alto, xml, xmlns):
                 sys.stdout.write(text)
 
 
+def alto_graphic(alto, xml, xmlns):
+    """ Extract coordinates of illustrations from ALTO xml file """
+    # Find all GraphicalElement elements
+    for graphical in xml.iterfind('.//{%s}GraphicalElement' % xmlns):
+        # Get ID of GraphicalElement element
+        graphical_id = graphical.attrib.get('ID')
+        # Get coordinates of GraphicalElement element
+        graphical_coords = graphical.attrib.get('HEIGHT') + ',' 
+                         + graphical.attrib.get('WIDTH') + ',' 
+                         + graphical.attrib.get('VPOS') + ','
+                         + graphical.attrib.get('HPOS')
+                         sys.stdout.write('\n')
+                         graphical_elements = graphical_id + '=' + graphical_coords
+                         sys.stdout.write(graphical_elements)
+
+
 def alto_confidence(alto, xml, xmlns):
     """ Calculate word confidence for ALTO xml file """
     score = 0
@@ -564,6 +580,11 @@ def parse_arguments():
                         default=False,
                         dest='text',
                         help='extract text content of the ALTO document(s)')
+    parser.add_argument('-g', '-graphic',
+                        action='store_true',
+                        default=False,
+                        dest='graphic',
+                        help='extract coordinates of graphical elements from the ALTO document(s)')
     parser.add_argument('-m', '--metadata',
                         action='store_true',
                         default=False,
