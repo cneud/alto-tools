@@ -92,7 +92,7 @@ def alto_confidence(alto, xml, xmlns):
             result = round(100 * confidence, 2)
             sys.stdout.write('\nFile: %s, Confidence: %s' % (alto.name, result))
         else:
-            sys.stdout.write('\nFile: %s, Confidence: 00.00' % (alto.name))
+            sys.stdout.write('\nFile: %s, Confidence: 00.00' % alto.name)
 
 
 def alto_ngrams(alto, xml, xmlns):
@@ -456,7 +456,7 @@ def alto_query(alto, xml, xmlns, query):
 # |                   |  selects all children named 'egg'.                   |
 # |--------------------------------------------------------------------------|
 # |         .         |  Selects the current node. This is mostly useful at  |
-# |                   |  the beginning of the path, to indicate that it’s a  |
+# |                   |  the beginning of the path, to indicate that it's a  |
 # |                   |  relative path.                                      |
 # |--------------------------------------------------------------------------|
 # |         //        |  Selects all subelements, on all levels beneath the  |
