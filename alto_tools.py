@@ -66,12 +66,12 @@ def alto_graphic(alto, xml, xmlns):
         graphical_id = graphical.attrib.get('ID')
         # Get coordinates of GraphicalElement element
         graphical_coords = graphical.attrib.get('HEIGHT') + ',' 
-                         + graphical.attrib.get('WIDTH') + ',' 
-                         + graphical.attrib.get('VPOS') + ','
-                         + graphical.attrib.get('HPOS')
-                         sys.stdout.write('\n')
-                         graphical_elements = graphical_id + '=' + graphical_coords
-                         sys.stdout.write(graphical_elements)
+                            + graphical.attrib.get('WIDTH') + ',' 
+                            + graphical.attrib.get('VPOS') + ','
+                            + graphical.attrib.get('HPOS')
+        sys.stdout.write('\n')
+        graphical_elements = graphical_id + '=' + graphical_coords
+        sys.stdout.write(graphical_elements)
 
 
 def alto_confidence(alto, xml, xmlns):
