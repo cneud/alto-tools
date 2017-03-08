@@ -505,7 +505,7 @@ def write_output(alto, output, args):
         if args.transform:
             output_filename = alto.name
             sys.stdout = open('output_filename', 'w')
-        if arg.ngram:
+        if args.ngram:
             output_filename = 'ngrams.txt'
             sys.stdout = open('output_filename', 'w')
 
