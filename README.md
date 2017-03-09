@@ -2,7 +2,7 @@
 
 **Warning: not fully implemented - work in progress...**
 
-[Python](https://www.python.org/) script for performing various operations on [ALTO](http://www.loc.gov/standards/alto/) files.
+[Python3](https://www.python.org/) script for performing various operations on [ALTO](http://www.loc.gov/standards/alto/) files.
 
 Planned features:
 
