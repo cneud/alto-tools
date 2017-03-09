@@ -496,22 +496,22 @@ def write_output(alto, output, args):
     else:
         if args.text:
             output_filename = alto.name + '.txt'
-            sys.stdout = open('output_filename', 'w')
+            sys.stdout = open(output_filename, 'w')
         if args.metadata:
             output_filename = alto.name + '.md.txt'
-            sys.stdout = open('output_filename', 'w')
+            sys.stdout = open(output_filename, 'w')
         if args.graphic:
             output_filename = alto.name + '.graphic.txt'
-            sys.stdout = open('output_filename', 'w')
+            sys.stdout = open(output_filename, 'w')
         if args.confidence:
             output_filename = alto.name + '.conf.txt'
-            sys.stdout = open('output_filename', 'w')
+            sys.stdout = open(output_filename, 'w')
         if args.transform:
             output_filename = alto.name
-            sys.stdout = open('output_filename', 'w')
+            sys.stdout = open(output_filename, 'w')
         if args.ngram:
             output_filename = alto.name + 'ngrams.txt'
-            sys.stdout = open('output_filename', 'w')
+            sys.stdout = open(output_filename, 'w')
 
 
 def web_app(xml):
@@ -623,7 +623,6 @@ def main():
                     try:
                         alto, xml, xmlns = alto_parse(alto)
                     except IndexError:
-                        # Handle exceptions here and/or in function call?
                         pass
                     if args.confidence:
                         alto_confidence(xml, xmlns)
