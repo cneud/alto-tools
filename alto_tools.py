@@ -102,16 +102,6 @@ def alto_confidence(alto, xml, xmlns):
             sys.stdout.write('\nFile: %s, Confidence: 00.00' % alto.name)
 
 
-def alto_ngrams(xml, xmlns):
-    """ Generate ngrams from ALTO xml file """
-    text = alto_text(xml, xmlns)
-    # Set n 
-    n = 3
-    # Generate ngrams with zip()
-    ngrams = ["".join(j) for j in zip(*[text[i:] for i in range(n)])]
-    return ngrams
-
-
 def alto_transform(xml):
     """ Transform ALTO xml with XSLT """
     xsl = open('xsl', 'r', encoding='UTF8')
@@ -520,9 +510,6 @@ def write_output(alto, output, args):
         if args.transform:
             output_filename = alto.name
             sys.stdout = open(output_filename, 'w')
-        if args.ngram:
-            output_filename = alto.name + 'ngrams.txt'
-            sys.stdout = open(output_filename, 'w')
 
 
 def web_app(xml):
@@ -590,11 +577,6 @@ def parse_arguments():
                         dest='confidence',
                         help='calculate page confidence of the ALTO '
                              'document(s)')
-    parser.add_argument('-n', '--ngram',
-                        action='store_true',
-                        default=False,
-                        dest='ngram',
-                        help='generate ngrams from the ALTO document(s)')
     parser.add_argument('-t', '--text',
                         action='store_true',
                         default=False,
@@ -645,8 +627,6 @@ def main():
                         pass
                     if args.confidence:
                         alto_confidence(alto, xml, xmlns)
-                    if args.ngram:
-                        alto_ngrams(xml, xmlns)
                     if args.text:
                         alto_text(xml, xmlns)
                     if args.graphic:
