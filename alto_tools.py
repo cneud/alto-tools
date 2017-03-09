@@ -23,7 +23,8 @@ def alto_parse(alto):
     try:
         xml = ElementTree.parse(alto)
     except ElementTree.ParseError as e:
-        sys.stdout.write('\nERROR: Failed parsing "%s" - ' % alto.name + str(e))
+        sys.stdout.write('\nERROR: Failed parsing "%s" - '
+                         % alto.name + str(e))
     # Register ALTO namespaces
     namespace = {'alto-1': 'http://schema.ccs-gmbh.com/ALTO',
                  'alto-2': 'http://www.loc.gov/standards/alto/ns-v2#',
@@ -36,12 +37,14 @@ def alto_parse(alto):
             ns = xml.getroot().attrib
             xmlns = str(ns).split(' ')[1].strip('}').strip("'")
         except IndexError:
-            sys.stdout.write('\nWARNING: File "%s": no namespace declaration found.' % alto.name)
+            sys.stdout.write('\nWARNING: File "%s": no namespace declaration '
+                             'found.' % alto.name)
             xmlns = 'no_namespace_found'
     if xmlns in namespace.values():
         return alto, xml, xmlns
     else:
-        sys.stdout.write('\nWARNING: File "%s": namespace is not registered.' % alto.name)
+        sys.stdout.write('\nWARNING: File "%s": namespace is not registered.'
+                         % alto.name)
 
 
 def alto_text(xml, xmlns):
@@ -93,7 +96,8 @@ def alto_confidence(alto, xml, xmlns):
         if count > 0:
             confidence = score / count
             result = round(100 * confidence, 2)
-            sys.stdout.write('\nFile: %s, Confidence: %s' % (alto.name, result))
+            sys.stdout.write('\nFile: %s, Confidence: %s' %
+                             (alto.name, result))
         else:
             sys.stdout.write('\nFile: %s, Confidence: 00.00' % alto.name)
 
@@ -121,12 +125,14 @@ def alto_transform(xml, xmlns, xsl):
             if xsltproc in files:
                 print('Found: %s' % join(root, xsltproc))
             else:
-                print('No suitable XSLT processor found. Please make sure "msxsl.exe" is installed.')
+                print('No suitable XSLT processor found. '
+                      'Please make sure "msxsl.exe" is installed.')
     else:
         try:
             import lxml.etree.XSLT as XSLT
         except ImportError:
-            raise ImportError('No suitable XSLT processor found. Please make sure "lxml" is installed.')
+            raise ImportError('No suitable XSLT processor found. '
+                              'Please make sure "lxml" is installed.')
     dom = ElementTree.parse(xml)
     xslt = ElementTree.parse(xsl)
     transform = XSLT(xslt)
@@ -530,8 +536,9 @@ def web_app(xml):
     class Index:
         @staticmethod
         def get():
-            return '<a href="https://github.com/cneud/alto-tools">ALTO Tools</a>: ' \
-                   'simple methods to perform operations on ALTO xml files'
+            return ('<a href="https://github.com/cneud/alto-tools">'
+                   'ALTO Tools</a>: '
+                   'simple methods to perform operations on ALTO xml files')
 
     class ListElements:
         @staticmethod
@@ -556,16 +563,19 @@ def web_app(xml):
 
 def parse_arguments():
     parser = argparse.ArgumentParser(
-        description="ALTO Tools: simple methods to perform operations on ALTO xml files",
+        description="ALTO Tools: "
+                    "simple methods to perform operations on ALTO xml files",
         add_help=True,
         prog='alto_tools.py',
         usage='python %(prog)s INPUT [options]')
     parser.add_argument('INPUT',
-                        help='path to ALTO file or directory containing ALTO file(s)')
+                        help='path to ALTO file or directory containing '
+                             'ALTO file(s)')
     parser.add_argument('-o', '--output',
                         default='',
                         dest='output',
-                        help='path to output directory (if none specified, stdout is used)')
+                        help='path to output directory (if none specified, '
+                             'stdout is used)')
     parser.add_argument('-v', '--version',
                         action='version',
                         version=__version__,
@@ -574,7 +584,8 @@ def parse_arguments():
                         action='store_true',
                         default=False,
                         dest='confidence',
-                        help='calculate page confidence of the ALTO document(s)')
+                        help='calculate page confidence of the ALTO '
+                             'document(s)')
     parser.add_argument('-n', '--ngram',
                         action='store_true',
                         default=False,
@@ -589,7 +600,8 @@ def parse_arguments():
                         action='store_true',
                         default=False,
                         dest='graphic',
-                        help='extract coordinates of graphical elements from the ALTO document(s)')
+                        help='extract coordinates of graphical elements from '
+                             'the ALTO document(s)')
     parser.add_argument('-m', '--metadata',
                         action='store_true',
                         default=False,
@@ -600,7 +612,8 @@ def parse_arguments():
                         help='transform ALTO document(s) to target format')
     parser.add_argument('-q', '--query',
                         dest='query',
-                        help='query elements and attributes of the ALTO document(s)')
+                        help='query elements and attributes of the ALTO '
+                             'document(s)')
     parser.add_argument('-w', '--web',
                         action='store_true',
                         default=False,
@@ -620,7 +633,8 @@ def main():
         for (root, dirs, files) in os.walk(sys.argv[1]):
             for filename in files:
                 if filename.endswith('.xml') or filename.endswith('.alto'):
-                    alto = open(os.path.join(root, filename), 'r', encoding='UTF8')
+                    alto = open(os.path.join(root, filename),
+                                'r', encoding='UTF8')
                     try:
                         alto, xml, xmlns = alto_parse(alto)
                     except IndexError:
