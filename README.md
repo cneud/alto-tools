@@ -12,4 +12,4 @@ Planned features:
 * [retrieve **metadata** of the ALTO document(s)](https://github.com/cneud/alto-tools/blob/master/alto_tools.py#L133)
 * [**transform** ALTO document(s) to target format](https://github.com/cneud/alto-tools/blob/master/alto_tools.py#L105)
 * [**query** elements and attributes of the ALTO document(s)](https://github.com/cneud/alto-tools/blob/master/alto_tools.py#L437)
-* [provide a **REST**-interface for ALTO document(s)](https://github.com/cneud/alto-tools/blob/master/alto_tools.py#L515)
+* [provide a **web**-interface for ALTO document(s)](https://github.com/cneud/alto-tools/blob/master/alto_tools.py#L515)
