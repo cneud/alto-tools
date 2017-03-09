@@ -6,7 +6,8 @@ import os
 import sys
 import codecs
 import argparse
-import xml.etree.ElementTree as ET
+import web
+import xml.etree.ElementTree as ElementTree
 
 # Define scriptName when called from Java/Jython
 scriptPath, scriptName = os.path.split(sys.argv[0])
@@ -19,8 +20,8 @@ __version__ = '0.0.1'
 def alto_parse(alto):
     """ Convert ALTO xml file to element tree """
     try:
-        xml = ET.parse(alto)
-    except ET.ParseError as e:
+        xml = ElementTree.parse(alto)
+    except ElementTree.ParseError:
         sys.stdout.write('\nERROR: Failed parsing "%s" - ' % alto.name + str(e))
     # Register ALTO namespaces
     namespace = {'alto-1': 'http://schema.ccs-gmbh.com/ALTO',
@@ -33,7 +34,7 @@ def alto_parse(alto):
         try:
             ns = xml.getroot().attrib
             xmlns = str(ns).split(' ')[1].strip('}').strip("'")
-        except IndexError as e:
+        except IndexError:
             sys.stdout.write('\nWARNING: File "%s": no namespace declaration found.' % alto.name)
             xmlns = 'no_namespace_found'
     if xmlns in namespace.values():
@@ -42,7 +43,7 @@ def alto_parse(alto):
         sys.stdout.write('\nWARNING: File "%s": namespace is not registered.' % alto.name)
 
 
-def alto_text(alto, xml, xmlns):
+def alto_text(xml, xmlns):
     """ Extract text content from ALTO xml file """
     # Make sure to use UTF-8
     if sys.stdout.encoding != 'UTF-8':
@@ -56,25 +57,26 @@ def alto_text(alto, xml, xmlns):
                 # Get value of attribute CONTENT from all String elements
                 text = line.attrib.get('CONTENT') + ' '
                 sys.stdout.write(text)
+                return text
 
 
-def alto_graphic(alto, xml, xmlns):
+def alto_graphic(xml, xmlns):
     """ Extract coordinates of illustrations from ALTO xml file """
     # Find all GraphicalElement elements
     for graphical in xml.iterfind('.//{%s}GraphicalElement' % xmlns):
         # Get ID of GraphicalElement element
         graphical_id = graphical.attrib.get('ID')
         # Get coordinates of GraphicalElement element
-        graphical_coords = graphical.attrib.get('HEIGHT') + ',' 
-                            + graphical.attrib.get('WIDTH') + ',' 
-                            + graphical.attrib.get('VPOS') + ','
-                            + graphical.attrib.get('HPOS')
+        graphical_coords = graphical.attrib.get('HEIGHT') + ',' \
+                           + graphical.attrib.get('WIDTH') + ',' \
+                           + graphical.attrib.get('VPOS') + ','\
+                           + graphical.attrib.get('HPOS')
         sys.stdout.write('\n')
         graphical_elements = graphical_id + '=' + graphical_coords
         sys.stdout.write(graphical_elements)
 
 
-def alto_confidence(alto, xml, xmlns):
+def alto_confidence(xml, xmlns):
     """ Calculate word confidence for ALTO xml file """
     score = 0
     count = 0
@@ -95,9 +97,9 @@ def alto_confidence(alto, xml, xmlns):
             sys.stdout.write('\nFile: %s, Confidence: 00.00' % alto.name)
 
 
-def alto_ngrams(alto, xml, xmlns):
+def alto_ngrams(xml, xmlns):
     """ Generate ngrams from ALTO xml file """
-    text = alto_text(alto, xml, xmlns)
+    text = alto_text(xml, xmlns)
     # Set n 
     n = 3
     # Generate ngrams with zip()
@@ -105,7 +107,7 @@ def alto_ngrams(alto, xml, xmlns):
     return ngrams
 
 
-def alto_transform(alto, xml, xmlns, xsl):
+def alto_transform(xml, xmlns, xsl):
     """ Transform ALTO xml with XSLT """
     xsl = open('xsl', 'r', encoding='UTF8')
     # Detect if running on Windows
@@ -121,17 +123,17 @@ def alto_transform(alto, xml, xmlns, xsl):
                 print('No suitable XSLT processor found. Please make sure "msxsl.exe" is installed.')
     else:
         try:
-            import lxml.etree.XSLT as X
+            import lxml.etree.XSLT as XSLT
         except ImportError:
             raise ImportError('No suitable XSLT processor found. Please make sure "lxml" is installed.')
-    dom = ET.parse(xml)
-    xslt = ET.parse(xsl)
-    transform = X(xslt)
+    dom = ElementTree.parse(xml)
+    xslt = ElementTree.parse(xsl)
+    transform = XSLT(xslt)
     newdom = transform(dom)
-    print(ET.tostring(newdom))
+    print(ElementTree.tostring(newdom))
 
 
-def alto_metadata(alto, xml, xmlns):
+def alto_metadata(xml, xmlns):
     """ Extract metadata from ALTO xml file """
     # Description
     sys.stdout.write('\n<Description>\n')
@@ -329,9 +331,9 @@ def alto_metadata(alto, xml, xmlns):
         sys.stdout.write(
             '\nsoftwareName               =   -- NOT_DEFINED --')
     try:
-        xml.find('.//{%s}ocrProcessingStep' % xmlns).find \
+        xml.find(('.//{%s}ocrProcessingStep' % xmlns).find \
                 ('{%s}processingSoftware' % xmlns).find \
-                ('{%s}softwareVersion' % xmlns).text is not None
+                ('{%s}softwareVersion' % xmlns).text is not None)
         sys.stdout.write('\nsoftwareVersion            =   %s' % xml.find \
                         ('.//{%s}ocrProcessingStep' % xmlns).find \
                         ('{%s}processingSoftware' % xmlns).find \
@@ -435,10 +437,9 @@ def alto_metadata(alto, xml, xmlns):
     sys.stdout.write('\n')
 
 
-def alto_query(alto, xml, xmlns, query):
-    """ Query ALTO xml file using XPath expressions """
-    query = []
-    # TODO
+def alto_query(xml, xmlns, query):
+   """ Query ALTO xml file using XPath expressions """
+   query = []
 
 
 #  Supported XPath syntax
@@ -499,6 +500,9 @@ def write_output(alto, output, args):
         if args.metadata:
             output_filename = alto.name + '.md.txt'
             sys.stdout = open('output_filename', 'w')
+        if args.graphic:
+            output_filename = alto.name + '.graphic.txt'
+            sys.stdout = open('output_filename', 'w')
         if args.confidence:
             output_filename = alto.name + '.conf.txt'
             sys.stdout = open('output_filename', 'w')
@@ -506,14 +510,12 @@ def write_output(alto, output, args):
             output_filename = alto.name
             sys.stdout = open('output_filename', 'w')
         if args.ngram:
-            output_filename = 'ngrams.txt'
+            output_filename = alto.name + 'ngrams.txt'
             sys.stdout = open('output_filename', 'w')
 
 
-def web_app(alto, xml, xmlns):
+def web_app(xml):
     """ Simple webapp """
-    import web
-
     root = xml.getroot()
     # Create a web server to serve up the requests
     urls = (
@@ -524,13 +526,15 @@ def web_app(alto, xml, xmlns):
     # Bind to localhost port 8888
     app.run('0.0.0.0:8888')
 
-    class index:
-        def GET(self):
-            return '<a href="https://github.com/cneud/alto-tools">ALTO Tools</a>: simple methods to perform operations on ALTO xml files'
-
-    class listElements:
+    class Index:
         @staticmethod
-        def GET():
+        def get():
+            return '<a href="https://github.com/cneud/alto-tools">ALTO Tools</a>: ' \
+                   'simple methods to perform operations on ALTO xml files'
+
+    class ListElements:
+        @staticmethod
+        def get():
             output = 'elements:['
             for child in root:
                 print('child', child.tag, child.attrib)
@@ -538,9 +542,9 @@ def web_app(alto, xml, xmlns):
                 output += ']'
                 return output
 
-    class getAttributes:
+    class GetAttributes:
         @staticmethod
-        def GET(value):
+        def get(value):
             output = 'attributes:['
             for child in root:
                 if child.attrib['id'] == value:
@@ -618,23 +622,25 @@ def main():
                     alto = open(os.path.join(root, filename), 'r', encoding='UTF8')
                     try:
                         alto, xml, xmlns = alto_parse(alto)
-                    except:
+                    except IndexError:
                         # Handle exceptions here and/or in function call?
                         pass
                     if args.confidence:
-                        alto_confidence(alto, xml, xmlns)
+                        alto_confidence(xml, xmlns)
                     if args.ngram:
-                        alto_ngrams(alto, xml, xmlns)
+                        alto_ngrams(xml, xmlns)
                     if args.text:
-                        alto_text(alto, xml, xmlns)
+                        alto_text(xml, xmlns)
+                    if args.graphic:
+                        alto_graphic(xml, xmlns)
                     if args.metadata:
-                        alto_metadata(alto, xml, xmlns)
+                        alto_metadata(xml, xmlns)
                     if args.transform:
-                        alto_transform(alto, xml, xmlns, xsl)
+                        alto_transform(xml, xmlns, xsl)
                     if args.query:
-                        alto_query(alto, xml, xmlns, query)
+                        alto_query(xml, xmlns, query)
                     if args.web:
-                        web_app(alto, xml, xmlns)
+                        web_app(xml)
 
 
 if __name__ == "__main__":
