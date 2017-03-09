@@ -136,9 +136,9 @@ def alto_metadata(alto, xml, xmlns):
     # Description
     sys.stdout.write('\n<Description>\n')
     try:
-        xml.find('.//{%s}Description' % xmlns).find \
+        xml.find(('.//{%s}Description' % xmlns).find \
                 ('{%s}sourceImageInformation' % xmlns).find \
-                ('{%s}fileName' % xmlns).text is not None
+                ('{%s}fileName' % xmlns).text is not None)
         sys.stdout.write('\nfileName                   =   %s' % xml.find \
                         ('.//{%s}Description' % xmlns).find \
                         ('{%s}sourceImageInformation' % xmlns).find \
@@ -147,9 +147,9 @@ def alto_metadata(alto, xml, xmlns):
         sys.stdout.write(
             '\nfileName                   =   -- NOT_DEFINED --')
     try:
-        xml.find('.//{%s}Description' % xmlns).find \
+        xml.find(('.//{%s}Description' % xmlns).find \
                 ('{%s}sourceImageInformation' % xmlns).find \
-                ('{%s}fileIdentifier' % xmlns).text is not None
+                ('{%s}fileIdentifier' % xmlns).text is not None)
         sys.stdout.write('\nfileIdentifier             =   %s' % xml.find \
                         ('.//{%s}Description' % xmlns).find \
                         ('{%s}sourceImageInformation' % xmlns).find \
@@ -158,9 +158,9 @@ def alto_metadata(alto, xml, xmlns):
         sys.stdout.write(
             '\nfileIdentifier             =   -- NOT_DEFINED --')
     try:
-        xml.find('.//{%s}Description' % xmlns).find \
+        xml.find(('.//{%s}Description' % xmlns).find \
                 ('{%s}sourceImageInformation' % xmlns).find \
-                ('{%s}documentIdentifier' % xmlns).text is not None
+                ('{%s}documentIdentifier' % xmlns).text is not None)
         sys.stdout.write('\ndocumentIdentifier         =   %s' % xml.find \
                         ('.//{%s}Description' % xmlns).find \
                         ('{%s}sourceImageInformation' % xmlns).find \
@@ -169,8 +169,8 @@ def alto_metadata(alto, xml, xmlns):
         sys.stdout.write(
             '\ndocumentIdentifier         =   -- NOT_DEFINED --')
     try:
-        xml.find('.//{%s}Description' % xmlns).find \
-                ('{%s}MeasurementUnit' % xmlns).text is not None
+        xml.find(('.//{%s}Description' % xmlns).find \
+                ('{%s}MeasurementUnit' % xmlns).text is not None)
         sys.stdout.write('\nMeasurementUnit            =   %s' % xml.find \
                         ('.//{%s}Description' % xmlns).find \
                         ('{%s}MeasurementUnit' % xmlns).text)
@@ -180,7 +180,7 @@ def alto_metadata(alto, xml, xmlns):
     # OCRProcessing
     sys.stdout.write('\n\n<OCRProcessing>\n')
     try:
-        xml.find('.//{%s}OCRProcessing' % xmlns).text is not None
+        xml.find(('.//{%s}OCRProcessing' % xmlns).text is not None)
         sys.stdout.write('\nID                         =   %s' % xml.find \
                         ('.//{%s}OCRProcessing' % xmlns).attrib.get('ID'))
     except AttributeError:
@@ -189,8 +189,8 @@ def alto_metadata(alto, xml, xmlns):
     # preProcessingStep
     sys.stdout.write('\n\n<preProcessingStep>\n')
     try:
-        xml.find('.//{%s}preProcessingStep' % xmlns).find \
-                ('{%s}processingDateTime' % xmlns).text is not None
+        xml.find(('.//{%s}preProcessingStep' % xmlns).find \
+                ('{%s}processingDateTime' % xmlns).text is not None)
         sys.stdout.write('\nprocessingDateTime         =   %s' % xml.find \
                         ('.//{%s}preProcessingStep' % xmlns).find \
                         ('{%s}processingDateTime' % xmlns).text)
@@ -198,8 +198,8 @@ def alto_metadata(alto, xml, xmlns):
         sys.stdout.write(
             '\nprocessingDateTime         =   -- NOT_DEFINED --')
     try:
-        xml.find('.//{%s}preProcessingStep' % xmlns).find \
-                ('{%s}processingAgency' % xmlns).text is not None
+        xml.find(('.//{%s}preProcessingStep' % xmlns).find \
+                ('{%s}processingAgency' % xmlns).text is not None)
         sys.stdout.write('\nprocessingAgency           =   %s' % xml.find \
                         ('.//{%s}preProcessingStep' % xmlns).find \
                         ('{%s}processingAgency' % xmlns).text)
@@ -207,8 +207,8 @@ def alto_metadata(alto, xml, xmlns):
         sys.stdout.write(
             '\nprocessingAgency           =   -- NOT_DEFINED --')
     try:
-        xml.find('.//{%s}preProcessingStep' % xmlns).find \
-                ('{%s}processingStepDescription' % xmlns).text is not None
+        xml.find(('.//{%s}preProcessingStep' % xmlns).find \
+                ('{%s}processingStepDescription' % xmlns).text is not None)
         sys.stdout.write('\nprocessingStepDescription  =   %s' % xml.find \
                         ('.//{%s}preProcessingStep' % xmlns).find \
                         ('{%s}processingStepDescription' % xmlns).text)
@@ -216,8 +216,8 @@ def alto_metadata(alto, xml, xmlns):
         sys.stdout.write(
             '\nprocessingStepDescription  =   -- NOT_DEFINED --')
     try:
-        xml.find('.//{%s}preProcessingStep' % xmlns).find \
-                ('{%s}processingStepSettings' % xmlns).text is not None
+        xml.find(('.//{%s}preProcessingStep' % xmlns).find \
+                ('{%s}processingStepSettings' % xmlns).text is not None)
         sys.stdout.write('\nprocessingStepSettings     =   %s' % xml.find \
                         ('.//{%s}preProcessingStep' % xmlns).find \
                         ('{%s}processingStepSettings' % xmlns).text)
@@ -225,9 +225,9 @@ def alto_metadata(alto, xml, xmlns):
         sys.stdout.write(
             '\nprocessingStepSettings     =   -- NOT_DEFINED --')
     try:
-        xml.find('.//{%s}preProcessingStep' % xmlns).find \
+        xml.find(('.//{%s}preProcessingStep' % xmlns).find \
                 ('{%s}processingSoftware' % xmlns).find \
-                ('{%s}softwareCreator' % xmlns).text is not None
+                ('{%s}softwareCreator' % xmlns).text is not None)
         sys.stdout.write('\nsoftwareCreator            =   %s' % xml.find \
                         ('.//{%s}preProcessingStep' % xmlns).find \
                         ('{%s}processingSoftware' % xmlns).find \
@@ -236,9 +236,9 @@ def alto_metadata(alto, xml, xmlns):
         sys.stdout.write(
             '\nsoftwareCreator            =   -- NOT_DEFINED --')
     try:
-        xml.find('.//{%s}preProcessingStep' % xmlns).find \
+        xml.find(('.//{%s}preProcessingStep' % xmlns).find \
                 ('{%s}processingSoftware' % xmlns).find \
-                ('{%s}softwareName' % xmlns).text is not None
+                ('{%s}softwareName' % xmlns).text is not None)
         sys.stdout.write('\nsoftwareName               =   %s' % xml.find \
                         ('.//{%s}preProcessingStep' % xmlns).find \
                         ('{%s}processingSoftware' % xmlns).find \
@@ -247,9 +247,9 @@ def alto_metadata(alto, xml, xmlns):
         sys.stdout.write(
             '\nsoftwareName               =   -- NOT_DEFINED --')
     try:
-        xml.find('.//{%s}preProcessingStep' % xmlns).find \
+        xml.find(('.//{%s}preProcessingStep' % xmlns).find \
                 ('{%s}processingSoftware' % xmlns).find \
-                ('{%s}softwareVersion' % xmlns).text is not None
+                ('{%s}softwareVersion' % xmlns).text is not None)
         sys.stdout.write('\nsoftwareVersion            =   %s' % xml.find \
                         ('.//{%s}preProcessingStep' % xmlns).find \
                         ('{%s}processingSoftware' % xmlns).find \
@@ -258,9 +258,9 @@ def alto_metadata(alto, xml, xmlns):
         sys.stdout.write(
             '\nsoftwareVersion            =   -- NOT_DEFINED --')
     try:
-        xml.find('.//{%s}preProcessingStep' % xmlns).find \
+        xml.find(('.//{%s}preProcessingStep' % xmlns).find \
                 ('{%s}processingSoftware' % xmlns).find \
-                ('{%s}applicationDescription' % xmlns).text is not None
+                ('{%s}applicationDescription' % xmlns).text is not None)
         sys.stdout.write('\napplicationDescription     =   %s' % xml.find \
                         ('.//{%s}preProcessingStep' % xmlns).find \
                         ('{%s}processingSoftware' % xmlns).find \
@@ -271,8 +271,8 @@ def alto_metadata(alto, xml, xmlns):
     # ocrProcessingStep
     sys.stdout.write('\n\n<ocrProcessingStep>\n')
     try:
-        xml.find('.//{%s}ocrProcessingStep' % xmlns).find \
-                ('{%s}processingDateTime' % xmlns).text is not None
+        xml.find(('.//{%s}ocrProcessingStep' % xmlns).find \
+                ('{%s}processingDateTime' % xmlns).text is not None)
         sys.stdout.write('\nprocessingDateTime         =   %s' % xml.find \
                         ('.//{%s}ocrProcessingStep' % xmlns).find \
                         ('{%s}processingDateTime' % xmlns).text)
@@ -280,8 +280,8 @@ def alto_metadata(alto, xml, xmlns):
         sys.stdout.write(
             '\nprocessingDateTime         =   -- NOT_DEFINED --')
     try:
-        xml.find('.//{%s}ocrProcessingStep' % xmlns).find \
-                ('{%s}processingAgency' % xmlns).text is not None
+        xml.find(('.//{%s}ocrProcessingStep' % xmlns).find \
+                ('{%s}processingAgency' % xmlns).text is not None)
         sys.stdout.write('\nprocessingAgency           =   %s' % xml.find \
                         ('.//{%s}ocrProcessingStep' % xmlns).find \
                         ('{%s}processingAgency' % xmlns).text)
@@ -289,8 +289,8 @@ def alto_metadata(alto, xml, xmlns):
         sys.stdout.write(
             '\nprocessingAgency           =   -- NOT_DEFINED --')
     try:
-        xml.find('.//{%s}ocrProcessingStep' % xmlns).find \
-                ('{%s}processingStepDescription' % xmlns).text is not None
+        xml.find(('.//{%s}ocrProcessingStep' % xmlns).find \
+                ('{%s}processingStepDescription' % xmlns).text is not None)
         sys.stdout.write('\nprocessingStepDescription  =   %s' % xml.find \
                         ('.//{%s}ocrProcessingStep' % xmlns).find \
                         ('{%s}processingStepDescription' % xmlns).text)
@@ -298,8 +298,8 @@ def alto_metadata(alto, xml, xmlns):
         sys.stdout.write(
             '\nprocessingStepDescription  =   -- NOT_DEFINED --')
     try:
-        xml.find('.//{%s}ocrProcessingStep' % xmlns).find \
-                ('{%s}processingStepSettings' % xmlns).text is not None
+        xml.find(('.//{%s}ocrProcessingStep' % xmlns).find \
+                ('{%s}processingStepSettings' % xmlns).text is not None)
         sys.stdout.write('\nprocessingStepSettings     =   %s' % xml.find \
                         ('.//{%s}ocrProcessingStep' % xmlns).find \
                         ('{%s}processingStepSettings' % xmlns).text)
@@ -307,9 +307,9 @@ def alto_metadata(alto, xml, xmlns):
         sys.stdout.write(
             '\nprocessingStepSettings     =   -- NOT_DEFINED --')
     try:
-        xml.find('.//{%s}ocrProcessingStep' % xmlns).find \
+        xml.find(('.//{%s}ocrProcessingStep' % xmlns).find \
                 ('{%s}processingSoftware' % xmlns).find \
-                ('{%s}softwareCreator' % xmlns).text is not None
+                ('{%s}softwareCreator' % xmlns).text is not None)
         sys.stdout.write('\nsoftwareCreator            =   %s' % xml.find \
                         ('.//{%s}ocrProcessingStep' % xmlns).find \
                         ('{%s}processingSoftware' % xmlns).find \
@@ -318,9 +318,9 @@ def alto_metadata(alto, xml, xmlns):
         sys.stdout.write(
             '\nsoftwareCreator            =   -- NOT_DEFINED --')
     try:
-        xml.find('.//{%s}ocrProcessingStep' % xmlns).find \
+        xml.find(('.//{%s}ocrProcessingStep' % xmlns).find \
                 ('{%s}processingSoftware' % xmlns).find \
-                ('{%s}softwareName' % xmlns).text is not None
+                ('{%s}softwareName' % xmlns).text is not None)
         sys.stdout.write('\nsoftwareName               =   %s' % xml.find \
                         ('.//{%s}ocrProcessingStep' % xmlns).find \
                         ('{%s}processingSoftware' % xmlns).find \
@@ -340,9 +340,9 @@ def alto_metadata(alto, xml, xmlns):
         sys.stdout.write(
             '\nsoftwareVersion            =   -- NOT_DEFINED --')
     try:
-        xml.find('.//{%s}ocrProcessingStep' % xmlns).find \
+        xml.find(('.//{%s}ocrProcessingStep' % xmlns).find \
                 ('{%s}processingSoftware' % xmlns).find \
-                ('{%s}applicationDescription' % xmlns).text is not None
+                ('{%s}applicationDescription' % xmlns).text is not None)
         sys.stdout.write('\napplicationDescription     =   %s' % xml.find \
                         ('.//{%s}ocrProcessingStep' % xmlns).find \
                         ('{%s}processingSoftware' % xmlns).find \
@@ -353,8 +353,8 @@ def alto_metadata(alto, xml, xmlns):
     # postProcessingStep 
     sys.stdout.write('\n\n<postProcessingStep>\n')
     try:
-        xml.find('.//{%s}postProcessingStep' % xmlns).find \
-                ('{%s}processingDateTime' % xmlns).text is not None
+        xml.find(('.//{%s}postProcessingStep' % xmlns).find \
+                ('{%s}processingDateTime' % xmlns).text is not None)
         sys.stdout.write('\nprocessingDateTime         =   %s' % xml.find \
                         ('.//{%s}postProcessingStep' % xmlns).find \
                         ('{%s}processingDateTime' % xmlns).text)
@@ -362,8 +362,8 @@ def alto_metadata(alto, xml, xmlns):
         sys.stdout.write(
             '\nprocessingDateTime         =   -- NOT_DEFINED --')
     try:
-        xml.find('.//{%s}postProcessingStep' % xmlns).find \
-                ('{%s}processingAgency' % xmlns).text is not None
+        xml.find(('.//{%s}postProcessingStep' % xmlns).find \
+                ('{%s}processingAgency' % xmlns).text is not None)
         sys.stdout.write('\nprocessingAgency           =   %s' % xml.find \
                         ('.//{%s}postProcessingStep' % xmlns).find \
                         ('{%s}processingAgency' % xmlns).text)
@@ -371,8 +371,8 @@ def alto_metadata(alto, xml, xmlns):
         sys.stdout.write(
             '\nprocessingAgency           =   -- NOT_DEFINED --')
     try:
-        xml.find('.//{%s}postProcessingStep' % xmlns).find \
-                ('{%s}processingStepDescription' % xmlns).text is not None
+        xml.find(('.//{%s}postProcessingStep' % xmlns).find \
+                ('{%s}processingStepDescription' % xmlns).text is not None)
         sys.stdout.write('\nprocessingStepDescription  =   %s' % xml.find \
                         ('.//{%s}postProcessingStep' % xmlns).find \
                         ('{%s}processingStepDescription' % xmlns).text)
@@ -380,8 +380,8 @@ def alto_metadata(alto, xml, xmlns):
         sys.stdout.write(
             '\nprocessingStepDescription  =   -- NOT_DEFINED --')
     try:
-        xml.find('.//{%s}postProcessingStep' % xmlns).find \
-                ('{%s}processingStepSettings' % xmlns).text is not None
+        xml.find(('.//{%s}postProcessingStep' % xmlns).find \
+                ('{%s}processingStepSettings' % xmlns).text is not None)
         sys.stdout.write('\nprocessingStepSettings     =   %s' % xml.find \
                         ('.//{%s}postProcessingStep' % xmlns).find \
                         ('{%s}processingStepSettings' % xmlns).text)
@@ -389,9 +389,9 @@ def alto_metadata(alto, xml, xmlns):
         sys.stdout.write(
             '\nprocessingStepSettings     =   -- NOT_DEFINED --')
     try:
-        xml.find('.//{%s}postProcessingStep' % xmlns).find \
+        xml.find(('.//{%s}postProcessingStep' % xmlns).find \
                 ('{%s}processingSoftware' % xmlns).find \
-                ('{%s}softwareCreator' % xmlns).text is not None
+                ('{%s}softwareCreator' % xmlns).text is not None)
         sys.stdout.write('\nsoftwareCreator            =   %s' % xml.find \
                         ('.//{%s}postProcessingStep' % xmlns).find \
                         ('{%s}processingSoftware' % xmlns).find \
@@ -400,9 +400,9 @@ def alto_metadata(alto, xml, xmlns):
         sys.stdout.write(
             '\nsoftwareCreator            =   -- NOT_DEFINED --')
     try:
-        xml.find('.//{%s}postProcessingStep' % xmlns).find \
+        xml.find(('.//{%s}postProcessingStep' % xmlns).find \
                 ('{%s}processingSoftware' % xmlns).find \
-                ('{%s}softwareName' % xmlns).text is not None
+                ('{%s}softwareName' % xmlns).text is not None)
         sys.stdout.write('\nsoftwareName               =   %s' % xml.find \
                         ('.//{%s}postProcessingStep' % xmlns).find \
                         ('{%s}processingSoftware' % xmlns).find \
@@ -411,9 +411,9 @@ def alto_metadata(alto, xml, xmlns):
         sys.stdout.write(
             '\nsoftwareName               =   -- NOT_DEFINED --')
     try:
-        xml.find('.//{%s}postProcessingStep' % xmlns).find \
+        xml.find(('.//{%s}postProcessingStep' % xmlns).find \
                 ('{%s}processingSoftware' % xmlns).find \
-                ('{%s}softwareVersion' % xmlns).text is not None
+                ('{%s}softwareVersion' % xmlns).text is not None)
         sys.stdout.write('\nsoftwareVersion            =   %s' % xml.find \
                         ('.//{%s}postProcessingStep' % xmlns).find \
                         ('{%s}processingSoftware' % xmlns).find \
@@ -422,9 +422,9 @@ def alto_metadata(alto, xml, xmlns):
         sys.stdout.write(
             '\nsoftwareVersion            =   -- NOT_DEFINED --')
     try:
-        xml.find('.//{%s}postProcessingStep' % xmlns).find \
+        xml.find(('.//{%s}postProcessingStep' % xmlns).find \
                 ('{%s}processingSoftware' % xmlns).find \
-                ('{%s}applicationDescription' % xmlns).text is not None
+                ('{%s}applicationDescription' % xmlns).text is not None)
         sys.stdout.write('\napplicationDescription     =   %s' % xml.find \
                         ('.//{%s}postProcessingStep' % xmlns).find \
                         ('{%s}processingSoftware' % xmlns).find \
