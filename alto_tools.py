@@ -112,7 +112,7 @@ def alto_ngrams(xml, xmlns):
     return ngrams
 
 
-def alto_transform(xml, xmlns, xsl):
+def alto_transform(xml):
     """ Transform ALTO xml with XSLT """
     xsl = open('xsl', 'r', encoding='UTF8')
     # Detect if running on Windows
@@ -444,10 +444,14 @@ def alto_metadata(xml, xmlns):
     sys.stdout.write('\n')
 
 
-def alto_query(xml, xmlns, query):
+def alto_query(xml, xmlns):
     """ Query ALTO xml file using XPath expressions """
-    query = []
-
+    query = input('Enter XPATH expression: ')
+    try:
+        result = query(xml % xmlns)
+        return result
+    except AttributeError:
+        sys.stdout.write('Not a valid XPATH expression')
 
 #  Supported XPath syntax
 #  ----------------------
@@ -650,9 +654,9 @@ def main():
                     if args.metadata:
                         alto_metadata(xml, xmlns)
                     if args.transform:
-                        alto_transform(xml, xmlns, xsl)
+                        alto_transform(xml)
                     if args.query:
-                        alto_query(xml, xmlns, query)
+                        alto_query(xml, xmlns)
                     if args.web:
                         web_app(xml)
 
