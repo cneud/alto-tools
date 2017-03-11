@@ -10,8 +10,6 @@ import xml.etree.ElementTree as ElementTree
 # import lxml.etree
 # http://lxml.de/compatibility.html
 
-import web
-
 # Define scriptName when called from Java/Jython
 scriptPath, scriptName = os.path.split(sys.argv[0])
 if len(scriptName) == 0:
@@ -451,52 +449,6 @@ def alto_query(xml, xmlns):
     except AttributeError:
         sys.stdout.write('Not a valid XPATH expression')
 
-#  Supported XPath syntax
-#  ----------------------
-#  Predicates (expressions within square brackets) must be preceded by a tag 
-#  name, an asterisk, or another predicate. 'position' predicates must be 
-#  preceded by a tag name.
-#  --------------------------------------------------------------------------
-# |        tag        |  Selects all child elements with the given tag.      |
-# |                   |  For example,'spam' selects all child elements named |
-# |                   |  'spam', and 'spam/egg' selects all grandchildren    |
-# |                   |  named 'egg' in all children named 'spam'.           |
-# |--------------------------------------------------------------------------|
-# |         *         |  Selects all child elements. For example, '*/egg'    |
-# |                   |  selects all children named 'egg'.                   |
-# |--------------------------------------------------------------------------|
-# |         .         |  Selects the current node. This is mostly useful at  |
-# |                   |  the beginning of the path, to indicate that it's a  |
-# |                   |  relative path.                                      |
-# |--------------------------------------------------------------------------|
-# |         //        |  Selects all subelements, on all levels beneath the  |
-# |                   |  current element. For example, './/egg' selects all  |
-# |                   |  egg elements in the entire tree.                    |
-# |--------------------------------------------------------------------------|
-# |         ..        |  Selects the parent element. Returns 'None' if the   | 
-# |                   |  path attempts to reach the ancestors of the start   |
-# |                   |  element (the element 'find' was called on).         |
-# |--------------------------------------------------------------------------|
-# |     [@attrib]     |  Selects all elements that have the given attribute. |
-# |--------------------------------------------------------------------------|
-# | [@attrib='value'] |  Selects all elements for which the given attribute  |
-# |                   |  has the given value. The value cannot contain       |
-# |                   |  quotes.                                             |
-# |--------------------------------------------------------------------------|
-# |       [tag]       |  Selects all elements that have a child named 'tag'. |
-# |                   |  Only immediate children are supported.              |
-# |--------------------------------------------------------------------------|
-# |    [tag='text']   |  Selects all elements that have a child named 'tag'  | 
-# |                   |  whose complete text content, including descendants, |
-# |                   |  equals the given 'text'.                            |
-# |--------------------------------------------------------------------------|
-# |     [position]    |  Selects all elements that are located at the given  |
-# |                   |  position. The position can be either an integer (1  |
-# |                   |  (1 is the first position), the expression 'last()'  |
-# |                   |  (for the last position), or a position relative to  |
-# |                   |  the last position (e.g. 'last()-1').                |
-#  --------------------------------------------------------------------------
-
 
 def write_output(alto, output, args):
     """ Write output to file(s) instead of stdout """
@@ -523,46 +475,6 @@ def write_output(alto, output, args):
             output_filename = alto.name
             sys.stdout = open(output_filename, 'w')
             return ('writing output file: ' + alto.name)
-
-
-def web_app(xml):
-    """ Simple webapp """
-    root = xml.getroot()
-    # Create a web server to serve up the requests
-    urls = (
-        '/', 'index',
-        '/elements', 'listElements',
-        '/attributes/(.*)', 'getAttributes')
-    app = web.application(urls, globals())
-    # Bind to localhost port 8888
-    app.run('0.0.0.0:8888')
-
-    class Index:
-        @staticmethod
-        def get():
-            return ('<a href="https://github.com/cneud/alto-tools">'
-                    'ALTO Tools</a>: '
-                    'simple methods to perform operations on ALTO xml files')
-
-    class ListElements:
-        @staticmethod
-        def get():
-            output = 'elements:['
-            for child in root:
-                print('child', child.tag, child.attrib)
-                output += str(child.attrib) + ','
-                output += ']'
-                return output
-
-    class GetAttributes:
-        @staticmethod
-        def get(value):
-            output = 'attributes:['
-            for child in root:
-                if child.attrib['id'] == value:
-                    output += str(child.attrib) + ','
-                    output += ']'
-                    return output
 
 
 def parse_arguments():
@@ -613,11 +525,6 @@ def parse_arguments():
                         dest='query',
                         help='query elements and attributes of the ALTO '
                              'document(s)')
-    parser.add_argument('-w', '--web',
-                        action='store_true',
-                        default=False,
-                        dest='web',
-                        help='start webapp')
     args = parser.parse_args()
     return args
 
@@ -650,8 +557,6 @@ def main():
                         alto_transform(xml)
                     if args.query:
                         alto_query(xml, xmlns)
-                    if args.web:
-                        web_app(xml)
 
 
 if __name__ == "__main__":
