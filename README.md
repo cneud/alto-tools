@@ -16,6 +16,3 @@ Planned features:
 Requirements:
 
 * [lxml](http://lxml.de/) for XPath and XSLT support
-```
-pip install lxml
-```
