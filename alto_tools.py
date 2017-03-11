@@ -6,14 +6,9 @@ import argparse
 import codecs
 import os
 import sys
-import xml.etree.ElementTree as ElementTree
-# from lxml import etree
+from lxml import etree
+# http://lxml.de/installation.html
 # http://lxml.de/compatibility.html
-
-# Define scriptName when called from Java/Jython
-scriptPath, scriptName = os.path.split(sys.argv[0])
-if len(scriptName) == 0:
-    scriptName = 'alto_tools'
 
 __version__ = '0.0.1'
 
@@ -21,8 +16,8 @@ __version__ = '0.0.1'
 def alto_parse(alto):
     """ Convert ALTO xml file to element tree """
     try:
-        xml = ElementTree.parse(alto)
-    except ElementTree.ParseError as e:
+        xml = etree.parse(alto)
+    except etree.ParseError as e:
         sys.stdout.write('\nERROR: Failed parsing "%s" - '
                          % alto.name + str(e))
     # http://lxml.de/tutorial.html#namespaces
@@ -105,32 +100,16 @@ def alto_confidence(alto, xml, xmlns):
 
 def alto_transform(xml):
     """ Transform ALTO xml with XSLT """
-    xsl = open('xsl', 'r', encoding='UTF8')
-    # Detect if running on Windows
-    if os.name == 'nt':
-        # Check if msxsl.exe is present
-        from os.path import join
-        print('Searching for XSLT processor...')
-        xsltproc = 'msxsl.exe'
-        for root, dirs, files in os.walk('C:\\'):
-            if xsltproc in files:
-                print('Found: %s' % join(root, xsltproc))
-            else:
-                print('No suitable XSLT processor found. '
-                      'Please make sure "msxsl.exe" is installed.')
-    else:
-        try:
-            from lxml import etree
-        except ImportError:
-            raise ImportError('No suitable XSLT processor found. '
-                              'Please make sure "lxml" is installed.')
     # http://lxml.de/xpathxslt.html#xslt
-    dom = ElementTree.parse(xml)
-    xslt = ElementTree.parse(xsl)
-    transform = etree.XSLT(xslt)
-    newdom = transform(dom)
-    print(ElementTree.tostring(newdom))
-
+    xsl = open('xsl', 'r', encoding='UTF8')
+    try:
+        dom = etree.parse(xml)
+        xslt = etree.parse(xsl)
+        transform = etree.XSLT(xslt)
+        newdom = transform(dom)
+        print(etree.tostring(newdom))
+    except AttributeError:
+        pass
 
 def alto_metadata(xml, xmlns):
     """ Extract metadata from ALTO xml file """
