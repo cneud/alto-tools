@@ -7,6 +7,8 @@ import codecs
 import os
 import sys
 import xml.etree.ElementTree as ElementTree
+# import lxml.etree
+# http://lxml.de/compatibility.html
 
 import web
 
@@ -25,6 +27,7 @@ def alto_parse(alto):
     except ElementTree.ParseError as e:
         sys.stdout.write('\nERROR: Failed parsing "%s" - '
                          % alto.name + str(e))
+    # http://lxml.de/tutorial.html#namespaces
     # Register ALTO namespaces
     namespace = {'alto-1': 'http://schema.ccs-gmbh.com/ALTO',
                  'alto-2': 'http://www.loc.gov/standards/alto/ns-v2#',
@@ -123,6 +126,7 @@ def alto_transform(xml):
         except ImportError:
             raise ImportError('No suitable XSLT processor found. '
                               'Please make sure "lxml" is installed.')
+    # http://lxml.de/xpathxslt.html#xslt
     dom = ElementTree.parse(xml)
     xslt = ElementTree.parse(xsl)
     transform = XSLT(xslt)
@@ -436,9 +440,13 @@ def alto_metadata(xml, xmlns):
 
 def alto_query(xml, xmlns):
     """ Query ALTO xml file using XPath expressions """
+    # http://lxml.de/xpathxslt.html#xpath
+    import lxml.etree
+
     query = input('Enter XPATH expression: ')
     try:
-        result = query(xml % xmlns)
+        result = xml.xpath(query % xmlns)
+        sys.stdout.write()
         return result
     except AttributeError:
         sys.stdout.write('Not a valid XPATH expression')
@@ -498,18 +506,23 @@ def write_output(alto, output, args):
         if args.text:
             output_filename = alto.name + '.txt'
             sys.stdout = open(output_filename, 'w')
+            return ('writing output file: ' + alto.name + '.txt')
         if args.metadata:
             output_filename = alto.name + '.md.txt'
             sys.stdout = open(output_filename, 'w')
+            return ('writing output file: ' + alto.name + '.md.txt')
         if args.graphic:
             output_filename = alto.name + '.graphic.txt'
             sys.stdout = open(output_filename, 'w')
+            return ('writing output file: ' + alto.name + '.graphic.txt')
         if args.confidence:
             output_filename = alto.name + '.conf.txt'
             sys.stdout = open(output_filename, 'w')
+            return ('writing output file: ' + alto.name + '.conf.txt')
         if args.transform:
             output_filename = alto.name
             sys.stdout = open(output_filename, 'w')
+            return ('writing output file: ' + alto.name)
 
 
 def web_app(xml):
