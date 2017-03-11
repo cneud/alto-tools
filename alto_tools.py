@@ -7,7 +7,7 @@ import codecs
 import os
 import sys
 import xml.etree.ElementTree as ElementTree
-# import lxml.etree
+# from lxml import etree
 # http://lxml.de/compatibility.html
 
 # Define scriptName when called from Java/Jython
@@ -120,14 +120,14 @@ def alto_transform(xml):
                       'Please make sure "msxsl.exe" is installed.')
     else:
         try:
-            import lxml.etree.XSLT as XSLT
+            from lxml import etree
         except ImportError:
             raise ImportError('No suitable XSLT processor found. '
                               'Please make sure "lxml" is installed.')
     # http://lxml.de/xpathxslt.html#xslt
     dom = ElementTree.parse(xml)
     xslt = ElementTree.parse(xsl)
-    transform = XSLT(xslt)
+    transform = etree.XSLT(xslt)
     newdom = transform(dom)
     print(ElementTree.tostring(newdom))
 
@@ -439,12 +439,12 @@ def alto_metadata(xml, xmlns):
 def alto_query(xml, xmlns):
     """ Query ALTO xml file using XPath expressions """
     # http://lxml.de/xpathxslt.html#xpath
-    import lxml.etree
+    from lxml import etree
 
     query = input('Enter XPATH expression: ')
     try:
-        result = xml.xpath(query % xmlns)
-        sys.stdout.write()
+        result = etree.XPath(xml, xmlns, **query)
+        sys.stdout.write(result)
         return result
     except AttributeError:
         sys.stdout.write('Not a valid XPATH expression')
@@ -458,23 +458,24 @@ def write_output(alto, output, args):
         if args.text:
             output_filename = alto.name + '.txt'
             sys.stdout = open(output_filename, 'w')
-            return ('writing output file: ' + alto.name + '.txt')
+            sys.stdout.write('writing output file: ' + alto.name + '.txt')
         if args.metadata:
             output_filename = alto.name + '.md.txt'
             sys.stdout = open(output_filename, 'w')
-            return ('writing output file: ' + alto.name + '.md.txt')
+            sys.stdout.write('writing output file: ' + alto.name + '.md.txt')
         if args.graphic:
             output_filename = alto.name + '.graphic.txt'
             sys.stdout = open(output_filename, 'w')
-            return ('writing output file: ' + alto.name + '.graphic.txt')
+            sys.stdout.write('writing output file: ' + alto.name +
+                             '.graphic.txt')
         if args.confidence:
             output_filename = alto.name + '.conf.txt'
             sys.stdout = open(output_filename, 'w')
-            return ('writing output file: ' + alto.name + '.conf.txt')
+            sys.stdout.write('writing output file: ' + alto.name + '.conf.txt')
         if args.transform:
             output_filename = alto.name
             sys.stdout = open(output_filename, 'w')
-            return ('writing output file: ' + alto.name)
+            sys.stdout.write('writing output file: ' + alto.name)
 
 
 def parse_arguments():
