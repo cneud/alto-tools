@@ -57,7 +57,6 @@ def alto_text(xml, xmlns):
             # Get value of attribute CONTENT from all String elements
             text = line.attrib.get('CONTENT') + ' '
             sys.stdout.write(text)
-            return text
 
 
 def alto_graphic(xml, xmlns):
