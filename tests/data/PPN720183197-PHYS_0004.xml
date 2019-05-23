@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<alto xmlns="http://www.loc.gov/standards/alto/ns-v3#" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.loc.gov/standards/alto/ns-v3# http://www.loc.gov/alto/v3/alto-3-0.xsd">
+	<Description>
+		<MeasurementUnit>pixel</MeasurementUnit>
+		<sourceImageInformation>
+			<fileName>			</fileName>
+		</sourceImageInformation>
+		<OCRProcessing ID="OCR_0">
+			<ocrProcessingStep>
+				<processingSoftware>
+					<softwareName>tesseract 4.1.0-rc1</softwareName>
+				</processingSoftware>
+			</ocrProcessingStep>
+		</OCRProcessing>
+	</Description>
+	<Layout>
+		<Page WIDTH="537" HEIGHT="922" PHYSICAL_IMG_NR="0" ID="page_0">
+			<PrintSpace HPOS="0" VPOS="0" WIDTH="537" HEIGHT="922">
+				<TextBlock ID="block_0" HPOS="41" VPOS="78" WIDTH="427" HEIGHT="24">
+					<TextLine ID="line_0" HPOS="41" VPOS="78" WIDTH="427" HEIGHT="24">
+						<String ID="string_0" HPOS="41" VPOS="97" WIDTH="5" HEIGHT="5" WC="0.56" CONTENT="2"/><SP WIDTH="19" VPOS="97" HPOS="46"/>
+						<String ID="string_1" HPOS="65" VPOS="78" WIDTH="53" HEIGHT="18" WC="0.90" CONTENT="Albert"/><SP WIDTH="5" VPOS="78" HPOS="118"/>
+						<String ID="string_2" HPOS="123" VPOS="78" WIDTH="54" HEIGHT="19" WC="0.95" CONTENT="Schütt,"/><SP WIDTH="5" VPOS="78" HPOS="177"/>
+						<String ID="string_3" HPOS="182" VPOS="78" WIDTH="60" HEIGHT="20" WC="0.93" CONTENT="Verlag,"/><SP WIDTH="4" VPOS="78" HPOS="242"/>
+						<String ID="string_4" HPOS="246" VPOS="78" WIDTH="94" HEIGHT="19" WC="0.69" CONTENT="Dresden-A."/><SP WIDTH="4" VPOS="78" HPOS="340"/>
+						<String ID="string_5" HPOS="344" VPOS="82" WIDTH="20" HEIGHT="17" WC="0.69" CONTENT="16,"/><SP WIDTH="6" VPOS="82" HPOS="364"/>
+						<String ID="string_6" HPOS="370" VPOS="79" WIDTH="98" HEIGHT="21" WC="0.91" CONTENT="Zöllnerpl.7."/>
+					</TextLine>
+				</TextBlock>
+				<TextBlock ID="block_1" HPOS="37" VPOS="46" WIDTH="14" HEIGHT="73">
+					<TextLine ID="line_1" HPOS="37" VPOS="46" WIDTH="14" HEIGHT="73">
+						<String ID="string_7" HPOS="37" VPOS="46" WIDTH="14" HEIGHT="73" WC="0.95" CONTENT=" "/>
+					</TextLine>
+				</TextBlock>
+				<TextBlock ID="block_2" HPOS="65" VPOS="108" WIDTH="404" HEIGHT="8">
+					<TextLine ID="line_2" HPOS="65" VPOS="108" WIDTH="404" HEIGHT="8">
+						<String ID="string_8" HPOS="65" VPOS="108" WIDTH="404" HEIGHT="8" WC="0.95" CONTENT=" "/>
+					</TextLine>
+				</TextBlock>
+				<TextBlock ID="block_3" HPOS="161" VPOS="136" WIDTH="212" HEIGHT="62">
+					<TextLine ID="line_3" HPOS="161" VPOS="136" WIDTH="212" HEIGHT="33">
+						<String ID="string_9" HPOS="161" VPOS="136" WIDTH="91" HEIGHT="33" WC="0.95" CONTENT="„Bunte"/><SP WIDTH="17" VPOS="136" HPOS="252"/>
+						<String ID="string_10" HPOS="269" VPOS="137" WIDTH="104" HEIGHT="30" WC="0.96" CONTENT="Blätter“"/>
+					</TextLine>
+					<TextLine ID="line_4" HPOS="234" VPOS="179" WIDTH="67" HEIGHT="19">
+						<String ID="string_11" HPOS="234" VPOS="179" WIDTH="67" HEIGHT="19" WC="0.91" CONTENT="Gedichte"/>
+					</TextLine>
+				</TextBlock>
+				<TextBlock ID="block_4" HPOS="256" VPOS="208" WIDTH="25" HEIGHT="10">
+					<TextLine ID="line_5" HPOS="256" VPOS="208" WIDTH="25" HEIGHT="10">
+						<String ID="string_12" HPOS="256" VPOS="208" WIDTH="25" HEIGHT="10" WC="0.96" CONTENT="von"/>
+					</TextLine>
+				</TextBlock>
+				<TextBlock ID="block_5" HPOS="164" VPOS="229" WIDTH="211" HEIGHT="22">
+					<TextLine ID="line_6" HPOS="164" VPOS="229" WIDTH="211" HEIGHT="22">
+						<String ID="string_13" HPOS="164" VPOS="229" WIDTH="30" HEIGHT="18" WC="0.96" CONTENT="Dr."/><SP WIDTH="11" VPOS="229" HPOS="194"/>
+						<String ID="string_14" HPOS="205" VPOS="230" WIDTH="72" HEIGHT="20" WC="0.96" CONTENT="Guſtav"/><SP WIDTH="14" VPOS="230" HPOS="277"/>
+						<String ID="string_15" HPOS="291" VPOS="230" WIDTH="84" HEIGHT="21" WC="0.93" CONTENT="Krüger."/>
+					</TextLine>
+				</TextBlock>
+				<TextBlock ID="block_6" HPOS="37" VPOS="266" WIDTH="57" HEIGHT="80">
+					<TextLine ID="line_7" HPOS="37" VPOS="266" WIDTH="57" HEIGHT="55">
+						<String ID="string_16" HPOS="37" VPOS="266" WIDTH="57" HEIGHT="55" WC="0.95" CONTENT="   "/>
+					</TextLine>
+					<TextLine ID="line_8" HPOS="39" VPOS="321" WIDTH="34" HEIGHT="25">
+						<String ID="string_17" HPOS="39" VPOS="321" WIDTH="34" HEIGHT="25" WC="0.95" CONTENT="  "/>
+					</TextLine>
+				</TextBlock>
+				<TextBlock ID="block_7" HPOS="81" VPOS="275" WIDTH="376" HEIGHT="19">
+					<TextLine ID="line_9" HPOS="81" VPOS="275" WIDTH="376" HEIGHT="19">
+						<String ID="string_18" HPOS="81" VPOS="275" WIDTH="56" HEIGHT="17" WC="0.96" CONTENT="Umfang"/><SP WIDTH="10" VPOS="275" HPOS="137"/>
+						<String ID="string_19" HPOS="147" VPOS="276" WIDTH="24" HEIGHT="13" WC="0.92" CONTENT="139"/><SP WIDTH="8" VPOS="276" HPOS="171"/>
+						<String ID="string_20" HPOS="179" VPOS="276" WIDTH="29" HEIGHT="17" WC="0.72" CONTENT="Bg.,"/><SP WIDTH="10" VPOS="276" HPOS="208"/>
+						<String ID="string_21" HPOS="218" VPOS="277" WIDTH="40" HEIGHT="15" WC="0.95" CONTENT="Preis"/><SP WIDTH="9" VPOS="277" HPOS="258"/>
+						<String ID="string_22" HPOS="267" VPOS="277" WIDTH="50" HEIGHT="17" WC="0.95" CONTENT="elegant"/><SP WIDTH="9" VPOS="277" HPOS="317"/>
+						<String ID="string_23" HPOS="326" VPOS="277" WIDTH="66" HEIGHT="17" WC="0.96" CONTENT="gebunden"/><SP WIDTH="8" VPOS="277" HPOS="392"/>
+						<String ID="string_24" HPOS="400" VPOS="277" WIDTH="16" HEIGHT="13" WC="0.96" CONTENT="M"/><SP WIDTH="9" VPOS="277" HPOS="416"/>
+						<String ID="string_25" HPOS="425" VPOS="277" WIDTH="32" HEIGHT="14" WC="0.94" CONTENT="3,50."/>
+					</TextLine>
+				</TextBlock>
+				<TextBlock ID="block_8" HPOS="68" VPOS="339" WIDTH="402" HEIGHT="47">
+					<TextLine ID="line_10" HPOS="68" VPOS="339" WIDTH="402" HEIGHT="22">
+						<String ID="string_26" HPOS="68" VPOS="339" WIDTH="18" HEIGHT="18" WC="0.93" CONTENT="€."/><SP WIDTH="10" VPOS="339" HPOS="86"/>
+						<String ID="string_27" HPOS="96" VPOS="339" WIDTH="21" HEIGHT="18" WC="0.95" CONTENT="A."/><SP WIDTH="9" VPOS="339" HPOS="117"/>
+						<String ID="string_28" HPOS="126" VPOS="340" WIDTH="45" HEIGHT="20" WC="0.34" CONTENT="Rohs"/><SP WIDTH="14" VPOS="340" HPOS="171"/>
+						<String ID="string_29" HPOS="185" VPOS="340" WIDTH="178" HEIGHT="21" WC="0.67" CONTENT="Verlagsbuchhandlung"/><SP WIDTH="13" VPOS="340" HPOS="363"/>
+						<String ID="string_30" HPOS="376" VPOS="341" WIDTH="25" HEIGHT="20" WC="0.96" CONTENT="(H."/><SP WIDTH="10" VPOS="341" HPOS="401"/>
+						<String ID="string_31" HPOS="411" VPOS="341" WIDTH="59" HEIGHT="20" WC="0.96" CONTENT="Ehlers)"/>
+					</TextLine>
+					<TextLine ID="line_11" HPOS="175" VPOS="366" WIDTH="188" HEIGHT="20">
+						<String ID="string_32" HPOS="175" VPOS="366" WIDTH="67" HEIGHT="17" WC="0.91" CONTENT="Dresden"/><SP WIDTH="11" VPOS="366" HPOS="242"/>
+						<String ID="string_33" HPOS="253" VPOS="366" WIDTH="31" HEIGHT="17" WC="0.96" CONTENT="und"/><SP WIDTH="11" VPOS="366" HPOS="284"/>
+						<String ID="string_34" HPOS="295" VPOS="366" WIDTH="68" HEIGHT="20" WC="0.72" CONTENT="Leipzig."/>
+					</TextLine>
+				</TextBlock>
+				<TextBlock ID="block_9" HPOS="463" VPOS="312" WIDTH="38" HEIGHT="5">
+					<TextLine ID="line_12" HPOS="463" VPOS="312" WIDTH="38" HEIGHT="5">
+						<String ID="string_35" HPOS="463" VPOS="312" WIDTH="38" HEIGHT="5" WC="0.95" CONTENT=" "/>
+					</TextLine>
+				</TextBlock>
+				<TextBlock ID="block_10" HPOS="194" VPOS="423" WIDTH="151" HEIGHT="16">
+					<TextLine ID="line_13" HPOS="194" VPOS="423" WIDTH="151" HEIGHT="16">
+						<String ID="string_36" HPOS="194" VPOS="423" WIDTH="66" HEIGHT="16" WC="0.95" CONTENT="Guſtav"/><SP WIDTH="9" VPOS="423" HPOS="260"/>
+						<String ID="string_37" HPOS="269" VPOS="423" WIDTH="76" HEIGHT="16" WC="0.96" CONTENT="Krüger:"/>
+					</TextLine>
+				</TextBlock>
+				<TextBlock ID="block_11" HPOS="127" VPOS="451" WIDTH="290" HEIGHT="35">
+					<TextLine ID="line_14" HPOS="127" VPOS="451" WIDTH="290" HEIGHT="35">
+						<String ID="string_38" HPOS="127" VPOS="451" WIDTH="54" HEIGHT="31" WC="0.96" CONTENT="Aus"/><SP WIDTH="16" VPOS="451" HPOS="181"/>
+						<String ID="string_39" HPOS="197" VPOS="454" WIDTH="84" HEIGHT="27" WC="0.96" CONTENT="meiner"/><SP WIDTH="14" VPOS="454" HPOS="281"/>
+						<String ID="string_40" HPOS="295" VPOS="452" WIDTH="122" HEIGHT="34" WC="0.96" CONTENT="Werkſtatt"/><SP WIDTH="74" VPOS="452" HPOS="417"/>
+						<String ID="string_41" HPOS="491" VPOS="451" WIDTH="5" HEIGHT="31" WC="0.72" CONTENT=":"/>
+					</TextLine>
+				</TextBlock>
+				<TextBlock ID="block_12" HPOS="146" VPOS="497" WIDTH="251" HEIGHT="45">
+					<TextLine ID="line_15" HPOS="146" VPOS="497" WIDTH="251" HEIGHT="22">
+						<String ID="string_42" HPOS="146" VPOS="497" WIDTH="10" HEIGHT="17" WC="0.90" CONTENT="1."/><SP WIDTH="8" VPOS="497" HPOS="156"/>
+						<String ID="string_43" HPOS="164" VPOS="498" WIDTH="55" HEIGHT="21" WC="0.92" CONTENT="Tages-"/><SP WIDTH="12" VPOS="498" HPOS="219"/>
+						<String ID="string_44" HPOS="231" VPOS="499" WIDTH="31" HEIGHT="17" WC="0.96" CONTENT="und"/><SP WIDTH="8" VPOS="499" HPOS="262"/>
+						<String ID="string_45" HPOS="270" VPOS="499" WIDTH="127" HEIGHT="20" WC="0.95" CONTENT="Nachtgedanken."/>
+					</TextLine>
+					<TextLine ID="line_16" HPOS="204" VPOS="528" WIDTH="140" HEIGHT="14">
+						<String ID="string_46" HPOS="204" VPOS="528" WIDTH="72" HEIGHT="14" WC="0.96" CONTENT="Gebunden"/><SP WIDTH="9" VPOS="528" HPOS="276"/>
+						<String ID="string_47" HPOS="285" VPOS="528" WIDTH="17" HEIGHT="13" WC="0.93" CONTENT="M"/><SP WIDTH="9" VPOS="528" HPOS="302"/>
+						<String ID="string_48" HPOS="311" VPOS="528" WIDTH="33" HEIGHT="12" WC="0.90" CONTENT="4.--."/>
+					</TextLine>
+				</TextBlock>
+				<TextBlock ID="block_13" HPOS="150" VPOS="576" WIDTH="247" HEIGHT="45">
+					<TextLine ID="line_17" HPOS="150" VPOS="576" WIDTH="247" HEIGHT="21">
+						<String ID="string_49" HPOS="150" VPOS="576" WIDTH="17" HEIGHT="17" WC="0.77" CONTENT="Il."/><SP WIDTH="8" VPOS="576" HPOS="167"/>
+						<String ID="string_50" HPOS="175" VPOS="577" WIDTH="67" HEIGHT="19" WC="0.95" CONTENT="Gedichte"/><SP WIDTH="11" VPOS="577" HPOS="242"/>
+						<String ID="string_51" HPOS="253" VPOS="578" WIDTH="31" HEIGHT="17" WC="0.96" CONTENT="und"/><SP WIDTH="11" VPOS="578" HPOS="284"/>
+						<String ID="string_52" HPOS="295" VPOS="578" WIDTH="102" HEIGHT="19" WC="0.95" CONTENT="Sinnſprüche."/>
+					</TextLine>
+					<TextLine ID="line_18" HPOS="203" VPOS="606" WIDTH="141" HEIGHT="15">
+						<String ID="string_53" HPOS="203" VPOS="607" WIDTH="70" HEIGHT="14" WC="0.95" CONTENT="Gebunden"/><SP WIDTH="10" VPOS="607" HPOS="273"/>
+						<String ID="string_54" HPOS="283" VPOS="606" WIDTH="18" HEIGHT="14" WC="0.93" CONTENT="M"/><SP WIDTH="9" VPOS="606" HPOS="301"/>
+						<String ID="string_55" HPOS="310" VPOS="607" WIDTH="24" HEIGHT="13" WC="0.54" CONTENT="3.-"/><SP WIDTH="6" VPOS="607" HPOS="334"/>
+						<String ID="string_56" HPOS="340" VPOS="617" WIDTH="4" HEIGHT="3" WC="0.54" CONTENT="."/>
+					</TextLine>
+				</TextBlock>
+				<TextBlock ID="block_14" HPOS="45" VPOS="400" WIDTH="28" HEIGHT="82">
+					<TextLine ID="line_19" HPOS="45" VPOS="400" WIDTH="28" HEIGHT="82">
+						<String ID="string_57" HPOS="45" VPOS="400" WIDTH="28" HEIGHT="82" WC="0.95" CONTENT=" "/>
+					</TextLine>
+				</TextBlock>
+				<TextBlock ID="block_15" HPOS="247" VPOS="642" WIDTH="51" HEIGHT="3">
+					<TextLine ID="line_20" HPOS="247" VPOS="642" WIDTH="51" HEIGHT="3">
+						<String ID="string_58" HPOS="247" VPOS="642" WIDTH="51" HEIGHT="3" WC="0.95" CONTENT=" "/>
+					</TextLine>
+				</TextBlock>
+				<TextBlock ID="block_16" HPOS="72" VPOS="677" WIDTH="402" HEIGHT="36">
+					<TextLine ID="line_21" HPOS="72" VPOS="677" WIDTH="402" HEIGHT="36">
+						<String ID="string_59" HPOS="72" VPOS="678" WIDTH="64" HEIGHT="31" WC="0.96" CONTENT="Stille"/><SP WIDTH="12" VPOS="678" HPOS="136"/>
+						<String ID="string_60" HPOS="148" VPOS="677" WIDTH="124" HEIGHT="31" WC="0.96" CONTENT="Gedanken"/><SP WIDTH="12" VPOS="677" HPOS="272"/>
+						<String ID="string_61" HPOS="284" VPOS="680" WIDTH="62" HEIGHT="28" WC="0.96" CONTENT="eines"/><SP WIDTH="10" VPOS="680" HPOS="346"/>
+						<String ID="string_62" HPOS="356" VPOS="679" WIDTH="118" HEIGHT="34" WC="0.59" CONTENT="Deutſchen"/>
+					</TextLine>
+				</TextBlock>
+				<TextBlock ID="block_17" HPOS="205" VPOS="720" WIDTH="137" HEIGHT="36">
+					<TextLine ID="line_22" HPOS="213" VPOS="720" WIDTH="123" HEIGHT="16">
+						<String ID="string_63" HPOS="213" VPOS="720" WIDTH="57" HEIGHT="16" WC="0.96" CONTENT="Geheftet"/><SP WIDTH="8" VPOS="720" HPOS="270"/>
+						<String ID="string_64" HPOS="278" VPOS="721" WIDTH="15" HEIGHT="13" WC="0.91" CONTENT="M"/><SP WIDTH="9" VPOS="721" HPOS="293"/>
+						<String ID="string_65" HPOS="302" VPOS="721" WIDTH="34" HEIGHT="13" WC="0.86" CONTENT="2.--."/>
+					</TextLine>
+					<TextLine ID="line_23" HPOS="205" VPOS="741" WIDTH="137" HEIGHT="15">
+						<String ID="string_66" HPOS="205" VPOS="741" WIDTH="71" HEIGHT="14" WC="0.96" CONTENT="Gebunden"/><SP WIDTH="8" VPOS="741" HPOS="276"/>
+						<String ID="string_67" HPOS="284" VPOS="742" WIDTH="16" HEIGHT="14" WC="0.96" CONTENT="M"/><SP WIDTH="8" VPOS="742" HPOS="300"/>
+						<String ID="string_68" HPOS="308" VPOS="743" WIDTH="34" HEIGHT="13" WC="0.87" CONTENT="2.80."/>
+					</TextLine>
+				</TextBlock>
+				<TextBlock ID="block_18" HPOS="55" VPOS="787" WIDTH="445" HEIGHT="25">
+					<TextLine ID="line_24" HPOS="55" VPOS="787" WIDTH="445" HEIGHT="25">
+						<String ID="string_69" HPOS="55" VPOS="787" WIDTH="445" HEIGHT="25" WC="0.95" CONTENT=" "/>
+					</TextLine>
+				</TextBlock>
+			</PrintSpace>
+		</Page>
+	</Layout>
+</alto>
