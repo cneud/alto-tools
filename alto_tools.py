@@ -48,16 +48,15 @@ def alto_text(xml, xmlns):
     # Make sure to use UTF-8
     if sys.stdout.encoding != 'UTF-8':
         sys.stdout = codecs.getwriter('utf-8')(sys.stdout.buffer, 'strict')
-        # Find all TextLine elements
-        for lines in xml.iterfind('.//{%s}TextLine' % xmlns):
-            # New line after every TextLine element
-            sys.stdout.write('\n')
-            # Find all String elements
-            for line in lines.findall('{%s}String' % xmlns):
-                # Get value of attribute CONTENT from all String elements
-                text = line.attrib.get('CONTENT') + ' '
-                sys.stdout.write(text)
-                return text
+    # Find all TextLine elements
+    for lines in xml.iterfind('.//{%s}TextLine' % xmlns):
+        # New line after every TextLine element
+        sys.stdout.write('\n')
+        # Find all String elements
+        for line in lines.findall('{%s}String' % xmlns):
+            # Get value of attribute CONTENT from all String elements
+            text = line.attrib.get('CONTENT') + ' '
+            sys.stdout.write(text)
 
 
 def alto_graphic(xml, xmlns):
