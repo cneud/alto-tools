@@ -508,6 +508,24 @@ def parse_arguments():
     return args
 
 
+def walker(inputs, fnfilter=lambda fn: True):
+    """
+    Returns all file names in inputs, and recursively for directories.
+
+    If an input is
+    - a file:      return as is
+    - a directory: return all files in it, recursively, filtered by fnfilter.
+    """
+    for i in inputs:
+        if os.path.isfile(i):
+            yield i
+        else:
+            for root, _, files in os.walk(i):
+                for f in files:
+                    if fnfilter(f):
+                        yield os.path.join(root, f)
+
+
 def main():
     args = parse_arguments()
     if not len(sys.argv) > 2:
@@ -515,27 +533,25 @@ def main():
         os.system('python alto_tools.py -h')
         sys.exit(-1)
     else:
-        for (root, dirs, files) in os.walk(sys.argv[1]):
-            for filename in files:
-                if filename.endswith('.xml') or filename.endswith('.alto'):
-                    alto = open(os.path.join(root, filename),
-                                'r', encoding='UTF8')
-                    try:
-                        alto, xml, xmlns = alto_parse(alto)
-                    except IndexError:
-                        pass
-                    if args.confidence:
-                        alto_confidence(alto, xml, xmlns)
-                    if args.text:
-                        alto_text(xml, xmlns)
-                    if args.graphic:
-                        alto_graphic(xml, xmlns)
-                    if args.metadata:
-                        alto_metadata(xml, xmlns)
-                    if args.transform:
-                        alto_transform(xml)
-                    if args.query:
-                        alto_query(xml, xmlns)
+        fnfilter = lambda fn: fn.endswith('.xml') or fn.endswith('.alto')
+        for filename in walker(sys.argv[1:], fnfilter):
+            alto = open(filename, 'r', encoding='UTF8')
+            try:
+                alto, xml, xmlns = alto_parse(alto)
+            except IndexError:
+                pass
+            if args.confidence:
+                alto_confidence(alto, xml, xmlns)
+            if args.text:
+                alto_text(xml, xmlns)
+            if args.graphic:
+                alto_graphic(xml, xmlns)
+            if args.metadata:
+                alto_metadata(xml, xmlns)
+            if args.transform:
+                alto_transform(xml)
+            if args.query:
+                alto_query(xml, xmlns)
 
 
 if __name__ == "__main__":
