@@ -1,8 +1,10 @@
 # alto-tools
 
+[![image](https://travis-ci.org/cneud/alto-tools.svg?branch=master)](https://travis-ci.org/cneud/alto-tools)
+
 **Warning: not fully implemented - work in progress**
 
-[Python3](https://www.python.org/) script for performing various operations on [ALTO](http://www.loc.gov/standards/alto/) files.
+> [Python3](https://www.python.org/) script for performing various operations on [ALTO](http://www.loc.gov/standards/alto/) files.
 
 Planned features:
 
