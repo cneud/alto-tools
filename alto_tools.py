@@ -527,6 +527,10 @@ def walker(inputs, fnfilter=lambda fn: True):
 
 
 def main():
+    if sys.version_info < (3, 0):
+        sys.stdout.write('Python 3 is required.\n')
+        sys.exit(-1)
+
     args = parse_arguments()
     if not len(sys.argv) > 2:
         sys.stdout.write('\nNo operation specified, ')
