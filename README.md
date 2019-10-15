@@ -8,12 +8,12 @@
 
 Planned features:
 
-* extract **OCR confidence** of the ALTO document(s)
-* extract **text** content of the ALTO document(s)
-* extract **graphical elements** of the ALTO document(s)
-* extract **metadata** of the ALTO document(s)
-* xsl **transform** ALTO document(s) to target format(s)
-* xpath **query** content of the ALTO document(s)
+- [x] extract **OCR confidence** of the ALTO document(s)
+- [x] extract **text** content of the ALTO document(s)
+- [x] extract **graphical elements** of the ALTO document(s)
+- [x] extract **metadata** of the ALTO document(s)
+- [ ] xsl **transform** ALTO document(s) to target format(s)
+- [ ] xpath **query** content of the ALTO document(s)
 
 Requirements:
 
