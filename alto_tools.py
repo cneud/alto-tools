@@ -465,6 +465,7 @@ def parse_arguments():
         prog='alto_tools.py',
         usage='python %(prog)s INPUT [options]')
     parser.add_argument('INPUT',
+                        nargs='+',
                         help='path to ALTO file or directory containing '
                              'ALTO file(s)')
     parser.add_argument('-o', '--output',
@@ -539,7 +540,7 @@ def main():
         sys.exit(-1)
     else:
         fnfilter = lambda fn: fn.endswith('.xml') or fn.endswith('.alto')
-        for filename in walker(sys.argv[1:], fnfilter):
+        for filename in walker(args.INPUT, fnfilter):
             alto = open(filename, 'r', encoding='UTF8')
             try:
                 alto, xml, xmlns = alto_parse(alto)
