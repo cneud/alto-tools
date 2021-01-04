@@ -4,6 +4,7 @@
 
 import argparse
 import codecs
+import io
 import os
 import sys
 from lxml import etree
@@ -47,7 +48,7 @@ def alto_parse(alto):
 def alto_text(xml, xmlns):
     """ Extract text content from ALTO xml file """
     # Make sure to use UTF-8
-    if sys.stdout.encoding != 'UTF-8':
+    if isinstance(sys.stdout, io.TextIOWrapper) and sys.stdout.encoding != 'UTF-8':
         sys.stdout = codecs.getwriter('utf-8')(sys.stdout.buffer, 'strict')
     # Find all TextLine elements
     for lines in xml.iterfind('.//{%s}TextLine' % xmlns):
