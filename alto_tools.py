@@ -17,15 +17,15 @@ def alto_parse(alto):
     try:
         xml = etree.parse(alto)
     except etree.ParseError as e:
-        sys.stdout.write('\nERROR: Failed parsing "%s" - '
-                         % alto.name + str(e))
+        sys.stdout.write('\nERROR: Failed parsing "%s" - ' % alto.name + str(e))
     # Register ALTO namespaces
+    # https://www.loc.gov/standards/alto/
+    # alto-bnf (unoffical) BnF ALTO dialect - for further info see
+    # http://bibnum.bnf.fr/alto_prod/documentation/alto_prod.html
     namespace = {'alto-1': 'http://schema.ccs-gmbh.com/ALTO',
                  'alto-2': 'http://www.loc.gov/standards/alto/ns-v2#',
                  'alto-3': 'http://www.loc.gov/standards/alto/ns-v3#',
                  'alto-4': 'http://www.loc.gov/standards/alto/ns-v4#',
-                 # BnF ALTO (unoffical) - for further info see
-                 # http://bibnum.bnf.fr/alto_prod/documentation/alto_prod.html
                  'alto-bnf': 'http://bibnum.bnf.fr/ns/alto_prod'}
     # Extract namespace from document root
     if 'http://' in str(xml.getroot().tag.split('}')[0].strip('{')):
@@ -35,68 +35,65 @@ def alto_parse(alto):
             ns = xml.getroot().attrib
             xmlns = str(ns).split(' ')[1].strip('}').strip("'")
         except IndexError:
-            sys.stdout.write('\nWARNING: File "%s": no namespace declaration '
-                             'found.' % alto.name)
+            sys.stdout.write('\nWARNING: File "%s": no namespace declaration found.' % alto.name)
             xmlns = 'no_namespace_found'
     if xmlns in namespace.values():
         return alto, xml, xmlns
     else:
-        sys.stdout.write('\nWARNING: File "%s": namespace is not registered.'
-                         % alto.name)
+        sys.stdout.write('\nWARNING: File "%s": namespace is not registered.' % alto.name)
 
 
 def alto_text(xml, xmlns):
     """ Extract text content from ALTO xml file """
-    # Make sure to use UTF-8
+    # Ensure use of UTF-8
     if isinstance(sys.stdout, io.TextIOWrapper) and sys.stdout.encoding != 'UTF-8':
         sys.stdout = codecs.getwriter('utf-8')(sys.stdout.buffer, 'strict')
-    # Find all TextLine elements
+    # Find all <TextLine> elements
     for lines in xml.iterfind('.//{%s}TextLine' % xmlns):
-        # New line after every TextLine element
+        # New line after every <TextLine> element
         sys.stdout.write('\n')
-        # Find all String elements
+        # Find all <String> elements
         for line in lines.findall('{%s}String' % xmlns):
-            # Get value of attribute CONTENT from all String elements
+            # Get value of attribute @CONTENT from all String elements
             text = line.attrib.get('CONTENT') + ' '
             sys.stdout.write(text)
 
 
-def alto_graphic(xml, xmlns):
-    """ Extract coordinates of illustrations from ALTO xml file """
-    # Find all GraphicalElement elements
-    for graphical in xml.iterfind('.//{%s}GraphicalElement' % xmlns):
-        # Get ID of GraphicalElement element
-        graphical_id = graphical.attrib.get('ID')
-        # Get coordinates of GraphicalElement element
-        graphical_coords = (graphical.attrib.get('HEIGHT') + ','
-                            + graphical.attrib.get('WIDTH') + ','
-                            + graphical.attrib.get('VPOS') + ','
-                            + graphical.attrib.get('HPOS'))
+def alto_illustrations(xml, xmlns):
+    """ Extract bounding boxes of illustration from ALTO xml file """
+    # Find all <Illustration> elements
+    for illustration in xml.iterfind('.//{%s}Illustration' % xmlns):
+        # Get @ID of <Illustration> element
+        illustration_id = illustration.attrib.get('ID')
+        # Get coordinates of <Illustration> element
+        illustration_coords = (illustration.attrib.get('HEIGHT') + ','
+                            + illustration.attrib.get('WIDTH') + ','
+                            + illustration.attrib.get('VPOS') + ','
+                            + illustration.attrib.get('HPOS'))
         sys.stdout.write('\n')
-        graphical_elements = graphical_id + '=' + graphical_coords
-        sys.stdout.write(graphical_elements)
+        illustrations = illustration_id + '=' + illustration_coords
+        sys.stdout.write(illustrations)
 
 
 def alto_confidence(alto, xml, xmlns):
     """ Calculate word confidence for ALTO xml file """
     score = 0
     count = 0
-    # Find all String elements
-    for elem in xml.iterfind('.//{%s}String' % xmlns):
-        # Get value of attribute WC (Word Confidence) of all String elements
-        wc = elem.attrib.get('WC')
-        # Calculate sum of all WC values as float
+    # Find all <String> elements
+    for conf in xml.iterfind('.//{%s}String' % xmlns):
+        # Get value of attribute @WC (Word Confidence) of all <String> elements
+        wc = conf.attrib.get('WC')
+        # Calculate sum of all @WC values as float
         score += float(wc)
         # Increment counter for each word
         count += 1
-        # Divide sum of WC values by number of words
-        if count > 0:
-            confidence = score / count
-            result = round(100 * confidence, 2)
-            sys.stdout.write('\nFile: %s, Confidence: %s' %
-                             (alto.name, result))
-        else:
-            sys.stdout.write('\nFile: %s, Confidence: 00.00' % alto.name)
+        # Divide sum of @WC values by number of words
+    if count > 0:
+        confidence = score / count
+        result = round(100 * confidence, 2)
+        sys.stdout.write('\nFile: %s, Confidence: %s' % (alto.name, result))
+    else:
+        sys.stdout.write('\nFile: %s, Confidence: 00.00' % alto.name)
 
 
 def write_output(alto, output, args):
@@ -108,11 +105,10 @@ def write_output(alto, output, args):
             output_filename = alto.name + '.txt'
             sys.stdout = open(output_filename, 'w')
             sys.stdout.write('writing output file: ' + alto.name + '.txt')
-        if args.graphic:
-            output_filename = alto.name + '.graphic.txt'
+        if args.illustrations:
+            output_filename = alto.name + '.img.txt'
             sys.stdout = open(output_filename, 'w')
-            sys.stdout.write('writing output file: ' + alto.name +
-                             '.graphic.txt')
+            sys.stdout.write('writing output file: ' + alto.name + '.img.txt')
         if args.confidence:
             output_filename = alto.name + '.conf.txt'
             sys.stdout = open(output_filename, 'w')
@@ -121,20 +117,17 @@ def write_output(alto, output, args):
 
 def parse_arguments():
     parser = argparse.ArgumentParser(
-        description="ALTO Tools: "
-                    "simple methods to perform operations on ALTO xml files",
+        description="ALTO Tools: simple methods to perform operations on ALTO xml files",
         add_help=True,
         prog='alto_tools.py',
         usage='python %(prog)s INPUT [options]')
     parser.add_argument('INPUT',
                         nargs='+',
-                        help='path to ALTO file or directory containing '
-                             'ALTO file(s)')
+                        help='path to ALTO file or directory containing ALTO file(s)')
     parser.add_argument('-o', '--output',
                         default='',
                         dest='output',
-                        help='path to output directory (if none specified, '
-                             'stdout is used)')
+                        help='path to output directory (if none specified, CWD is used)')
     parser.add_argument('-v', '--version',
                         action='version',
                         version=__version__,
@@ -143,19 +136,17 @@ def parse_arguments():
                         action='store_true',
                         default=False,
                         dest='confidence',
-                        help='calculate page confidence of the ALTO '
-                             'document(s)')
+                        help='calculate page confidence from ALTO file(s)')
     parser.add_argument('-t', '--text',
                         action='store_true',
                         default=False,
                         dest='text',
-                        help='extract text content of the ALTO document(s)')
-    parser.add_argument('-g', '-graphic',
+                        help='extract text content from ALTO file(s)')
+    parser.add_argument('-l', '--illustrations',
                         action='store_true',
                         default=False,
-                        dest='graphic',
-                        help='extract coordinates of graphical elements from '
-                             'the ALTO document(s)')
+                        dest='illustrations',
+                        help='extract bounding boxes of illustrations from ALTO file(s)')
     args = parser.parse_args()
     return args
 
@@ -189,9 +180,9 @@ def main():
         os.system('python alto_tools.py -h')
         sys.exit(-1)
     else:
-        fnfilter = lambda fn: fn.endswith('.xml') or fn.endswith('.alto')
-        for filename in walker(args.INPUT, fnfilter):
-            alto = open(filename, 'r', encoding='UTF8')
+        #fnfilter = lambda fn: fn.endswith('.xml') or fn.endswith('.alto')
+        #for filename in walker(args.INPUT, fnfilter):
+            alto = open((sys.argv[1]), 'r', encoding='UTF8')
             try:
                 alto, xml, xmlns = alto_parse(alto)
             except IndexError:
@@ -200,8 +191,8 @@ def main():
                 alto_confidence(alto, xml, xmlns)
             if args.text:
                 alto_text(xml, xmlns)
-            if args.graphic:
-                alto_graphic(xml, xmlns)
+            if args.illustrations:
+                alto_illustrations(xml, xmlns)
 
 
 if __name__ == "__main__":

@@ -3,7 +3,7 @@
 	<Description>
 		<MeasurementUnit>pixel</MeasurementUnit>
 		<sourceImageInformation>
-			<fileName>			</fileName>
+			<fileName></fileName>
 		</sourceImageInformation>
 		<OCRProcessing ID="OCR_0">
 			<ocrProcessingStep>
@@ -174,6 +174,8 @@
 						<String ID="string_69" HPOS="55" VPOS="787" WIDTH="445" HEIGHT="25" WC="0.95" CONTENT=" "/>
 					</TextLine>
 				</TextBlock>
+				<Illustration ID="block_19" HPOS="225" VPOS="60" WIDTH="320" HEIGHT="200"/>
+				<Illustration ID="block_20" HPOS="226" VPOS="61" WIDTH="321" HEIGHT="201"/>
 			</PrintSpace>
 		</Page>
 	</Layout>
