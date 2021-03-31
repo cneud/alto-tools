@@ -27,6 +27,8 @@ def alto_parse(alto):
                  'alto-2': 'http://www.loc.gov/standards/alto/ns-v2#',
                  'alto-3': 'http://www.loc.gov/standards/alto/ns-v3#',
                  'alto-4': 'http://www.loc.gov/standards/alto/ns-v4#',
+                 # BnF ALTO (unoffical) - for further info see
+                 # http://bibnum.bnf.fr/alto_prod/documentation/alto_prod.html
                  'alto-bnf': 'http://bibnum.bnf.fr/ns/alto_prod'}
     # Extract namespace from document root
     if 'http://' in str(xml.getroot().tag.split('}')[0].strip('{')):
