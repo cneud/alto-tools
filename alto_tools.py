@@ -7,9 +7,7 @@ import codecs
 import io
 import os
 import sys
-from lxml import etree
-# http://lxml.de/installation.html
-# http://lxml.de/compatibility.html
+import xml.etree.ElementTree as etree
 
 __version__ = '0.0.1'
 
@@ -21,7 +19,6 @@ def alto_parse(alto):
     except etree.ParseError as e:
         sys.stdout.write('\nERROR: Failed parsing "%s" - '
                          % alto.name + str(e))
-    # http://lxml.de/tutorial.html#namespaces
     # Register ALTO namespaces
     namespace = {'alto-1': 'http://schema.ccs-gmbh.com/ALTO',
                  'alto-2': 'http://www.loc.gov/standards/alto/ns-v2#',
