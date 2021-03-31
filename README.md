@@ -6,15 +6,20 @@
 
 > [Python3](https://www.python.org/) script for performing various operations on [ALTO](http://www.loc.gov/standards/alto/) files.
 
-Planned features:
-
-- [x] extract **OCR confidence** of the ALTO document(s)
-- [x] extract **text** content of the ALTO document(s)
-- [x] extract **graphical elements** of the ALTO document(s)
-- [x] extract **metadata** of the ALTO document(s)
-- [ ] xsl **transform** ALTO document(s) to target format(s)
-- [ ] xpath **query** content of the ALTO document(s)
-
-Requirements:
+## Requirements
 
 * [lxml](http://lxml.de/) for XPath and XSLT support
+
+## Usage
+
+- [x] extract **text** content from ALTO document(s)  
+`python3 alto-tools.py alto.xml -t`
+
+- [x] extract **confidence** score from ALTO document(s)  
+`python3 alto-tools.py alto.xml -c`
+
+- [x] extract **graphical elements** from ALTO document(s)  
+`python3 alto-tools.py alto.xml -g`
+
+- [ ] write **output** to file(s) - currently all output is sent to `stdout`   
+` python3 alto-tools.py alto.xml [OPTION] -o output`
