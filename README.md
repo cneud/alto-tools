@@ -8,14 +8,20 @@
 
 ## Usage
 
-- [x] extract **text** content from ALTO document(s)  
-`python3 alto-tools.py alto.xml -t`
+* extract **text** content from ALTO document(s)  
 
-- [x] extract **confidence** score from ALTO document(s)  
-`python3 alto-tools.py alto.xml -c`
+  `python3 alto-tools.py alto.xml -t`
 
-- [x] extract **graphical elements** from ALTO document(s)  
-`python3 alto-tools.py alto.xml -g`
+* extract **confidence** score from ALTO document(s)  
 
-- [ ] write **output** to file(s) - currently all output is sent to `stdout`   
-` python3 alto-tools.py alto.xml [OPTION] -o output`
+  `python3 alto-tools.py alto.xml -c`
+
+* extract **graphical elements** from ALTO document(s)  
+
+  `python3 alto-tools.py alto.xml -g`
+
+## Planned
+
+* write **output** to file(s) - currently all output is sent to `stdout`   
+
+  `python3 alto-tools.py alto.xml [OPTION] -o output`
