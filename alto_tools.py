@@ -111,10 +111,6 @@ def write_output(alto, output, args):
             output_filename = alto.name + '.txt'
             sys.stdout = open(output_filename, 'w')
             sys.stdout.write('writing output file: ' + alto.name + '.txt')
-        if args.metadata:
-            output_filename = alto.name + '.md.txt'
-            sys.stdout = open(output_filename, 'w')
-            sys.stdout.write('writing output file: ' + alto.name + '.md.txt')
         if args.graphic:
             output_filename = alto.name + '.graphic.txt'
             sys.stdout = open(output_filename, 'w')
@@ -124,10 +120,6 @@ def write_output(alto, output, args):
             output_filename = alto.name + '.conf.txt'
             sys.stdout = open(output_filename, 'w')
             sys.stdout.write('writing output file: ' + alto.name + '.conf.txt')
-        if args.transform:
-            output_filename = alto.name
-            sys.stdout = open(output_filename, 'w')
-            sys.stdout.write('writing output file: ' + alto.name)
 
 
 def parse_arguments():
