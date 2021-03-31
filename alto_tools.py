@@ -7,7 +7,7 @@ import codecs
 import io
 import os
 import sys
-import xml.etree.ElementTree as etree
+import xml.etree.ElementTree as ET
 
 __version__ = '0.0.2'
 
@@ -15,11 +15,11 @@ __version__ = '0.0.2'
 def alto_parse(alto):
     """ Convert ALTO xml file to element tree """
     try:
-        xml = etree.parse(alto)
-    except etree.ParseError as e:
+        xml = ET.parse(alto)
+    except ET.ParseError as e:
         sys.stdout.write('\nERROR: Failed parsing "%s" - ' % alto.name + str(e))
     # Register ALTO namespaces
-    # https://www.loc.gov/standards/alto/
+    # https://www.loc.gov/standards/alto/ | https://github.com/altoxml
     # alto-bnf (unoffical) BnF ALTO dialect - for further info see
     # http://bibnum.bnf.fr/alto_prod/documentation/alto_prod.html
     namespace = {'alto-1': 'http://schema.ccs-gmbh.com/ALTO',
@@ -123,7 +123,7 @@ def parse_arguments():
         usage='python %(prog)s INPUT [options]')
     parser.add_argument('INPUT',
                         nargs='+',
-                        help='path to ALTO file or directory containing ALTO file(s)')
+                        help='path to ALTO file')
     parser.add_argument('-o', '--output',
                         default='',
                         dest='output',
@@ -136,17 +136,17 @@ def parse_arguments():
                         action='store_true',
                         default=False,
                         dest='confidence',
-                        help='calculate page confidence from ALTO file(s)')
+                        help='calculate OCR page confidence from ALTO file')
     parser.add_argument('-t', '--text',
                         action='store_true',
                         default=False,
                         dest='text',
-                        help='extract text content from ALTO file(s)')
+                        help='extract text content from ALTO file')
     parser.add_argument('-l', '--illustrations',
                         action='store_true',
                         default=False,
                         dest='illustrations',
-                        help='extract bounding boxes of illustrations from ALTO file(s)')
+                        help='extract bounding boxes of illustrations from ALTO file')
     args = parser.parse_args()
     return args
 
