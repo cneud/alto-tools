@@ -9,7 +9,7 @@ import os
 import sys
 import xml.etree.ElementTree as etree
 
-__version__ = '0.0.1'
+__version__ = '0.0.2'
 
 
 def alto_parse(alto):
