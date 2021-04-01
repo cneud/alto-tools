@@ -54,8 +54,15 @@ def alto_text(xml, xmlns):
         sys.stdout.write('\n')
         # Find all <String> elements
         for line in lines.findall('{%s}String' % xmlns):
+            # Check if there are no hyphenated words
+            if ('SUBS_CONTENT' not in line.attrib and 'SUBS_TYPE' not in line.attrib):
             # Get value of attribute @CONTENT from all <String> elements
-            text = line.attrib.get('CONTENT') + ' '
+                text = line.attrib.get('CONTENT') + ' '
+            else:
+                if ('HypPart1' in line.attrib.get('SUBS_TYPE')):
+                    text = line.attrib.get('SUBS_CONTENT') + ' '
+                    if ('HypPart2' in line.attrib.get('SUBS_TYPE')):
+                        pass
             sys.stdout.write(text)
 
 
