@@ -35,12 +35,12 @@ def alto_parse(alto):
             ns = xml.getroot().attrib
             xmlns = str(ns).split(' ')[1].strip('}').strip("'")
         except IndexError:
-            sys.stdout.write('\nWARNING: File "%s": no namespace declaration found.' % alto.name)
+            sys.stderr.write('\nERROR: File "%s": no namespace declaration found.' % alto.name)
             xmlns = 'no_namespace_found'
     if xmlns in namespace.values():
         return alto, xml, xmlns
     else:
-        sys.stdout.write('\nWARNING: File "%s": namespace is not registered.' % alto.name)
+        sys.stdout.write('\nERROR: File "%s": namespace %s is not registered.\n' % (alto.name, xmlns))
 
 
 def alto_text(xml, xmlns):
@@ -54,7 +54,7 @@ def alto_text(xml, xmlns):
         sys.stdout.write('\n')
         # Find all <String> elements
         for line in lines.findall('{%s}String' % xmlns):
-            # Get value of attribute @CONTENT from all String elements
+            # Get value of attribute @CONTENT from all <String> elements
             text = line.attrib.get('CONTENT') + ' '
             sys.stdout.write(text)
 
