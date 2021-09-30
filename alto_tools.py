@@ -6,16 +6,17 @@ import argparse
 import codecs
 import io
 import os
+import re
 import sys
 import xml.etree.ElementTree as ET
 
 __version__ = '0.0.2'
 
 
-def alto_parse(alto):
+def alto_parse(alto, **kargs):
     """ Convert ALTO xml file to element tree """
     try:
-        xml = ET.parse(alto)
+        xml = ET.parse(alto, **kargs)
     except ET.ParseError as e:
         sys.stdout.write('\nERROR: Failed parsing "%s" - ' % alto.name + str(e))
     # Register ALTO namespaces
@@ -154,6 +155,14 @@ def parse_arguments():
                         default=False,
                         dest='illustrations',
                         help='extract bounding boxes of illustrations from ALTO file')
+    parser.add_argument('-E', '--xml-encoding',
+                        dest='xml_encoding',
+                        default=None,
+                        help='XML encoding')
+    parser.add_argument('--file-encoding',
+                        dest='file_encoding',
+                        default='UTF-8',
+                        help='File encoding')
     args = parser.parse_args()
     return args
 
@@ -187,13 +196,25 @@ def main():
         os.system('python alto_tools.py -h')
         sys.exit(-1)
     else:
-        #fnfilter = lambda fn: fn.endswith('.xml') or fn.endswith('.alto')
-        #for filename in walker(args.INPUT, fnfilter):
-            alto = open((sys.argv[1]), 'r', encoding='UTF8')
+        fnfilter = lambda fn: fn.endswith('.xml') or fn.endswith('.alto')
+        for filename in walker(args.INPUT, fnfilter):
             try:
-                alto, xml, xmlns = alto_parse(alto)
+                if args.xml_encoding:
+                    xml_encoding = args.xml_encoding
+                    if xml_encoding == 'auto':
+                        with open(filename, 'rb') as f:
+                            m = re.search('encoding="(.*?)"', f.read(45).decode('utf-8'))
+                            xml_encoding = m.group(1)
+                    xmlp = ET.XMLParser(encoding=xml_encoding)
+                    alto, xml, xmlns = alto_parse(filename, parser = xmlp)
+                else:
+                    with open(filename, 'r',  encoding=args.file_encoding) as alto:
+                        alto, xml, xmlns = alto_parse(alto)
             except IndexError:
-                pass
+                continue
+            except ET.ParseError as e:
+                print("Error parsing %s" % filename, file=sys.stderr)
+                raise(e)
             if args.confidence:
                 alto_confidence(alto, xml, xmlns)
             if args.text:
