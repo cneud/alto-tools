@@ -18,7 +18,7 @@ def alto_parse(alto, **kargs):
     try:
         xml = ET.parse(alto, **kargs)
     except ET.ParseError as e:
-        sys.stdout.write('\nERROR: Failed parsing "%s" - ' % alto.name + str(e))
+        print(f"Parser Error in file '{alto}': {e}")
     # Register ALTO namespaces
     # https://www.loc.gov/standards/alto/ | https://github.com/altoxml
     # alto-bnf (unoffical) BnF ALTO dialect - for further info see
@@ -36,12 +36,13 @@ def alto_parse(alto, **kargs):
             ns = xml.getroot().attrib
             xmlns = str(ns).split(' ')[1].strip('}').strip("'")
         except IndexError:
-            sys.stderr.write('\nERROR: File "%s": no namespace declaration found.' % alto.name)
+            sys.stderr.write(
+                f'\nERROR: File "{alto.name}": no namespace declaration found.')
             xmlns = 'no_namespace_found'
     if xmlns in namespace.values():
         return alto, xml, xmlns
     else:
-        sys.stdout.write('\nERROR: File "%s": namespace %s is not registered.\n' % (alto.name, xmlns))
+        sys.stdout.write(f'\nERROR: File "{alto.name}": namespace {xmlns} is not registered.\n')
 
 
 def alto_text(xml, xmlns):
@@ -92,16 +93,19 @@ def alto_confidence(alto, xml, xmlns):
         # Get value of attribute @WC (Word Confidence) of all <String> elements
         wc = conf.attrib.get('WC')
         # Calculate sum of all @WC values as float
-        score += float(wc)
-        # Increment counter for each word
-        count += 1
-        # Divide sum of @WC values by number of words
+        if wc is not None:
+            score += float(wc)
+            # Increment counter for each word
+            count += 1
+    # Divide sum of @WC values by number of words
     if count > 0:
         confidence = score / count
         result = round(100 * confidence, 2)
-        sys.stdout.write('\nFile: %s, Confidence: %s' % (alto.name, result))
+        sys.stdout.write(f'\nFile: {alto.name}, Confidence: {result}')
+        return result
     else:
-        sys.stdout.write('\nFile: %s, Confidence: 00.00' % alto.name)
+        sys.stdout.write(f'\nFile: {alto.name}, Confidence: 00.00')
+        return 0
 
 
 def write_output(alto, output, args):
@@ -197,6 +201,7 @@ def main():
         sys.exit(-1)
     else:
         fnfilter = lambda fn: fn.endswith('.xml') or fn.endswith('.alto')
+        confidence_sum = 0
         for filename in walker(args.INPUT, fnfilter):
             try:
                 if args.xml_encoding:
@@ -216,12 +221,15 @@ def main():
                 print("Error parsing %s" % filename, file=sys.stderr)
                 raise(e)
             if args.confidence:
-                alto_confidence(alto, xml, xmlns)
+                confidence_sum += alto_confidence(alto, xml, xmlns)
             if args.text:
                 alto_text(xml, xmlns)
             if args.illustrations:
                 alto_illustrations(xml, xmlns)
-
+        number_of_files = len(list(walker(args.INPUT, fnfilter)))
+        if number_of_files >= 2:
+            print(
+                f"\n\nConfidence of folder: {round(confidence_sum/number_of_files, 2)}")
 
 if __name__ == "__main__":
     main()
