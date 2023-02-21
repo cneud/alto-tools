@@ -21,7 +21,7 @@ def alto_parse(alto, **kargs):
         print(f"Parser Error in file '{alto}': {e}")
     # Register ALTO namespaces
     # https://www.loc.gov/standards/alto/ | https://github.com/altoxml
-    # alto-bnf (unoffical) BnF ALTO dialect - for further info see
+    # alto-bnf (unofficial) BnF ALTO dialect - for further info see
     # http://bibnum.bnf.fr/alto_prod/documentation/alto_prod.html
     namespace = {'alto-1': 'http://schema.ccs-gmbh.com/ALTO',
                  'alto-2': 'http://www.loc.gov/standards/alto/ns-v2#',
