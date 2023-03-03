@@ -1,7 +1,5 @@
 # alto-tools
 
-[![image](https://travis-ci.org/cneud/alto-tools.svg?branch=master)](https://travis-ci.org/cneud/alto-tools)
-
 > [Python3](https://www.python.org/) script for performing various operations on [ALTO](http://www.loc.gov/standards/alto/) files.
 
 ## Usage
