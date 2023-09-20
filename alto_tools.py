@@ -61,10 +61,16 @@ def alto_text(xml, xmlns):
             # Get value of attribute @CONTENT from all <String> elements
                 text = line.attrib.get('CONTENT') + ' '
             else:
+                #  Handling of hyphenation to avoid duplicates, see
+                #  https://github.com/cneud/alto-tools/issues/16
                 if ('HypPart1' in line.attrib.get('SUBS_TYPE')):
-                    text = line.attrib.get('SUBS_CONTENT') + ' '
+                    # Get the first part of the hyphenated word from @CONTENT 
+                    # (instead of using @SUBS_CONTENT)
+                    if ('HypPart1' in line.attrib.get('SUBS_TYPE')):
+                        text = line.attrib.get('CONTENT')
+                    # Concatenate second part of the hyphenated word from @CONTENT
                     if ('HypPart2' in line.attrib.get('SUBS_TYPE')):
-                        pass
+                        text = line.attrib.get('CONTENT') + ' '
             sys.stdout.write(text)
 
 
