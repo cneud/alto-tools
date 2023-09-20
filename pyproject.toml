@@ -1,0 +1,29 @@
+[project]
+name = "alto-tools"
+authors = "Clemens Neudecker"
+description = "Perform various operations on ALTO files"
+readme = "README.md"
+requires-python = ">=3.7"
+keywords = ["optical character recognition", "digital libraries"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Console",
+    "Intended Audience :: Science/Research",
+    "Intended Audience :: Other Audience",
+    "License :: OSI Approved :: Apache Software License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Topic :: Scientific/Engineering :: Information Analysis",
+    "Topic :: Text Processing",
+]
+dependencies = [
+    # nothing yet
+]
+dynamic = ["version"]
+
+[project.scripts]
+alto-tools = "alto_tools:main"
+
+[project.urls]
+Homepage = "https://github.com/cneud/alto-tools"
+Repository = "https://github.com/cneud/alto-tools.git"
