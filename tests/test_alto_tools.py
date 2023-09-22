@@ -10,7 +10,7 @@ import re
 import tempfile
 
 
-import alto_tools
+from ../src/alto_tools import alto_tools
 
 
 datadir = os.path.join(str(Path(__file__).resolve().parent), 'data')
