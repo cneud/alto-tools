@@ -1,6 +1,6 @@
 # alto-tools
 
-> [Python3](https://www.python.org/) tools for performing various operations on [ALTO](http://www.loc.gov/standards/alto/) XML files
+> simple, fast [Python3](https://www.python.org/) tools for performing various operations on [ALTO](http://www.loc.gov/standards/alto/) XML files
 
 ## Installation
 
@@ -26,7 +26,7 @@ Extract OCR confidence score from ALTO file
 alto-tools alto.xml -c
 ```
 
-Extract bounding boxes of illustrations from ALTO file
+Extract bounding boxes of image regions from ALTO file
 
 ```bash
 alto-tools alto.xml -l
