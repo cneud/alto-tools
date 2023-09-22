@@ -1,6 +1,9 @@
 # alto-tools
-
 > simple, fast [Python3](https://www.python.org/) tools for performing various operations on [ALTO](http://www.loc.gov/standards/alto/) XML files
+
+<!-- [![PyPI Version](https://img.shields.io/pypi/v/alto-tools.svg)](https://pypi.org/project/alto-tools/) -->
+[![GH Actions Test](https://github.com/cneud/alto-tools/actions/workflows/tests.yml/badge.svg)](https://github.com/cneud/alto-tools/actions/workflows/tests.yml)
+[![License: ASL](https://img.shields.io/github/license/cneud/alto-tools)](https://opensource.org/license/apache-2-0/)
 
 ## Installation
 
