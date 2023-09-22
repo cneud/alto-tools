@@ -1,6 +1,13 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
 [project]
 name = "alto-tools"
-authors = "Clemens Neudecker"
+version = "0.0.3"
+authors = [
+    {name = "Clemens Neudecker"}
+]
 description = "Perform various operations on ALTO files"
 readme = "README.md"
 requires-python = ">=3.7"
@@ -17,12 +24,11 @@ classifiers = [
     "Topic :: Text Processing",
 ]
 dependencies = [
-    # nothing yet
+    # none
 ]
-dynamic = ["version"]
 
 [project.scripts]
-alto-tools = "alto_tools:main"
+alto-tools = "alto_tools.alto_tools:main"
 
 [project.urls]
 Homepage = "https://github.com/cneud/alto-tools"

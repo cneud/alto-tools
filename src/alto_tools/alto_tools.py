@@ -10,7 +10,7 @@ import re
 import sys
 import xml.etree.ElementTree as ET
 
-__version__ = '0.0.2'
+__version__ = '0.0.3'
 
 
 def alto_parse(alto, **kargs):
