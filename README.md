@@ -12,7 +12,7 @@
 
 ## Installation
 
-Clone the repository and run
+Clone the repository, enter it and run
 
 ```bash
 pip install .
