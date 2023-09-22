@@ -8,7 +8,7 @@ version = "0.0.3"
 authors = [
     {name = "Clemens Neudecker"}
 ]
-description = "Perform various operations on ALTO files"
+description = "Perform various operations on ALTO xml files"
 readme = "README.md"
 requires-python = ">=3.7"
 keywords = ["optical character recognition", "digital libraries"]
