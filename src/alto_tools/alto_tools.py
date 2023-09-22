@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-""" alto_tools.py: simple methods to perform operations on ALTO xml files """
+""" alto-tools: simple tools for performing various operations on ALTO xml files """
 
 import argparse
 import codecs
@@ -79,7 +79,7 @@ def alto_text(xml, xmlns):
 
 
 def alto_illustrations(xml, xmlns):
-    """ Extract bounding boxes of illustration from ALTO xml file """
+    """ Extract bounding box coordinates of illustration regions from ALTO xml file """
     # Find all <Illustration> elements
     for illustration in xml.iterfind('.//{%s}Illustration' % xmlns):
         # Get @ID of <Illustration> element
@@ -95,7 +95,7 @@ def alto_illustrations(xml, xmlns):
 
 
 def alto_confidence(alto, xml, xmlns):
-    """ Calculate word confidence for ALTO xml file """
+    """ Calculate word confidence score for ALTO xml file """
     score = 0
     count = 0
     # Find all <String> elements
@@ -118,25 +118,6 @@ def alto_confidence(alto, xml, xmlns):
         return 0
 
 
-def write_output(alto, output, args):
-    """ Write output to file(s) instead of stdout """
-    if len(output) == 0:
-        sys.stdout.write()
-    else:
-        if args.text:
-            output_filename = alto.name + '.txt'
-            sys.stdout = open(output_filename, 'w')
-            sys.stdout.write('writing output file: ' + alto.name + '.txt')
-        if args.illustrations:
-            output_filename = alto.name + '.img.txt'
-            sys.stdout = open(output_filename, 'w')
-            sys.stdout.write('writing output file: ' + alto.name + '.img.txt')
-        if args.confidence:
-            output_filename = alto.name + '.conf.txt'
-            sys.stdout = open(output_filename, 'w')
-            sys.stdout.write('writing output file: ' + alto.name + '.conf.txt')
-
-
 def parse_arguments():
     parser = argparse.ArgumentParser(
         description="ALTO Tools: simple methods to perform operations on ALTO xml files",
@@ -146,10 +127,6 @@ def parse_arguments():
     parser.add_argument('INPUT',
                         nargs='+',
                         help='path to ALTO file')
-    parser.add_argument('-o', '--output',
-                        default='',
-                        dest='output',
-                        help='path to output directory (if none specified, CWD is used)')
     parser.add_argument('-v', '--version',
                         action='version',
                         version=__version__,
@@ -158,17 +135,17 @@ def parse_arguments():
                         action='store_true',
                         default=False,
                         dest='confidence',
-                        help='calculate OCR page confidence from ALTO file')
+                        help='extract OCR confidence score from ALTO file')
     parser.add_argument('-t', '--text',
                         action='store_true',
                         default=False,
                         dest='text',
-                        help='extract text content from ALTO file')
+                        help='extract UTF8-encoded text content from ALTO file')
     parser.add_argument('-l', '--illustrations',
                         action='store_true',
                         default=False,
                         dest='illustrations',
-                        help='extract bounding boxes of illustrations from ALTO file')
+                        help='extract bounding box coordinates of illustrations from ALTO file')
     parser.add_argument('-E', '--xml-encoding',
                         dest='xml_encoding',
                         default=None,
@@ -238,8 +215,9 @@ def main():
                 alto_illustrations(xml, xmlns)
         number_of_files = len(list(walker(args.INPUT, fnfilter)))
         if number_of_files >= 2:
-            print(
-                f"\n\nConfidence of folder: {round(confidence_sum/number_of_files, 2)}")
+            if args.confidence:
+                print(
+                    f"\n\nConfidence of folder: {round(confidence_sum/number_of_files, 2)}")
 
 if __name__ == "__main__":
     main()
