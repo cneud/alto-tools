@@ -24,9 +24,13 @@ def alto_parse(alto, **kargs):
     # alto-bnf (unofficial) BnF ALTO dialect - for further info see
     # http://bibnum.bnf.fr/alto_prod/documentation/alto_prod.html
     namespace = {'alto-1': 'http://schema.ccs-gmbh.com/ALTO',
+                 'alto-1-xsd': 'http://schema.ccs-gmbh.com/ALTO/alto-1-4.xsd',
                  'alto-2': 'http://www.loc.gov/standards/alto/ns-v2#',
+                 'alto-2-xsd': 'https://www.loc.gov/standards/alto/alto.xsd',
                  'alto-3': 'http://www.loc.gov/standards/alto/ns-v3#',
+                 'alto-3-xsd': 'http://www.loc.gov/standards/alto/v3/alto.xsd',
                  'alto-4': 'http://www.loc.gov/standards/alto/ns-v4#',
+                 'alto-4-xsd': 'http://www.loc.gov/standards/alto/v4/alto.xsd',
                  'alto-bnf': 'http://bibnum.bnf.fr/ns/alto_prod'}
     # Extract namespace from document root
     if 'http://' in str(xml.getroot().tag.split('}')[0].strip('{')):
