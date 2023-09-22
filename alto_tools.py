@@ -30,7 +30,7 @@ def alto_parse(alto, **kargs):
                  'alto-3': 'http://www.loc.gov/standards/alto/ns-v3#',
                  'alto-3-xsd': 'http://www.loc.gov/standards/alto/v3/alto.xsd',
                  'alto-4': 'http://www.loc.gov/standards/alto/ns-v4#',
-                 'alto-4-xsd': 'https://www.loc.gov/standards/alto/v4/alto.xsd',
+                 'alto-4-xsd': 'http://www.loc.gov/standards/alto/v4/alto.xsd',
                  'alto-bnf': 'http://bibnum.bnf.fr/ns/alto_prod'}
     # Extract namespace from document root
     if 'http://' in str(xml.getroot().tag.split('}')[0].strip('{')):
