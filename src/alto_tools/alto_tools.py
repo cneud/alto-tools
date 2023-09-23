@@ -78,7 +78,7 @@ def alto_text(xml, xmlns):
             sys.stdout.write(text)
 
 
-def alto_illustrations(xml, xmlns):
+def alto_illustrations(alto, xml, xmlns):
     """ Extract bounding box coordinates of illustration regions from ALTO xml file """
     # Find all <Illustration> elements
     for illustration in xml.iterfind('.//{%s}Illustration' % xmlns):
@@ -89,13 +89,27 @@ def alto_illustrations(xml, xmlns):
                             + illustration.attrib.get('WIDTH') + ','
                             + illustration.attrib.get('VPOS') + ','
                             + illustration.attrib.get('HPOS'))
-        sys.stdout.write('\n')
         illustrations = illustration_id + '=' + illustration_coords
-        sys.stdout.write(illustrations)
+        sys.stdout.write(f'\nFile: {alto.name}, Illustration: {illustrations}')
+
+
+def alto_graphics(alto, xml, xmlns):
+    """ Extract bounding box coordinates of graphical elements from ALTO xml file """
+    # Find all <GraphicalElement> elements
+    for graphic in xml.iterfind('.//{%s}GraphicalElement' % xmlns):
+        # Get @ID of <GraphicalElement> element
+        graphic_id = graphic.attrib.get('ID')
+        # Get coordinates of <GraphicalElement> element
+        graphic_coords = (graphic.attrib.get('HEIGHT') + ','
+                       + graphic.attrib.get('WIDTH') + ','
+                       + graphic.attrib.get('VPOS') + ','
+                       + graphic.attrib.get('HPOS'))
+        graphics = graphic_id + '=' + graphic_coords
+        sys.stdout.write(f'\nFile: {alto.name}, GraphicalElement: {graphics}')
 
 
 def alto_confidence(alto, xml, xmlns):
-    """ Calculate word confidence score for ALTO xml file """
+    """ Calculate mean word confidence score for ALTO xml file """
     score = 0
     count = 0
     # Find all <String> elements
@@ -123,36 +137,42 @@ def parse_arguments():
         description="ALTO Tools: simple tools for performing various operations on ALTO xml files",
         add_help=True,
         prog='alto_tools.py',
-        usage='python %(prog)s INPUT [options]')
+        usage='python %(prog)s INPUT [option]')
     parser.add_argument('INPUT',
                         nargs='+',
-                        help='path to ALTO file')
-    parser.add_argument('-v', '--version',
+                        help='path to ALTO file or directory containing ALTO files')
+    g = parser.add_mutually_exclusive_group()
+    g.add_argument('-v', '--version',
                         action='version',
                         version=__version__,
                         help='show version number and exit')
-    parser.add_argument('-c', '--confidence',
-                        action='store_true',
+    g.add_argument('-c', '--confidence',
+                        action="store_true",
                         default=False,
                         dest='confidence',
-                        help='extract OCR confidence score from ALTO file')
-    parser.add_argument('-t', '--text',
-                        action='store_true',
+                        help='extract mean OCR word confidence score')
+    g.add_argument('-t', '--text',
+                        action="store_true",
                         default=False,
                         dest='text',
-                        help='extract UTF8-encoded text content from ALTO file')
-    parser.add_argument('-l', '--illustrations',
-                        action='store_true',
+                        help='extract UTF8-encoded text content')
+    g.add_argument('-i', '--illustrations',
+                        action="store_true",
                         default=False,
                         dest='illustrations',
-                        help='extract bounding box coordinates of illustrations from ALTO file')
+                        help='extract bounding boxes of illustrations')
+    g.add_argument('-g', '--graphics',
+                        action="store_true",
+                        default=False,
+                        dest='graphics',
+                        help='extract bounding boxes of graphical elements')
     parser.add_argument('-x', '--xml-encoding',
-                        action='store_true',
+                        action="store_true",
                         default=None,
                         dest='xml_encoding',
                         help='XML encoding')
     parser.add_argument('-e', '--file-encoding',
-                        action='store_true',
+                        action="store_true",
                         default='UTF-8',
                         dest='file_encoding',
                         help='file encoding')
@@ -214,7 +234,9 @@ def main():
             if args.text:
                 alto_text(xml, xmlns)
             if args.illustrations:
-                alto_illustrations(xml, xmlns)
+                alto_illustrations(alto, xml, xmlns)
+            if args.graphics:
+                alto_graphics(alto, xml, xmlns)
         number_of_files = len(list(walker(args.INPUT, fnfilter)))
         if number_of_files >= 2:
             if args.confidence:

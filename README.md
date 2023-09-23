@@ -1,4 +1,4 @@
-<h3 align="center">alto-tools</h3>
+<h3 align="center">ALTO Tools</h3>
 <p align="center">
   <a href="https://www.python.org/">:snake:</a> tools for performing various operations on <a href="http://www.loc.gov/standards/alto/">ALTO</a> XML files
 </p>
@@ -20,22 +20,17 @@ pip install .
 
 ## Usage
 
-Extract text content from ALTO file
-
 ```bash
-alto-tools alto.xml -t
+alto-tools <INPUT> [OPTION] 
 ```
 
-Extract OCR confidence score from ALTO file
+`INPUT` should be the path to an ALTO file or directory containing ALTO files.
 
-```bash
-alto-tools alto.xml -c
-```
+Output is sent to `stdout`.
 
-Extract bounding boxes of image regions from ALTO file
-
-```bash
-alto-tools alto.xml -l
-```
-
-All output is sent to `stdout`.
+| OPTION | Description |
+|--------|:------------|
+| `-t` `--text`  | Extract UTF-8 encoded text content |
+| `-c` `--confidence`  | Extract mean OCR word confidence score |
+| `-i` `--illustrations`  | Extract bounding box coordinates of `<Illustration>` elements |
+| `-g` `--graphical-elements`  | Extract bounding box coordinates of `<GraphicalElement>` elements |
