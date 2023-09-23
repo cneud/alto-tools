@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-""" alto-tools: simple tools for performing various operations on ALTO xml files """
+""" ALTO Tools: simple tools for performing various operations on ALTO xml files """
 
 import argparse
 import codecs
@@ -10,7 +10,7 @@ import re
 import sys
 import xml.etree.ElementTree as ET
 
-__version__ = '0.0.3'
+__version__ = '0.1.0'
 
 
 def alto_parse(alto, **kargs):
@@ -120,7 +120,7 @@ def alto_confidence(alto, xml, xmlns):
 
 def parse_arguments():
     parser = argparse.ArgumentParser(
-        description="ALTO Tools: simple methods to perform operations on ALTO xml files",
+        description="ALTO Tools: simple tools for performing various operations on ALTO xml files",
         add_help=True,
         prog='alto_tools.py',
         usage='python %(prog)s INPUT [options]')
@@ -146,14 +146,16 @@ def parse_arguments():
                         default=False,
                         dest='illustrations',
                         help='extract bounding box coordinates of illustrations from ALTO file')
-    parser.add_argument('-E', '--xml-encoding',
-                        dest='xml_encoding',
+    parser.add_argument('-x', '--xml-encoding',
+                        action='store_true',
                         default=None,
+                        dest='xml_encoding',
                         help='XML encoding')
-    parser.add_argument('--file-encoding',
-                        dest='file_encoding',
+    parser.add_argument('-e', '--file-encoding',
+                        action='store_true',
                         default='UTF-8',
-                        help='File encoding')
+                        dest='file_encoding',
+                        help='file encoding')
     args = parser.parse_args()
     return args
 
