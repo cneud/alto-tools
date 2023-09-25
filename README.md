@@ -33,4 +33,4 @@ Output is sent to `stdout`.
 | `-t` `--text`  | Extract UTF-8 encoded text content |
 | `-c` `--confidence`  | Extract mean OCR word confidence score |
 | `-i` `--illustrations`  | Extract bounding box coordinates of `<Illustration>` elements |
-| `-g` `--graphical-elements`  | Extract bounding box coordinates of `<GraphicalElement>` elements |
+| `-g` `--graphics`  | Extract bounding box coordinates of `<GraphicalElement>` elements |
