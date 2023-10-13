@@ -35,9 +35,9 @@ alto-tools <INPUT> [OPTION]
 
 Output is sent to `stdout`.
 
-| OPTION | Description |
-|--------|:------------|
-| `-t` `--text`  | Extract UTF-8 encoded text content |
-| `-c` `--confidence`  | Extract mean OCR word confidence score |
-| `-i` `--illustrations`  | Extract bounding box coordinates of `<Illustration>` elements |
-| `-g` `--graphics`  | Extract bounding box coordinates of `<GraphicalElement>` elements |
+| OPTION                 | Description                                                       |
+|------------------------|:------------------------------------------------------------------|
+| `-t` `--text`          | Extract UTF-8 encoded text content                                |
+| `-c` `--confidence`    | Extract mean OCR word confidence score                            |
+| `-i` `--illustrations` | Extract bounding box coordinates of `<Illustration>` elements     |
+| `-g` `--graphics`      | Extract bounding box coordinates of `<GraphicalElement>` elements |

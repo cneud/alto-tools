@@ -267,7 +267,7 @@ def main():
                 continue
             except ET.ParseError as e:
                 print("Error parsing %s" % filename, file=sys.stderr)
-                raise (e)
+                raise e
             if args.confidence:
                 confidence_sum += alto_confidence(alto, xml, xmlns)
             if args.text:
@@ -280,7 +280,7 @@ def main():
         if number_of_files >= 2:
             if args.confidence:
                 print(
-                    f"\n\nConfidence of folder: {round(confidence_sum/number_of_files, 2)}"
+                    f"\n\nConfidence of folder: {round(confidence_sum / number_of_files, 2)}"
                 )
 
 
