@@ -1,6 +1,6 @@
 <h3 align="center">ALTO Tools</h3>
 <p align="center">
-  <a href="https://www.python.org/">:snake:</a> tools for performing various operations on <a href="http://www.loc.gov/standards/alto/">ALTO</a> XML files
+  <a href="https://www.python.org/">Python</a> tools for performing various operations on <a href="http://www.loc.gov/standards/alto/">ALTO</a> XML files
 </p>
 <p align="center">
   <a href="https://www.python.org/downloads/"><img src="https://img.shields.io/badge/python-3.8+-blue.svg" title="Python Version"></a>
