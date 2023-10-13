@@ -33,7 +33,7 @@ alto-tools <INPUT> [OPTION]
 
 `INPUT` should be the path to an ALTO xml file or directory containing ALTO xml files.
 
-Output is sent to `stdout`.
+The following `OPTIONS` are currently supported:
 
 | OPTION                 | Description                                                       |
 |------------------------|:------------------------------------------------------------------|
@@ -41,3 +41,6 @@ Output is sent to `stdout`.
 | `-c` `--confidence`    | Extract mean OCR word confidence score                            |
 | `-i` `--illustrations` | Extract bounding box coordinates of `<Illustration>` elements     |
 | `-g` `--graphics`      | Extract bounding box coordinates of `<GraphicalElement>` elements |
+| `-s` `--statistics`    | Extract statistical info (no. of textlines, words, glyphs etc.)   |
+
+All output is sent to `stdout`.

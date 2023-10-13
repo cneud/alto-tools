@@ -147,6 +147,36 @@ def alto_confidence(alto, xml, xmlns):
         return 0
 
 
+def alto_statistics(alto, xml, xmlns):
+    """Extract statistical information from ALTO xml file"""
+    no_textlines = 0
+    no_strings = 0
+    no_glyphs = 0
+    no_illustrations = 0
+    no_graphics = 0
+    for textlines in xml.iterfind(".//{%s}TextLine" % xmlns):
+        no_textlines += 1
+    for strings in xml.iterfind(".//{%s}String" % xmlns):
+        no_strings += 1
+    for glyphs in xml.iterfind(".//{%s}Glyph" % xmlns):
+        no_glyphs += 1
+    for illustrations in xml.iterfind(".//{%s}Illustration" % xmlns):
+        no_illustrations += 1
+    for graphics in xml.iterfind(".//{%s}GraphicalElement" % xmlns):
+        no_graphics += 1
+    sys.stdout.write(f"\nFile: {alto.name}, Statistics:")
+    sys.stdout.write(f"\n# of <TextLine> elements: {no_textlines}")
+    sys.stdout.write(f"\n# of <String> elements: {no_strings}")
+    sys.stdout.write(f"\n# of <Glyph> elements: {no_glyphs}")
+    sys.stdout.write(f"\n# of <Illustration> elements: {no_illustrations}")
+    sys.stdout.write(f"\n# of <GraphicalElement> elements: {no_graphics}")
+    return no_textlines
+    return no_strings
+    return no_glyphs
+    return no_illustrations
+    return no_graphics
+
+
 def parse_arguments():
     parser = argparse.ArgumentParser(
         description="ALTO Tools: simple tools for performing various operations on ALTO xml files",
@@ -196,6 +226,14 @@ def parse_arguments():
         default=False,
         dest="graphics",
         help="extract bounding boxes of graphical elements",
+    )
+    g.add_argument(
+        "-s",
+        "--statistics",
+        action="store_true",
+        default=False,
+        dest="statistics",
+        help="extract statistical information",
     )
     parser.add_argument(
         "-x",
@@ -276,6 +314,8 @@ def main():
                 alto_illustrations(alto, xml, xmlns)
             if args.graphics:
                 alto_graphics(alto, xml, xmlns)
+            if args.statistics:
+                alto_statistics(alto, xml, xmlns)
         number_of_files = len(list(walker(args.INPUT, fnfilter)))
         if number_of_files >= 2:
             if args.confidence:
