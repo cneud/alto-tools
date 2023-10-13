@@ -4,15 +4,12 @@ import sys
 
 sys.path.append(str(Path(__file__).resolve().parents[1]))
 
-
 import collections
 import os
 import re
 import tempfile
 
-
 from src.alto_tools import alto_tools
-
 
 datadir = os.path.join(str(Path(__file__).resolve().parent), "data")
 
