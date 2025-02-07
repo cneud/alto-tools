@@ -30,10 +30,12 @@ def test_alto_text(capsys):
     assert re.search(r"Stille Gedanken", captured.out)
 
 
-def test_walker():
-    def create_empty_file(fn):
-        open(fn, "a").close()
+def create_empty_file(fn: str) -> None:
+    with open(fn, "a"):
+        ...
 
+
+def test_walker():
     with tempfile.TemporaryDirectory() as tmpdirname:
         # Create some test files
         create_empty_file(os.path.join(tmpdirname, "test1.xml"))

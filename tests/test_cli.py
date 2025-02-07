@@ -1,16 +1,35 @@
+import os
 import sys
+import tempfile
+from typing import List
 
 import pytest
 
 from alto_tools import alto_tools
 
+from test_alto_tools import create_empty_file, datadir
 
-def argv(args: str) -> list[str]:
+
+def argv(args: str) -> List[str]:
     """
     >>> argv('-c file')
     ['alto-tools', '-c', 'file']
     """
     return ["alto-tools"] + args.split()
+
+
+def test_nonexistant_file_input(capsys: pytest.CaptureFixture[str]) -> None:
+    sys.argv = argv("i/dont/exist.xml -t")
+    alto_tools.main()
+    assert not capsys.readouterr().out
+
+
+def test_invalid_input_file(capsys: pytest.CaptureFixture[str]) -> None:
+    with tempfile.TemporaryDirectory() as tmpdir:
+        create_empty_file(os.path.join(tmpdir, "empty.xml"))
+        sys.argv = argv(f"{tmpdir}/empty.xml -t")
+        with pytest.raises(UnboundLocalError):
+            alto_tools.main()
 
 
 def test_single_file_confidence(capsys: pytest.CaptureFixture[str]) -> None:
