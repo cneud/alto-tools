@@ -21,4 +21,6 @@ jobs:
       - name: Build package
         run: python3 -m pip install --upgrade build && python3 -m build
       - name: Run tests
-        run: python3 -m pip install --upgrade pytest && pytest tests/test_alto_tools.py
+        run: python3 -m pip install --upgrade pytest && pytest tests/
+
+...
