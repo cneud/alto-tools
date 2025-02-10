@@ -302,9 +302,23 @@ def open_input_file(
     return alto, xml, xmlns
 
 
+def _read_from_stdin() -> Iterable[
+    tuple[io.TextIOWrapper | str, ET.ElementTree, dict[str, str] | str]
+]:
+    if os.isatty(0):
+        return
+    assert isinstance(sys.stdin, io.TextIOWrapper)
+    resource = alto_parse(sys.stdin)
+    if not resource:
+        return
+    yield resource
+
+
 def open_input_files(
     args: argparse.Namespace
 ) -> Iterable[tuple[io.TextIOWrapper | str, ET.ElementTree, dict[str, str] | str]]:
+    if "-" in args.INPUT:
+        yield from _read_from_stdin()
     fnfilter = lambda fn: fn.endswith(".xml") or fn.endswith(".alto")
     for filename in walker(args.INPUT, fnfilter):
         resources = open_input_file(filename, args)

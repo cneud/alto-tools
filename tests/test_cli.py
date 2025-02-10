@@ -70,3 +70,12 @@ def test_single_file_graphic_coords(capsys: pytest.CaptureFixture[str]) -> None:
     sys.argv = argv("-g tests/data/PPN750717092-00000780.ocr.xml")
     alto_tools.main()
     assert "GraphicalElement: Page1_Block29=11,899,2983,549" in capsys.readouterr().out
+
+
+def test_pipe_input_xml(capsys: pytest.CaptureFixture[str]) -> None:
+    with open(os.path.join(datadir, "PPN720183197-PHYS_0004.xml")) as f:
+        sys.stdin = f
+        sys.argv = ["alto-tools", "-t", "-"]
+        alto_tools.main()
+    captured = capsys.readouterr()
+    assert "Stille Gedanken" in captured.out
