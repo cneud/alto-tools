@@ -245,7 +245,6 @@ def parse_arguments():
     parser.add_argument(
         "-e",
         "--file-encoding",
-        action="store_true",
         default="UTF-8",
         dest="file_encoding",
         help="file encoding",
