@@ -49,7 +49,7 @@ def test_walker():
         expected = [
             os.path.join(tmpdirname, "test1.xml"),
             os.path.join(tmpdirname, "test1.xml"),  # second instance from tmpdirname
-            os.path.join(tmpdirname, "test2.xml")
+            os.path.join(tmpdirname, "test2.xml"),
             # NOT 'this-should-not-be-returned'
         ]
         assert collections.Counter(

@@ -278,16 +278,15 @@ def walker(
 
 
 def open_input_file(
-    filename: str, args: argparse.Namespace,
+    filename: str,
+    args: argparse.Namespace,
 ) -> tuple[io.TextIOWrapper | str, ET.ElementTree, dict[str, str] | str] | None:
     try:
         if args.xml_encoding:
             xml_encoding = args.xml_encoding
             if xml_encoding == "auto":
                 with open(filename, "rb") as f:
-                    m = re.search(
-                        'encoding="(.*?)"', f.read(45).decode("utf-8")
-                    )
+                    m = re.search('encoding="(.*?)"', f.read(45).decode("utf-8"))
                     xml_encoding = m.group(1)
             xmlp = ET.XMLParser(encoding=xml_encoding)
             alto, xml, xmlns = alto_parse(filename, parser=xmlp)
@@ -302,9 +301,9 @@ def open_input_file(
     return alto, xml, xmlns
 
 
-def _read_from_stdin() -> Iterable[
-    tuple[io.TextIOWrapper | str, ET.ElementTree, dict[str, str] | str]
-]:
+def _read_from_stdin() -> (
+    Iterable[tuple[io.TextIOWrapper | str, ET.ElementTree, dict[str, str] | str]]
+):
     if os.isatty(0):
         return
     assert isinstance(sys.stdin, io.TextIOWrapper)
@@ -315,7 +314,7 @@ def _read_from_stdin() -> Iterable[
 
 
 def open_input_files(
-    args: argparse.Namespace
+    args: argparse.Namespace,
 ) -> Iterable[tuple[io.TextIOWrapper | str, ET.ElementTree, dict[str, str] | str]]:
     if "-" in args.INPUT:
         yield from _read_from_stdin()
