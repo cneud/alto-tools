@@ -1,15 +1,11 @@
-# Setup sys.path. A bit ugly but avoids setting up setup.py for now.
-from pathlib import Path
-import sys
-
-sys.path.append(str(Path(__file__).resolve().parents[1]))
-
 import collections
 import os
 import re
 import tempfile
+from pathlib import Path
 
-from src.alto_tools import alto_tools
+from alto_tools import alto_tools
+
 
 datadir = os.path.join(str(Path(__file__).resolve().parent), "data")
 
