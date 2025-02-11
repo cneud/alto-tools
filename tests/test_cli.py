@@ -17,7 +17,7 @@ def argv(args: str) -> List[str]:
 
 
 @pytest.fixture
-def latin_encoded_input_file_name() -> Iterable[str]:
+def latin1_input_file_path() -> Iterable[str]:
     with open("tests/data/PPN720183197-PHYS_0004.xml") as f:
         xml = f.read()
     with tempfile.TemporaryDirectory() as tmpdir:
@@ -28,20 +28,20 @@ def latin_encoded_input_file_name() -> Iterable[str]:
 
 
 def test_single_file_xml_encoding(
-    latin_encoded_input_file_name: str,
+    latin1_input_file_path: str,
     capsys: pytest.CaptureFixture[str],
 ) -> None:
-    fn = latin_encoded_input_file_name
+    fn = latin1_input_file_path
     sys.argv = argv(f"-t -x iso8859-1 {fn}")
     alto_tools.main()
     assert "Stille Gedanken" in capsys.readouterr().out
 
 
 def test_single_file_file_encoding(
-    latin_encoded_input_file_name: str,
+    latin1_input_file_path: str,
     capsys: pytest.CaptureFixture[str],
 ) -> None:
-    fn = latin_encoded_input_file_name
+    fn = latin1_input_file_path
     sys.argv = argv(f"-t -e iso8859-1 {fn}")
     alto_tools.main()
     assert "Stille Gedanken" in capsys.readouterr().out
