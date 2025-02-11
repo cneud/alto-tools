@@ -307,10 +307,10 @@ def _read_from_stdin() -> (
     if os.isatty(0):
         return
     assert isinstance(sys.stdin, io.TextIOWrapper)
-    resource = alto_parse(sys.stdin)
-    if not resource:
+    parsing_result = alto_parse(sys.stdin)
+    if not parsing_result:
         return
-    yield resource
+    yield parsing_result
 
 
 def open_input_files(
@@ -320,10 +320,10 @@ def open_input_files(
         yield from _read_from_stdin()
     fnfilter = lambda fn: fn.endswith(".xml") or fn.endswith(".alto")
     for filename in walker(args.INPUT, fnfilter):
-        resources = open_input_file(filename, args)
-        if not resources:
+        parsing_result = open_input_file(filename, args)
+        if not parsing_result:
             continue
-        alto, xml, xmlns = resources
+        alto, xml, xmlns = parsing_result
         yield (alto, xml, xmlns)
         if isinstance(alto, str):
             continue
