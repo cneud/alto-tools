@@ -33,6 +33,12 @@ alto-tools <INPUT> [OPTION]
 
 `INPUT` should be the path to an ALTO xml file or directory containing ALTO xml files.
 
+To pipe the output of another command into `alto-tools`, pass the path `-` as the `INPUT` argument, e.g.
+
+```bash
+cat tests/data/PPN720183197-PHYS_0004.xml | alto-tools -t -
+```
+
 The following `OPTIONS` are currently supported:
 
 | OPTION                 | Description                                                       |
