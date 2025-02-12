@@ -27,6 +27,16 @@ dependencies = [
     # none
 ]
 
+[project.optional-dependencies]
+dev = [
+  'black',
+  'pytest-cov',
+]
+
+[tool.setuptools.packages.find]
+where = ['src']
+
+
 [project.scripts]
 alto-tools = "alto_tools.alto_tools:main"
 

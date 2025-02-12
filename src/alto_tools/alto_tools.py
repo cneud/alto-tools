@@ -238,7 +238,6 @@ def parse_arguments():
     parser.add_argument(
         "-x",
         "--xml-encoding",
-        action="store_true",
         default=None,
         dest="xml_encoding",
         help="XML encoding",
@@ -246,7 +245,6 @@ def parse_arguments():
     parser.add_argument(
         "-e",
         "--file-encoding",
-        action="store_true",
         default="UTF-8",
         dest="file_encoding",
         help="file encoding",
