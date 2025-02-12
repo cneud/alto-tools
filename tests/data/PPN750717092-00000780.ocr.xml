@@ -1,0 +1,859 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<alto xmlns="http://www.loc.gov/standards/alto/ns-v2#" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.loc.gov/standards/alto/ns-v2# http://www.loc.gov/standards/alto/alto-v2.0.xsd">
+  <Description>
+    <MeasurementUnit>pixel</MeasurementUnit>
+    <OCRProcessing ID="IdOcr">
+      <ocrProcessingStep>
+        <processingDateTime>2016-08-18</processingDateTime>
+        <processingSoftware>
+          <softwareCreator>ABBYY</softwareCreator>
+          <softwareName>ABBYY FineReader Engine</softwareName>
+          <softwareVersion>11</softwareVersion>
+        </processingSoftware>
+      </ocrProcessingStep>
+    </OCRProcessing>
+  </Description>
+  <Styles>
+    <TextStyle ID="font0" FONTFAMILY="Arial" FONTSIZE="5"/>
+    <TextStyle ID="font1" FONTFAMILY="Arial" FONTSIZE="8"/>
+    <TextStyle ID="font2" FONTFAMILY="Arial" FONTSIZE="10"/>
+    <TextStyle ID="font3" FONTFAMILY="Arial" FONTSIZE="12"/>
+  </Styles>
+  <Layout>
+    <Page ID="Page1" PHYSICAL_IMG_NR="1" HEIGHT="3629" WIDTH="2217">
+      <TopMargin HEIGHT="285" WIDTH="2217" VPOS="0" HPOS="0">
+        <ComposedBlock ID="Page1_Block1" HEIGHT="68" WIDTH="1097" VPOS="158" HPOS="356" TYPE="container">
+          <Shape>
+            <Polygon POINTS="370,164 1467,164 1467,227 370,227 370,164"/>
+          </Shape>
+          <TextBlock ID="Page1_Block2" HEIGHT="51" WIDTH="90" VPOS="165" HPOS="356" language="de">
+            <Shape>
+              <Polygon POINTS="370,167 460,167 460,217 370,217 370,167"/>
+            </Shape>
+            <TextLine HEIGHT="39" WIDTH="78" VPOS="171" HPOS="362">
+              <String STYLEREFS="font2" WC="0.4199999869" CONTENT="676" HEIGHT="39" WIDTH="78" VPOS="171" HPOS="362"/>
+            </TextLine>
+          </TextBlock>
+          <TextBlock ID="Page1_Block3" HEIGHT="65" WIDTH="471" VPOS="158" HPOS="982" language="de">
+            <Shape>
+              <Polygon POINTS="996,164 1467,164 1467,227 996,227 996,164"/>
+            </Shape>
+            <TextLine HEIGHT="53" WIDTH="459" VPOS="164" HPOS="988">
+              <String STYLEREFS="font2" WC="0.8339999914" CONTENT="1896." HEIGHT="39" WIDTH="112" VPOS="167" HPOS="988"/>
+              <SP WIDTH="57" VPOS="165" HPOS="1101"/>
+              <String STYLEREFS="font2" WC="0.4650000036" CONTENT="Dezember" HEIGHT="52" WIDTH="195" VPOS="164" HPOS="1159"/>
+              <SP WIDTH="28" VPOS="165" HPOS="1355"/>
+              <String STYLEREFS="font2" WC="0.4833333194" CONTENT="15." HEIGHT="38" WIDTH="63" VPOS="165" HPOS="1384"/>
+            </TextLine>
+          </TextBlock>
+        </ComposedBlock>
+        <GraphicalElement ID="Page1_Block4" HEIGHT="6" WIDTH="215" VPOS="238" HPOS="1117"/>
+      </TopMargin>
+      <LeftMargin HEIGHT="2776" WIDTH="179" VPOS="285" HPOS="0">
+</LeftMargin>
+      <RightMargin HEIGHT="2776" WIDTH="103" VPOS="285" HPOS="2114">
+</RightMargin>
+      <BottomMargin HEIGHT="568" WIDTH="2217" VPOS="3061" HPOS="0">
+</BottomMargin>
+      <PrintSpace HEIGHT="2776" WIDTH="1935" VPOS="285" HPOS="179">
+        <ComposedBlock ID="Page1_Block5" HEIGHT="759" WIDTH="1742" VPOS="285" HPOS="352" TYPE="container">
+          <Shape>
+            <Polygon POINTS="366,294 2105,294 2105,1045 366,1045 366,294"/>
+          </Shape>
+          <TextBlock ID="Page1_Block6" HEIGHT="70" WIDTH="587" VPOS="287" HPOS="1183" language="de" STYLEREFS="font2">
+            <Shape>
+              <Polygon POINTS="1197,294 1783,294 1783,362 1197,362 1197,294"/>
+            </Shape>
+            <TextLine HEIGHT="58" WIDTH="574" VPOS="293" HPOS="1190">
+              <String WC="0.5318182111" CONTENT="Übertrag..." HEIGHT="57" WIDTH="242" VPOS="294" HPOS="1190"/>
+              <SP WIDTH="40" VPOS="300" HPOS="1432"/>
+              <String STYLE="italics" STYLEREFS="font3" WC="0.5" CONTENT="Jk" HEIGHT="39" WIDTH="47" VPOS="300" HPOS="1473"/>
+              <SP WIDTH="44" VPOS="300" HPOS="1521"/>
+              <String WC="1." CONTENT="5" HEIGHT="37" WIDTH="22" VPOS="301" HPOS="1566"/>
+              <SP WIDTH="18" VPOS="300" HPOS="1589"/>
+              <String WC="0.8999999762" CONTENT="125.—" HEIGHT="37" WIDTH="155" VPOS="300" HPOS="1608"/>
+            </TextLine>
+          </TextBlock>
+          <TextBlock ID="Page1_Block7" HEIGHT="122" WIDTH="1253" VPOS="349" HPOS="519" language="de" STYLEREFS="font2">
+            <Shape>
+              <Polygon POINTS="532,356 1785,356 1785,473 532,473 532,356"/>
+            </Shape>
+            <TextLine HEIGHT="55" WIDTH="1240" VPOS="355" HPOS="525">
+              <String WC="0.6700000167" CONTENT="5)" HEIGHT="47" WIDTH="38" VPOS="363" HPOS="525"/>
+              <SP WIDTH="29" VPOS="361" HPOS="564"/>
+              <String WC="0.6528571248" CONTENT="Galerie" HEIGHT="42" WIDTH="141" VPOS="360" HPOS="594"/>
+              <SP WIDTH="29" VPOS="361" HPOS="736"/>
+              <String WC="0.3849999905" CONTENT="in" HEIGHT="38" WIDTH="34" VPOS="361" HPOS="766"/>
+              <SP WIDTH="28" VPOS="372" HPOS="801"/>
+              <String WC="0.4659999907" CONTENT="einem" HEIGHT="40" WIDTH="109" VPOS="360" HPOS="830"/>
+              <SP WIDTH="27" VPOS="359" HPOS="940"/>
+              <String WC="0.8999999762" CONTENT="Nebenraume" HEIGHT="40" WIDTH="238" VPOS="358" HPOS="968"/>
+              <SP WIDTH="253" VPOS="386" HPOS="1235"/>
+              <String WC="1." CONTENT="„" HEIGHT="19" WIDTH="16" VPOS="386" HPOS="1489"/>
+              <SP WIDTH="101" VPOS="356" HPOS="1506"/>
+              <String WC="0.65200001" CONTENT="600.—" HEIGHT="37" WIDTH="157" VPOS="355" HPOS="1608"/>
+            </TextLine>
+            <TextLine HEIGHT="55" WIDTH="1240" VPOS="410" HPOS="526">
+              <String WC="0.6700000167" CONTENT="6)" HEIGHT="47" WIDTH="38" VPOS="418" HPOS="526"/>
+              <SP WIDTH="29" VPOS="417" HPOS="565"/>
+              <String WC="0.9045454264" CONTENT="Einrichtung" HEIGHT="50" WIDTH="222" VPOS="415" HPOS="595"/>
+              <SP WIDTH="29" VPOS="427" HPOS="818"/>
+              <String WC="0.9358333349" CONTENT="elektrischer" HEIGHT="50" WIDTH="198" VPOS="414" HPOS="848"/>
+              <SP WIDTH="28" VPOS="414" HPOS="1047"/>
+              <String WC="0.874545455" CONTENT="Beleuchtung" HEIGHT="49" WIDTH="229" VPOS="413" HPOS="1076"/>
+              <SP WIDTH="171" VPOS="441" HPOS="1318"/>
+              <String WC="0.7699999809" CONTENT=",," HEIGHT="19" WIDTH="16" VPOS="442" HPOS="1490"/>
+              <SP WIDTH="61" VPOS="411" HPOS="1507"/>
+              <String WC="0.8899999857" CONTENT="1" HEIGHT="36" WIDTH="18" VPOS="411" HPOS="1569"/>
+              <SP WIDTH="19" VPOS="410" HPOS="1588"/>
+              <String WC="0.6019999981" CONTENT="200.—" HEIGHT="36" WIDTH="158" VPOS="410" HPOS="1608"/>
+            </TextLine>
+          </TextBlock>
+          <TextBlock ID="Page1_Block8" HEIGHT="588" WIDTH="1741" VPOS="456" HPOS="353" language="de" STYLEREFS="font2">
+            <Shape>
+              <Polygon POINTS="366,465 2105,465 2105,1045 366,1045 366,465"/>
+            </Shape>
+            <TextLine HEIGHT="54" WIDTH="914" VPOS="466" HPOS="528">
+              <String WC="0.5299999714" CONTENT="7)" HEIGHT="47" WIDTH="36" VPOS="472" HPOS="528"/>
+              <SP WIDTH="29" VPOS="472" HPOS="565"/>
+              <String WC="0.8050000072" CONTENT="Umändern" HEIGHT="40" WIDTH="199" VPOS="470" HPOS="595"/>
+              <SP WIDTH="18" VPOS="481" HPOS="795"/>
+              <String WC="0.5566666722" CONTENT="und" HEIGHT="39" WIDTH="67" VPOS="469" HPOS="814"/>
+              <SP WIDTH="19" VPOS="469" HPOS="882"/>
+              <String WC="0.8075000048" CONTENT="Umsetzen" HEIGHT="49" WIDTH="165" VPOS="469" HPOS="902"/>
+              <SP WIDTH="29" VPOS="468" HPOS="1068"/>
+              <String WC="0.7900000215" CONTENT="der" HEIGHT="40" WIDTH="57" VPOS="467" HPOS="1098"/>
+              <SP WIDTH="19" VPOS="467" HPOS="1156"/>
+              <String WC="0.8916666508" CONTENT="Regale" HEIGHT="49" WIDTH="130" VPOS="467" HPOS="1176"/>
+              <SP WIDTH="18" VPOS="467" HPOS="1307"/>
+              <String WC="0.6349999905" CONTENT="in" HEIGHT="39" WIDTH="35" VPOS="466" HPOS="1326"/>
+              <SP WIDTH="29" VPOS="466" HPOS="1362"/>
+              <String WC="0.7699999809" CONTENT="die" HEIGHT="37" WIDTH="50" VPOS="466" HPOS="1392"/>
+            </TextLine>
+            <TextLine HEIGHT="56" WIDTH="1079" VPOS="520" HPOS="363">
+              <String WC="1." CONTENT="neuen" HEIGHT="28" WIDTH="107" VPOS="538" HPOS="363"/>
+              <SP WIDTH="29" VPOS="526" HPOS="471"/>
+              <String WC="0.7733333111" CONTENT="Räume," HEIGHT="48" WIDTH="148" VPOS="525" HPOS="501"/>
+              <SP WIDTH="31" VPOS="536" HPOS="650"/>
+              <String WC="0.8539999723" CONTENT="unter" HEIGHT="34" WIDTH="99" VPOS="528" HPOS="682"/>
+              <SP WIDTH="27" VPOS="523" HPOS="782"/>
+              <String WC="0.8816666603" CONTENT="Mitbenutzung" HEIGHT="52" WIDTH="260" VPOS="522" HPOS="810"/>
+              <SP WIDTH="29" VPOS="534" HPOS="1071"/>
+              <String WC="0.8000000119" CONTENT="und" HEIGHT="39" WIDTH="66" VPOS="522" HPOS="1101"/>
+              <SP WIDTH="28" VPOS="521" HPOS="1168"/>
+              <String WC="0.8909999728" CONTENT="Umänderung" HEIGHT="49" WIDTH="245" VPOS="520" HPOS="1197"/>
+            </TextLine>
+            <TextLine HEIGHT="55" WIDTH="1079" VPOS="574" HPOS="363">
+              <String WC="0.8333333135" CONTENT="von" HEIGHT="29" WIDTH="66" VPOS="591" HPOS="363"/>
+              <SP WIDTH="29" VPOS="590" HPOS="429"/>
+              <String WC="0.8436363339" CONTENT="vorhandenen" HEIGHT="49" WIDTH="239" VPOS="579" HPOS="458"/>
+              <SP WIDTH="37" VPOS="590" HPOS="697"/>
+              <String WC="0.7900000215" CONTENT="alten" HEIGHT="38" WIDTH="92" VPOS="579" HPOS="734"/>
+              <SP WIDTH="30" VPOS="578" HPOS="826"/>
+              <String WC="0.8842856884" CONTENT="Regalen" HEIGHT="50" WIDTH="157" VPOS="577" HPOS="856"/>
+              <SP WIDTH="39" VPOS="577" HPOS="1013"/>
+              <String WC="0.8866666555" CONTENT="der" HEIGHT="39" WIDTH="58" VPOS="576" HPOS="1052"/>
+              <SP WIDTH="29" VPOS="576" HPOS="1110"/>
+              <String WC="0.8399999738" CONTENT="Stadtbibliothek," HEIGHT="49" WIDTH="303" VPOS="574" HPOS="1139"/>
+            </TextLine>
+            <TextLine HEIGHT="55" WIDTH="1078" VPOS="629" HPOS="365">
+              <String WC="0.8664285541" CONTENT="einschließlich" HEIGHT="51" WIDTH="232" VPOS="633" HPOS="365"/>
+              <SP WIDTH="11" VPOS="634" HPOS="598"/>
+              <String WC="0.7975000143" CONTENT="Anstrich" HEIGHT="48" WIDTH="151" VPOS="633" HPOS="610"/>
+              <SP WIDTH="11" VPOS="633" HPOS="762"/>
+              <String WC="0.8399999738" CONTENT="der" HEIGHT="37" WIDTH="56" VPOS="634" HPOS="774"/>
+              <SP WIDTH="13" VPOS="633" HPOS="831"/>
+              <String WC="0.6700000167" CONTENT="Regale," HEIGHT="49" WIDTH="141" VPOS="632" HPOS="845"/>
+              <SP WIDTH="19" VPOS="631" HPOS="987"/>
+              <String WC="0.8650000095" CONTENT="Reinigen" HEIGHT="49" WIDTH="168" VPOS="630" HPOS="1007"/>
+              <SP WIDTH="11" VPOS="631" HPOS="1176"/>
+              <String WC="1." CONTENT="der" HEIGHT="37" WIDTH="57" VPOS="631" HPOS="1188"/>
+              <SP WIDTH="9" VPOS="630" HPOS="1246"/>
+              <String WC="0.7024999857" CONTENT="Fußböden" HEIGHT="47" WIDTH="187" VPOS="629" HPOS="1256"/>
+            </TextLine>
+            <TextLine HEIGHT="58" WIDTH="1402" VPOS="681" HPOS="365">
+              <String WC="0.7275000215" CONTENT="re.," HEIGHT="36" WIDTH="55" VPOS="701" HPOS="365"/>
+              <SP WIDTH="31" VPOS="689" HPOS="421"/>
+              <String WC="0.4699999988" CONTENT="sowie" HEIGHT="47" WIDTH="97" VPOS="689" HPOS="453"/>
+              <SP WIDTH="27" VPOS="689" HPOS="551"/>
+              <String WC="0.9166666865" CONTENT="für" HEIGHT="49" WIDTH="57" VPOS="688" HPOS="579"/>
+              <SP WIDTH="18" VPOS="688" HPOS="637"/>
+              <String WC="0.9082353115" CONTENT="Unvorhergesehenes" HEIGHT="52" WIDTH="356" VPOS="685" HPOS="656"/>
+              <SP WIDTH="28" VPOS="691" HPOS="1013"/>
+              <String WC="0.6899999976" CONTENT="und" HEIGHT="39" WIDTH="66" VPOS="685" HPOS="1042"/>
+              <SP WIDTH="29" VPOS="685" HPOS="1109"/>
+              <String WC="0.8266666532" CONTENT="zur" HEIGHT="37" WIDTH="59" VPOS="696" HPOS="1139"/>
+              <SP WIDTH="28" VPOS="685" HPOS="1199"/>
+              <String WC="0.7733333111" CONTENT="Abrundung" HEIGHT="49" WIDTH="215" VPOS="683" HPOS="1228"/>
+              <SP WIDTH="47" VPOS="695" HPOS="1444"/>
+              <String WC="1." CONTENT="„" HEIGHT="16" WIDTH="16" VPOS="714" HPOS="1492"/>
+              <SP WIDTH="60" VPOS="683" HPOS="1509"/>
+              <String WC="1." CONTENT="1" HEIGHT="35" WIDTH="19" VPOS="683" HPOS="1570"/>
+              <SP WIDTH="18" VPOS="681" HPOS="1590"/>
+              <String WC="0.7960000038" CONTENT="547.—" HEIGHT="37" WIDTH="158" VPOS="681" HPOS="1609"/>
+            </TextLine>
+            <TextLine HEIGHT="59" WIDTH="625" VPOS="737" HPOS="1142">
+              <String WC="0.7599999905" CONTENT="zusammen" HEIGHT="48" WIDTH="192" VPOS="748" HPOS="1142"/>
+              <SP WIDTH="38" VPOS="759" HPOS="1335"/>
+              <String WC="0.7099999785" CONTENT="." HEIGHT="5" WIDTH="5" VPOS="778" HPOS="1374"/>
+              <SP WIDTH="19" VPOS="778" HPOS="1380"/>
+              <String WC="0.6299999952" CONTENT="." HEIGHT="5" WIDTH="6" VPOS="778" HPOS="1400"/>
+              <SP WIDTH="20" VPOS="777" HPOS="1407"/>
+              <String WC="0.9700000286" CONTENT="." HEIGHT="6" WIDTH="5" VPOS="777" HPOS="1428"/>
+              <SP WIDTH="39" VPOS="746" HPOS="1434"/>
+              <String STYLE="italics" STYLEREFS="font3" WC="0.6700000167" CONTENT="Jl" HEIGHT="46" WIDTH="44" VPOS="738" HPOS="1474"/>
+              <SP WIDTH="48" VPOS="738" HPOS="1519"/>
+              <String WC="1." CONTENT="8" HEIGHT="36" WIDTH="22" VPOS="747" HPOS="1568"/>
+              <SP WIDTH="15" VPOS="746" HPOS="1591"/>
+              <String WC="1." CONTENT="472." HEIGHT="36" WIDTH="97" VPOS="746" HPOS="1607"/>
+              <SP WIDTH="10" VPOS="767" HPOS="1705"/>
+              <String WC="1." CONTENT="—" HEIGHT="5" WIDTH="51" VPOS="767" HPOS="1716"/>
+            </TextLine>
+            <TextLine HEIGHT="61" WIDTH="917" VPOS="812" HPOS="527">
+              <String WC="0.8933333158" CONTENT="Für" HEIGHT="47" WIDTH="76" VPOS="824" HPOS="527"/>
+              <SP WIDTH="38" VPOS="825" HPOS="603"/>
+              <String WC="0.8500000238" CONTENT="die" HEIGHT="38" WIDTH="52" VPOS="824" HPOS="641"/>
+              <SP WIDTH="42" VPOS="823" HPOS="693"/>
+              <String WC="0.896666646" CONTENT="früher" HEIGHT="49" WIDTH="118" VPOS="823" HPOS="735"/>
+              <SP WIDTH="43" VPOS="834" HPOS="853"/>
+              <String WC="0.7724999785" CONTENT="geplante" HEIGHT="48" WIDTH="156" VPOS="822" HPOS="896"/>
+              <SP WIDTH="45" VPOS="814" HPOS="1052"/>
+              <String WC="0.6933333278" CONTENT="Übersiedlung" HEIGHT="57" WIDTH="241" VPOS="813" HPOS="1097"/>
+              <SP WIDTH="47" VPOS="821" HPOS="1338"/>
+              <String WC="0.8999999762" CONTENT="des" HEIGHT="37" WIDTH="59" VPOS="821" HPOS="1385"/>
+            </TextLine>
+            <TextLine HEIGHT="57" WIDTH="1402" VPOS="872" HPOS="362">
+              <String WC="0.7200000286" CONTENT="Archivs," HEIGHT="49" WIDTH="155" VPOS="880" HPOS="362"/>
+              <SP WIDTH="29" VPOS="889" HPOS="518"/>
+              <String WC="0.8119999766" CONTENT="waren" HEIGHT="30" WIDTH="116" VPOS="888" HPOS="548"/>
+              <SP WIDTH="26" VPOS="878" HPOS="665"/>
+              <String WC="1." CONTENT="im" HEIGHT="39" WIDTH="49" VPOS="878" HPOS="692"/>
+              <SP WIDTH="27" VPOS="876" HPOS="742"/>
+              <String WC="0.7146666646" CONTENT="Kostenanschläge" HEIGHT="51" WIDTH="295" VPOS="875" HPOS="770"/>
+              <SP WIDTH="28" VPOS="886" HPOS="1066"/>
+              <String WC="0.824000001" CONTENT="vorgesehen" HEIGHT="50" WIDTH="197" VPOS="875" HPOS="1095"/>
+              <SP WIDTH="27" VPOS="887" HPOS="1293"/>
+              <String WC="0.5950000286" CONTENT="rot." HEIGHT="37" WIDTH="65" VPOS="877" HPOS="1321"/>
+              <SP WIDTH="36" VPOS="905" HPOS="1387"/>
+              <String WC="1." CONTENT="." HEIGHT="6" WIDTH="6" VPOS="905" HPOS="1424"/>
+              <SP WIDTH="56" VPOS="905" HPOS="1431"/>
+              <String WC="0.3899999857" CONTENT="„" HEIGHT="18" WIDTH="15" VPOS="905" HPOS="1488"/>
+              <SP WIDTH="101" VPOS="874" HPOS="1504"/>
+              <String WC="1." CONTENT="672.—" HEIGHT="36" WIDTH="158" VPOS="874" HPOS="1606"/>
+            </TextLine>
+            <TextLine HEIGHT="53" WIDTH="912" VPOS="938" HPOS="532">
+              <String WC="0.6549999714" CONTENT="Es" HEIGHT="38" WIDTH="51" VPOS="943" HPOS="532"/>
+              <SP WIDTH="27" VPOS="948" HPOS="584"/>
+              <String WC="0.7400000095" CONTENT="wird" HEIGHT="39" WIDTH="86" VPOS="942" HPOS="612"/>
+              <SP WIDTH="37" VPOS="942" HPOS="699"/>
+              <String WC="0.5899999738" CONTENT="somit" HEIGHT="47" WIDTH="100" VPOS="942" HPOS="737"/>
+              <SP WIDTH="37" VPOS="945" HPOS="838"/>
+              <String WC="0.926666677" CONTENT="ein" HEIGHT="37" WIDTH="50" VPOS="941" HPOS="876"/>
+              <SP WIDTH="39" VPOS="940" HPOS="927"/>
+              <String WC="0.8569999933" CONTENT="Mehrbetrag" HEIGHT="50" WIDTH="226" VPOS="939" HPOS="967"/>
+              <SP WIDTH="39" VPOS="951" HPOS="1194"/>
+              <String WC="0.8700000048" CONTENT="erforderlich" HEIGHT="50" WIDTH="210" VPOS="938" HPOS="1234"/>
+            </TextLine>
+            <TextLine HEIGHT="50" WIDTH="1727" VPOS="987" HPOS="361">
+              <String WC="0.646666646" CONTENT="von" HEIGHT="30" WIDTH="65" VPOS="1007" HPOS="361"/>
+              <SP WIDTH="1306" VPOS="1021" HPOS="447"/>
+              <String STYLE="italics" STYLEREFS="font3" WC="0.7599999905" CONTENT="Jk." HEIGHT="41" WIDTH="48" VPOS="989" HPOS="1781"/>
+              <SP WIDTH="59" VPOS="991" HPOS="1830"/>
+              <String WC="1." CONTENT="7" HEIGHT="34" WIDTH="19" VPOS="991" HPOS="1890"/>
+              <SP WIDTH="18" VPOS="991" HPOS="1910"/>
+              <String WC="0.9900000095" CONTENT="800." HEIGHT="36" WIDTH="95" VPOS="991" HPOS="1929"/>
+              <SP WIDTH="10" VPOS="1012" HPOS="2025"/>
+              <String WC="1." CONTENT="—" HEIGHT="6" WIDTH="52" VPOS="1011" HPOS="2036"/>
+            </TextLine>
+          </TextBlock>
+        </ComposedBlock>
+        <TextBlock ID="Page1_Block9" HEIGHT="46" WIDTH="157" VPOS="1092" HPOS="179" language="de" STYLEREFS="font2">
+          <Shape>
+            <Polygon POINTS="189,1093 346,1093 346,1139 189,1139 189,1093"/>
+          </Shape>
+          <TextLine HEIGHT="34" WIDTH="145" VPOS="1098" HPOS="185">
+            <String STYLEREFS="font1" WC="0.4616666734" CONTENT="Antage" HEIGHT="34" WIDTH="102" VPOS="1098" HPOS="185"/>
+            <SP WIDTH="17" VPOS="1098" HPOS="288"/>
+            <String STYLEREFS="font1" WC="0.6999999881" CONTENT="3." HEIGHT="27" WIDTH="24" VPOS="1098" HPOS="306"/>
+          </TextLine>
+        </TextBlock>
+        <TextBlock ID="Page1_Block10" HEIGHT="80" WIDTH="1538" VPOS="1065" HPOS="457" language="de" STYLEREFS="font2">
+          <Shape>
+            <Polygon POINTS="468,1073 2005,1073 2005,1147 468,1147 468,1073"/>
+          </Shape>
+          <TextLine HEIGHT="66" WIDTH="1526" VPOS="1071" HPOS="463">
+            <String WC="0.48307693" CONTENT="Überschlägige" HEIGHT="61" WIDTH="258" VPOS="1076" HPOS="463"/>
+            <SP WIDTH="27" VPOS="1084" HPOS="722"/>
+            <String WC="0.5662500262" CONTENT="Kostenberechnung" HEIGHT="52" WIDTH="338" VPOS="1083" HPOS="750"/>
+            <SP WIDTH="28" VPOS="1081" HPOS="1089"/>
+            <String WC="0.349999994" CONTENT="bei" HEIGHT="41" WIDTH="53" VPOS="1081" HPOS="1118"/>
+            <SP WIDTH="30" VPOS="1083" HPOS="1172"/>
+            <String WC="0.5080000162" CONTENT="Freilegung" HEIGHT="52" WIDTH="214" VPOS="1081" HPOS="1203"/>
+            <SP WIDTH="28" VPOS="1082" HPOS="1418"/>
+            <String WC="0.4333333373" CONTENT="der" HEIGHT="39" WIDTH="60" VPOS="1082" HPOS="1447"/>
+            <SP WIDTH="28" VPOS="1093" HPOS="1508"/>
+            <String WC="0.637142837" CONTENT="unteren" HEIGHT="37" WIDTH="146" VPOS="1084" HPOS="1537"/>
+            <SP WIDTH="27" VPOS="1080" HPOS="1684"/>
+            <String WC="0.5846154094" CONTENT="Rathaushalle." HEIGHT="52" WIDTH="277" VPOS="1079" HPOS="1712"/>
+          </TextLine>
+        </TextBlock>
+        <TextBlock ID="Page1_Block11" HEIGHT="1864" WIDTH="1101" VPOS="1148" HPOS="361" language="de" STYLEREFS="font2">
+          <Shape>
+            <Polygon POINTS="371,1154 1465,1154 1465,3013 371,3013 371,1154"/>
+          </Shape>
+          <TextLine HEIGHT="55" WIDTH="915" VPOS="1154" HPOS="530">
+            <String WC="0.6600000262" CONTENT="1)" HEIGHT="48" WIDTH="37" VPOS="1161" HPOS="530"/>
+            <SP WIDTH="15" VPOS="1161" HPOS="568"/>
+            <String WC="0.7371428609" CONTENT="Abbruch" HEIGHT="50" WIDTH="153" VPOS="1159" HPOS="584"/>
+            <SP WIDTH="15" VPOS="1159" HPOS="738"/>
+            <String WC="0.8766666651" CONTENT="der" HEIGHT="38" WIDTH="57" VPOS="1159" HPOS="754"/>
+            <SP WIDTH="15" VPOS="1159" HPOS="812"/>
+            <String WC="0.7461538315" CONTENT="Scheidewände," HEIGHT="51" WIDTH="272" VPOS="1156" HPOS="828"/>
+            <SP WIDTH="16" VPOS="1156" HPOS="1101"/>
+            <String WC="0.9466666579" CONTENT="des" HEIGHT="38" WIDTH="58" VPOS="1156" HPOS="1118"/>
+            <SP WIDTH="13" VPOS="1155" HPOS="1177"/>
+            <String WC="0.7475000024" CONTENT="Ventilations" HEIGHT="41" WIDTH="240" VPOS="1154" HPOS="1191" SUBS_TYPE="HypPart1" SUBS_CONTENT="Ventilationsschachtes,"/>
+            <HYP CONTENT="­"/>
+          </TextLine>
+          <TextLine HEIGHT="56" WIDTH="1078" VPOS="1209" HPOS="368">
+            <String WC="0.6290000081" CONTENT="schachtes," HEIGHT="49" WIDTH="167" VPOS="1216" HPOS="368" SUBS_TYPE="HypPart2" SUBS_CONTENT="Ventilationsschachtes,"/>
+            <SP WIDTH="21" VPOS="1216" HPOS="536"/>
+            <String WC="0.9700000286" CONTENT="des" HEIGHT="38" WIDTH="58" VPOS="1216" HPOS="558"/>
+            <SP WIDTH="15" VPOS="1214" HPOS="617"/>
+            <String WC="0.7820000052" CONTENT="Windfanges" HEIGHT="48" WIDTH="229" VPOS="1213" HPOS="633"/>
+            <SP WIDTH="15" VPOS="1217" HPOS="863"/>
+            <String WC="0.6866666675" CONTENT="und" HEIGHT="38" WIDTH="66" VPOS="1212" HPOS="879"/>
+            <SP WIDTH="20" VPOS="1212" HPOS="946"/>
+            <String WC="0.9166666865" CONTENT="der" HEIGHT="38" WIDTH="57" VPOS="1212" HPOS="967"/>
+            <SP WIDTH="13" VPOS="1211" HPOS="1025"/>
+            <String WC="0.7300000191" CONTENT="Holzverschläge," HEIGHT="51" WIDTH="285" VPOS="1210" HPOS="1039"/>
+            <SP WIDTH="22" VPOS="1211" HPOS="1325"/>
+            <String WC="0.9574999809" CONTENT="Frei" HEIGHT="47" WIDTH="82" VPOS="1210" HPOS="1348" SUBS_TYPE="HypPart1" SUBS_CONTENT="Freilegung"/>
+            <HYP CONTENT="­"/>
+          </TextLine>
+          <TextLine HEIGHT="56" WIDTH="1079" VPOS="1263" HPOS="368">
+            <String WC="0.7900000215" CONTENT="legung" HEIGHT="49" WIDTH="122" VPOS="1270" HPOS="368" SUBS_TYPE="HypPart2" SUBS_CONTENT="Freilegung"/>
+            <SP WIDTH="10" VPOS="1271" HPOS="491"/>
+            <String WC="0.9033333063" CONTENT="der" HEIGHT="37" WIDTH="57" VPOS="1271" HPOS="502"/>
+            <SP WIDTH="9" VPOS="1268" HPOS="560"/>
+            <String WC="0.7990909219" CONTENT="Balkenlage," HEIGHT="50" WIDTH="221" VPOS="1267" HPOS="570"/>
+            <SP WIDTH="11" VPOS="1267" HPOS="792"/>
+            <String WC="0.7854545712" CONTENT="Herstellung" HEIGHT="49" WIDTH="213" VPOS="1266" HPOS="804"/>
+            <SP WIDTH="11" VPOS="1274" HPOS="1018"/>
+            <String WC="0.5266666412" CONTENT="von" HEIGHT="29" WIDTH="65" VPOS="1274" HPOS="1030"/>
+            <SP WIDTH="11" VPOS="1264" HPOS="1096"/>
+            <String WC="0.9423529506" CONTENT="Einsteigöffnnngen" HEIGHT="51" WIDTH="339" VPOS="1263" HPOS="1108"/>
+          </TextLine>
+          <TextLine HEIGHT="56" WIDTH="1078" VPOS="1317" HPOS="369">
+            <String WC="0.7549999952" CONTENT="in" HEIGHT="39" WIDTH="35" VPOS="1325" HPOS="369"/>
+            <SP WIDTH="28" VPOS="1325" HPOS="404"/>
+            <String WC="0.8566666842" CONTENT="den" HEIGHT="38" WIDTH="63" VPOS="1325" HPOS="432"/>
+            <SP WIDTH="30" VPOS="1324" HPOS="495"/>
+            <String WC="0.8193749785" CONTENT="Steigschornstein" HEIGHT="50" WIDTH="302" VPOS="1322" HPOS="525"/>
+            <SP WIDTH="38" VPOS="1332" HPOS="828"/>
+            <String WC="0.6800000072" CONTENT="und" HEIGHT="38" WIDTH="67" VPOS="1320" HPOS="866"/>
+            <SP WIDTH="40" VPOS="1320" HPOS="933"/>
+            <String WC="0.9766666889" CONTENT="den" HEIGHT="38" WIDTH="60" VPOS="1320" HPOS="973"/>
+            <SP WIDTH="40" VPOS="1319" HPOS="1033"/>
+            <String WC="0.82099998" CONTENT="Ventilationsschacht," HEIGHT="52" WIDTH="374" VPOS="1317" HPOS="1073"/>
+          </TextLine>
+          <TextLine HEIGHT="56" WIDTH="1078" VPOS="1372" HPOS="368">
+            <String WC="0.7599999905" CONTENT="sowie" HEIGHT="49" WIDTH="99" VPOS="1379" HPOS="368"/>
+            <SP WIDTH="18" VPOS="1378" HPOS="468"/>
+            <String WC="0.8244444728" CONTENT="Transport" HEIGHT="49" WIDTH="203" VPOS="1377" HPOS="487"/>
+            <SP WIDTH="22" VPOS="1377" HPOS="691"/>
+            <String WC="0.8933333158" CONTENT="des" HEIGHT="38" WIDTH="58" VPOS="1377" HPOS="714"/>
+            <SP WIDTH="29" VPOS="1382" HPOS="773"/>
+            <String WC="0.6591666937" CONTENT=".Bauschuttes" HEIGHT="51" WIDTH="227" VPOS="1374" HPOS="803"/>
+            <SP WIDTH="21" VPOS="1380" HPOS="1031"/>
+            <String WC="0.6200000048" CONTENT="und" HEIGHT="38" WIDTH="65" VPOS="1375" HPOS="1053"/>
+            <SP WIDTH="18" VPOS="1373" HPOS="1119"/>
+            <String WC="0.896666646" CONTENT="der" HEIGHT="39" WIDTH="57" VPOS="1373" HPOS="1138"/>
+            <SP WIDTH="19" VPOS="1373" HPOS="1196"/>
+            <String WC="0.7545454502" CONTENT="Materialien" HEIGHT="41" WIDTH="230" VPOS="1372" HPOS="1216"/>
+          </TextLine>
+          <TextLine HEIGHT="54" WIDTH="915" VPOS="1427" HPOS="532">
+            <String WC="0.7300000191" CONTENT="2)" HEIGHT="48" WIDTH="38" VPOS="1433" HPOS="532"/>
+            <SP WIDTH="29" VPOS="1433" HPOS="571"/>
+            <String WC="0.7900000215" CONTENT="Abschlagen" HEIGHT="49" WIDTH="202" VPOS="1431" HPOS="601"/>
+            <SP WIDTH="39" VPOS="1431" HPOS="804"/>
+            <String WC="0.8766666651" CONTENT="des" HEIGHT="39" WIDTH="58" VPOS="1430" HPOS="844"/>
+            <SP WIDTH="38" VPOS="1435" HPOS="903"/>
+            <String WC="0.8320000172" CONTENT="alten" HEIGHT="39" WIDTH="91" VPOS="1429" HPOS="942"/>
+            <SP WIDTH="38" VPOS="1429" HPOS="1034"/>
+            <String WC="0.8172727227" CONTENT="Wandpntzes," HEIGHT="51" WIDTH="235" VPOS="1428" HPOS="1073"/>
+            <SP WIDTH="45" VPOS="1427" HPOS="1309"/>
+            <String WC="0.9049999714" CONTENT="Nen-" HEIGHT="39" WIDTH="92" VPOS="1427" HPOS="1355"/>
+          </TextLine>
+          <TextLine HEIGHT="57" WIDTH="1080" VPOS="1481" HPOS="369">
+            <String WC="0.8766666651" CONTENT="pntzen" HEIGHT="45" WIDTH="111" VPOS="1493" HPOS="369"/>
+            <SP WIDTH="14" VPOS="1488" HPOS="481"/>
+            <String WC="0.8799999952" CONTENT="der" HEIGHT="38" WIDTH="58" VPOS="1488" HPOS="496"/>
+            <SP WIDTH="9" VPOS="1487" HPOS="555"/>
+            <String WC="0.9200000167" CONTENT="Wände" HEIGHT="40" WIDTH="132" VPOS="1486" HPOS="565"/>
+            <SP WIDTH="15" VPOS="1497" HPOS="698"/>
+            <String WC="0.6742857099" CONTENT="einschließlich" HEIGHT="52" WIDTH="233" VPOS="1483" HPOS="714"/>
+            <SP WIDTH="13" VPOS="1484" HPOS="948"/>
+            <String WC="0.9070000052" CONTENT="Anbringung" HEIGHT="50" WIDTH="230" VPOS="1483" HPOS="962"/>
+            <SP WIDTH="16" VPOS="1491" HPOS="1193"/>
+            <String WC="0.5400000215" CONTENT="von" HEIGHT="30" WIDTH="64" VPOS="1491" HPOS="1210"/>
+            <SP WIDTH="15" VPOS="1483" HPOS="1275"/>
+            <String WC="0.8514285684" CONTENT="Zement-" HEIGHT="46" WIDTH="158" VPOS="1482" HPOS="1291"/>
+          </TextLine>
+          <TextLine HEIGHT="56" WIDTH="1079" VPOS="1536" HPOS="369">
+            <String WC="0.699090898" CONTENT="fußleisten," HEIGHT="50" WIDTH="190" VPOS="1542" HPOS="369"/>
+            <SP WIDTH="22" VPOS="1542" HPOS="559"/>
+            <String WC="0.7983333468" CONTENT="Ausbesserung" HEIGHT="49" WIDTH="253" VPOS="1541" HPOS="581"/>
+            <SP WIDTH="17" VPOS="1542" HPOS="834"/>
+            <String WC="0.574000001" CONTENT="bezw." HEIGHT="48" WIDTH="98" VPOS="1541" HPOS="851"/>
+            <SP WIDTH="20" VPOS="1544" HPOS="949"/>
+            <String WC="0.7888888717" CONTENT="teilweise" HEIGHT="49" WIDTH="157" VPOS="1537" HPOS="969"/>
+            <SP WIDTH="17" VPOS="1537" HPOS="1126"/>
+            <String WC="0.8230000138" CONTENT="Erneuerung" HEIGHT="51" WIDTH="226" VPOS="1536" HPOS="1143"/>
+            <SP WIDTH="20" VPOS="1538" HPOS="1369"/>
+            <String WC="0.8166666627" CONTENT="des" HEIGHT="37" WIDTH="59" VPOS="1538" HPOS="1389"/>
+          </TextLine>
+          <TextLine HEIGHT="58" WIDTH="1078" VPOS="1591" HPOS="370">
+            <String WC="0.8061538339" CONTENT="Deckenputzes," HEIGHT="53" WIDTH="246" VPOS="1596" HPOS="370"/>
+            <SP WIDTH="30" VPOS="1594" HPOS="617"/>
+            <String WC="0.6779999733" CONTENT="sowie" HEIGHT="50" WIDTH="99" VPOS="1594" HPOS="648"/>
+            <SP WIDTH="19" VPOS="1594" HPOS="748"/>
+            <String WC="0.6837499738" CONTENT="Anstrich" HEIGHT="51" WIDTH="150" VPOS="1593" HPOS="768"/>
+            <SP WIDTH="30" VPOS="1593" HPOS="919"/>
+            <String WC="0.9033333063" CONTENT="der" HEIGHT="39" WIDTH="56" VPOS="1594" HPOS="950"/>
+            <SP WIDTH="19" VPOS="1593" HPOS="1007"/>
+            <String WC="0.7072727084" CONTENT="Pntzslächen" HEIGHT="52" WIDTH="209" VPOS="1592" HPOS="1027"/>
+            <SP WIDTH="28" VPOS="1605" HPOS="1237"/>
+            <String WC="0.8666666746" CONTENT="mit" HEIGHT="38" WIDTH="63" VPOS="1593" HPOS="1266"/>
+            <SP WIDTH="18" VPOS="1592" HPOS="1330"/>
+            <String WC="0.7239999771" CONTENT="Kalk-" HEIGHT="40" WIDTH="99" VPOS="1591" HPOS="1349"/>
+          </TextLine>
+          <TextLine HEIGHT="62" WIDTH="1066" VPOS="1639" HPOS="370">
+            <String WC="0.5659999847" CONTENT="sarbe" HEIGHT="48" WIDTH="94" VPOS="1653" HPOS="370"/>
+            <SP WIDTH="29" VPOS="1664" HPOS="465"/>
+            <String WC="0.7033333182" CONTENT="und" HEIGHT="36" WIDTH="65" VPOS="1654" HPOS="495"/>
+            <SP WIDTH="29" VPOS="1652" HPOS="561"/>
+            <String WC="0.8733333349" CONTENT="der" HEIGHT="39" WIDTH="56" VPOS="1651" HPOS="591"/>
+            <SP WIDTH="28" VPOS="1651" HPOS="648"/>
+            <String WC="0.7444444299" CONTENT="Holzteile" HEIGHT="50" WIDTH="168" VPOS="1649" HPOS="677"/>
+            <SP WIDTH="29" VPOS="1660" HPOS="846"/>
+            <String WC="0.6833333373" CONTENT="mit" HEIGHT="38" WIDTH="61" VPOS="1649" HPOS="876"/>
+            <SP WIDTH="27" VPOS="1641" HPOS="938"/>
+            <String WC="0.6399999857" CONTENT="Ölfarbe" HEIGHT="55" WIDTH="145" VPOS="1640" HPOS="966"/>
+            <SP WIDTH="304" VPOS="1677" HPOS="1132"/>
+          </TextLine>
+          <TextLine HEIGHT="54" WIDTH="915" VPOS="1701" HPOS="534">
+            <String WC="0.6999999881" CONTENT="3)" HEIGHT="48" WIDTH="36" VPOS="1707" HPOS="534"/>
+            <SP WIDTH="29" VPOS="1706" HPOS="571"/>
+            <String WC="0.9372727275" CONTENT="Herstellung" HEIGHT="50" WIDTH="212" VPOS="1705" HPOS="601"/>
+            <SP WIDTH="37" VPOS="1712" HPOS="814"/>
+            <String WC="0.7633333206" CONTENT="von" HEIGHT="32" WIDTH="65" VPOS="1711" HPOS="852"/>
+            <SP WIDTH="39" VPOS="1704" HPOS="918"/>
+            <String WC="1." CONTENT="3" HEIGHT="36" WIDTH="21" VPOS="1704" HPOS="958"/>
+            <SP WIDTH="39" VPOS="1704" HPOS="980"/>
+            <String WC="0.8700000048" CONTENT="neuen" HEIGHT="30" WIDTH="106" VPOS="1713" HPOS="1020"/>
+            <SP WIDTH="38" VPOS="1702" HPOS="1127"/>
+            <String WC="0.8274999857" CONTENT="Ständern" HEIGHT="39" WIDTH="182" VPOS="1702" HPOS="1166"/>
+            <SP WIDTH="37" VPOS="1713" HPOS="1349"/>
+            <String WC="0.7799999714" CONTENT="mit" HEIGHT="39" WIDTH="62" VPOS="1701" HPOS="1387"/>
+          </TextLine>
+          <TextLine HEIGHT="54" WIDTH="1078" VPOS="1755" HPOS="371">
+            <String WC="0.8050000072" CONTENT="profilierten" HEIGHT="48" WIDTH="212" VPOS="1761" HPOS="371"/>
+            <SP WIDTH="27" VPOS="1759" HPOS="584"/>
+            <String WC="0.7466666698" CONTENT="Kopfbändern," HEIGHT="51" WIDTH="254" VPOS="1757" HPOS="612"/>
+            <SP WIDTH="30" VPOS="1758" HPOS="867"/>
+            <String WC="0.6320000291" CONTENT="sowie" HEIGHT="46" WIDTH="98" VPOS="1757" HPOS="898"/>
+            <SP WIDTH="29" VPOS="1769" HPOS="997"/>
+            <String WC="0.8840000033" CONTENT="eines" HEIGHT="40" WIDTH="92" VPOS="1757" HPOS="1027"/>
+            <SP WIDTH="19" VPOS="1757" HPOS="1120"/>
+            <String WC="0.8960000277" CONTENT="Unterzuges" HEIGHT="49" WIDTH="213" VPOS="1756" HPOS="1140"/>
+            <SP WIDTH="28" VPOS="1762" HPOS="1354"/>
+            <String WC="0.8633333445" CONTENT="ans" HEIGHT="33" WIDTH="66" VPOS="1762" HPOS="1383"/>
+          </TextLine>
+          <TextLine HEIGHT="55" WIDTH="1078" VPOS="1809" HPOS="372">
+            <String WC="0.6579999924" CONTENT="Eichenholz" HEIGHT="49" WIDTH="198" VPOS="1815" HPOS="372"/>
+            <SP WIDTH="28" VPOS="1826" HPOS="571"/>
+            <String WC="0.7950000167" CONTENT="einschließlich" HEIGHT="51" WIDTH="234" VPOS="1812" HPOS="599"/>
+            <SP WIDTH="31" VPOS="1813" HPOS="833"/>
+            <String WC="0.7829999924" CONTENT="Anbringung" HEIGHT="48" WIDTH="229" VPOS="1812" HPOS="864"/>
+            <SP WIDTH="38" VPOS="1823" HPOS="1094"/>
+            <String WC="0.7633333206" CONTENT="und" HEIGHT="38" WIDTH="68" VPOS="1811" HPOS="1132"/>
+            <SP WIDTH="29" VPOS="1811" HPOS="1200"/>
+            <String WC="0.8518182039" CONTENT="Befestigung" HEIGHT="50" WIDTH="221" VPOS="1810" HPOS="1229"/>
+          </TextLine>
+          <TextLine HEIGHT="54" WIDTH="916" VPOS="1863" HPOS="535">
+            <String WC="0.6750000119" CONTENT="4)" HEIGHT="47" WIDTH="38" VPOS="1869" HPOS="535"/>
+            <SP WIDTH="29" VPOS="1868" HPOS="574"/>
+            <String WC="0.9622222185" CONTENT="Anfnehmen" HEIGHT="49" WIDTH="214" VPOS="1867" HPOS="604"/>
+            <SP WIDTH="28" VPOS="1867" HPOS="819"/>
+            <String WC="0.8500000238" CONTENT="des" HEIGHT="38" WIDTH="58" VPOS="1866" HPOS="848"/>
+            <SP WIDTH="20" VPOS="1871" HPOS="907"/>
+            <String WC="0.7319999933" CONTENT="alten" HEIGHT="36" WIDTH="92" VPOS="1867" HPOS="928"/>
+            <SP WIDTH="20" VPOS="1865" HPOS="1021"/>
+            <String WC="0.8387500048" CONTENT="Belages," HEIGHT="49" WIDTH="163" VPOS="1864" HPOS="1042"/>
+            <SP WIDTH="30" VPOS="1866" HPOS="1206"/>
+            <String WC="0.7779999971" CONTENT="sowie" HEIGHT="44" WIDTH="98" VPOS="1866" HPOS="1237"/>
+            <SP WIDTH="28" VPOS="1865" HPOS="1336"/>
+            <String WC="1." CONTENT="Her" HEIGHT="48" WIDTH="70" VPOS="1865" HPOS="1365"/>
+            <HYP CONTENT="­"/>
+          </TextLine>
+          <TextLine HEIGHT="56" WIDTH="1078" VPOS="1916" HPOS="373">
+            <String WC="0.7049999833" CONTENT="stellung" HEIGHT="48" WIDTH="139" VPOS="1924" HPOS="373"/>
+            <SP WIDTH="29" VPOS="1934" HPOS="513"/>
+            <String WC="0.8939999938" CONTENT="eines" HEIGHT="40" WIDTH="92" VPOS="1921" HPOS="543"/>
+            <SP WIDTH="28" VPOS="1926" HPOS="636"/>
+            <String WC="0.9419999719" CONTENT="neuen" HEIGHT="28" WIDTH="106" VPOS="1931" HPOS="665"/>
+            <SP WIDTH="24" VPOS="1919" HPOS="772"/>
+            <String WC="0.8342857361" CONTENT="Belages" HEIGHT="50" WIDTH="152" VPOS="1918" HPOS="797"/>
+            <SP WIDTH="20" VPOS="1924" HPOS="950"/>
+            <String WC="0.8133333325" CONTENT="von" HEIGHT="30" WIDTH="63" VPOS="1927" HPOS="971"/>
+            <SP WIDTH="26" VPOS="1918" HPOS="1035"/>
+            <String WC="0.8835714459" CONTENT="Obernkirchener" HEIGHT="49" WIDTH="282" VPOS="1917" HPOS="1062"/>
+            <SP WIDTH="27" VPOS="1929" HPOS="1345"/>
+            <String WC="0.7900000215" CONTENT="oder" HEIGHT="37" WIDTH="78" VPOS="1919" HPOS="1373"/>
+          </TextLine>
+          <TextLine HEIGHT="55" WIDTH="1078" VPOS="1971" HPOS="373">
+            <String WC="0.9128571153" CONTENT="anderen" HEIGHT="40" WIDTH="145" VPOS="1977" HPOS="373"/>
+            <SP WIDTH="38" VPOS="1988" HPOS="519"/>
+            <String WC="0.9307143092" CONTENT="gleichwertigen" HEIGHT="51" WIDTH="264" VPOS="1974" HPOS="558"/>
+            <SP WIDTH="38" VPOS="1974" HPOS="823"/>
+            <String WC="0.8158823252" CONTENT="Sandsteinplatten," HEIGHT="50" WIDTH="342" VPOS="1972" HPOS="862"/>
+            <SP WIDTH="45" VPOS="1980" HPOS="1205"/>
+            <String WC="0.7366666794" CONTENT="wie" HEIGHT="38" WIDTH="61" VPOS="1972" HPOS="1251"/>
+            <SP WIDTH="38" VPOS="1972" HPOS="1313"/>
+            <String WC="0.7766666412" CONTENT="solche" HEIGHT="49" WIDTH="99" VPOS="1971" HPOS="1352"/>
+          </TextLine>
+          <TextLine HEIGHT="56" WIDTH="1079" VPOS="2025" HPOS="373">
+            <String WC="0.8700000048" CONTENT="auch" HEIGHT="50" WIDTH="78" VPOS="2031" HPOS="373"/>
+            <SP WIDTH="39" VPOS="2031" HPOS="451"/>
+            <String WC="0.9466666579" CONTENT="ehedem" HEIGHT="51" WIDTH="132" VPOS="2029" HPOS="490"/>
+            <SP WIDTH="43" VPOS="2029" HPOS="622"/>
+            <String WC="0.6999999881" CONTENT="in" HEIGHT="39" WIDTH="34" VPOS="2029" HPOS="665"/>
+            <SP WIDTH="48" VPOS="2029" HPOS="699"/>
+            <String WC="1." CONTENT="der" HEIGHT="38" WIDTH="57" VPOS="2029" HPOS="747"/>
+            <SP WIDTH="37" VPOS="2029" HPOS="804"/>
+            <String WC="0.6919999719" CONTENT="Halle" HEIGHT="50" WIDTH="101" VPOS="2028" HPOS="841"/>
+            <SP WIDTH="45" VPOS="2035" HPOS="942"/>
+            <String WC="0.7844444513" CONTENT="vorhanden" HEIGHT="51" WIDTH="195" VPOS="2026" HPOS="987"/>
+            <SP WIDTH="43" VPOS="2037" HPOS="1182"/>
+            <String WC="0.7379999757" CONTENT="waren" HEIGHT="28" WIDTH="116" VPOS="2037" HPOS="1225"/>
+            <SP WIDTH="42" VPOS="2037" HPOS="1341"/>
+            <String WC="0.7266666889" CONTENT="und" HEIGHT="39" WIDTH="69" VPOS="2026" HPOS="1383"/>
+          </TextLine>
+          <TextLine HEIGHT="55" WIDTH="1077" VPOS="2080" HPOS="373">
+            <String WC="0.9033333063" CONTENT="zur" HEIGHT="38" WIDTH="60" VPOS="2097" HPOS="373"/>
+            <SP WIDTH="26" VPOS="2094" HPOS="434"/>
+            <String WC="0.8887500167" CONTENT="würdigen" HEIGHT="50" WIDTH="174" VPOS="2084" HPOS="461"/>
+            <SP WIDTH="18" VPOS="2084" HPOS="636"/>
+            <String WC="0.851764679" CONTENT="Wiederherstellung" HEIGHT="51" WIDTH="337" VPOS="2082" HPOS="655"/>
+            <SP WIDTH="21" VPOS="2082" HPOS="993"/>
+            <String WC="0.8866666555" CONTENT="der" HEIGHT="39" WIDTH="56" VPOS="2082" HPOS="1015"/>
+            <SP WIDTH="28" VPOS="2094" HPOS="1072"/>
+            <String WC="0.8999999762" CONTENT="unteren" HEIGHT="35" WIDTH="140" VPOS="2086" HPOS="1101"/>
+            <SP WIDTH="29" VPOS="2081" HPOS="1242"/>
+            <String WC="0.6999999881" CONTENT="Rathans-" HEIGHT="49" WIDTH="178" VPOS="2080" HPOS="1272"/>
+          </TextLine>
+          <TextLine HEIGHT="56" WIDTH="1077" VPOS="2134" HPOS="374">
+            <String WC="0.7699999809" CONTENT="halle" HEIGHT="50" WIDTH="86" VPOS="2140" HPOS="374"/>
+            <SP WIDTH="19" VPOS="2152" HPOS="461"/>
+            <String WC="0.7341666818" CONTENT="erforderlich" HEIGHT="49" WIDTH="210" VPOS="2139" HPOS="481"/>
+            <SP WIDTH="29" VPOS="2139" HPOS="692"/>
+            <String WC="0.9800000191" CONTENT="sein" HEIGHT="47" WIDTH="67" VPOS="2139" HPOS="722"/>
+            <SP WIDTH="28" VPOS="2138" HPOS="790"/>
+            <String WC="0.8149999976" CONTENT="dürften," HEIGHT="50" WIDTH="147" VPOS="2137" HPOS="819"/>
+            <SP WIDTH="30" VPOS="2150" HPOS="967"/>
+            <String WC="0.7614285946" CONTENT="einschließlich" HEIGHT="51" WIDTH="233" VPOS="2135" HPOS="998"/>
+            <SP WIDTH="21" VPOS="2136" HPOS="1232"/>
+            <String WC="0.8766666651" CONTENT="Reinigung" HEIGHT="50" WIDTH="197" VPOS="2135" HPOS="1254"/>
+          </TextLine>
+          <TextLine HEIGHT="55" WIDTH="1069" VPOS="2188" HPOS="374">
+            <String WC="0.8700000048" CONTENT="des" HEIGHT="40" WIDTH="58" VPOS="2194" HPOS="374"/>
+            <SP WIDTH="27" VPOS="2193" HPOS="433"/>
+            <String WC="0.7466666698" CONTENT="Fußbodens" HEIGHT="51" WIDTH="210" VPOS="2191" HPOS="461"/>
+            <SP WIDTH="738" VPOS="2219" HPOS="705"/>
+          </TextLine>
+          <TextLine HEIGHT="54" WIDTH="913" VPOS="2243" HPOS="537">
+            <String WC="0.3650000095" CONTENT="5)" HEIGHT="47" WIDTH="38" VPOS="2249" HPOS="537"/>
+            <SP WIDTH="29" VPOS="2248" HPOS="576"/>
+            <String WC="1." CONTENT="Nene" HEIGHT="40" WIDTH="96" VPOS="2247" HPOS="606"/>
+            <SP WIDTH="19" VPOS="2248" HPOS="703"/>
+            <String WC="0.7779999971" CONTENT="Sandsteinsockel" HEIGHT="51" WIDTH="284" VPOS="2245" HPOS="723"/>
+            <SP WIDTH="18" VPOS="2246" HPOS="1008"/>
+            <String WC="0.8466666937" CONTENT="für" HEIGHT="48" WIDTH="57" VPOS="2246" HPOS="1027"/>
+            <SP WIDTH="19" VPOS="2246" HPOS="1085"/>
+            <String WC="0.9200000167" CONTENT="sämtliche" HEIGHT="50" WIDTH="167" VPOS="2244" HPOS="1105"/>
+            <SP WIDTH="19" VPOS="2245" HPOS="1273"/>
+            <String WC="0.7885714173" CONTENT="Ständer" HEIGHT="39" WIDTH="157" VPOS="2244" HPOS="1293"/>
+          </TextLine>
+          <TextLine HEIGHT="54" WIDTH="913" VPOS="2298" HPOS="539">
+            <String WC="0.5149999857" CONTENT="6)" HEIGHT="48" WIDTH="37" VPOS="2303" HPOS="539"/>
+            <SP WIDTH="40" VPOS="2303" HPOS="576"/>
+            <String WC="0.9010000229" CONTENT="Sämtliches" HEIGHT="47" WIDTH="212" VPOS="2302" HPOS="616"/>
+            <SP WIDTH="38" VPOS="2301" HPOS="828"/>
+            <String WC="0.7624999881" CONTENT="Holzwerk" HEIGHT="50" WIDTH="177" VPOS="2300" HPOS="866"/>
+            <SP WIDTH="37" VPOS="2301" HPOS="1043"/>
+            <String WC="0.8123077154" CONTENT="anszuspähnen," HEIGHT="51" WIDTH="277" VPOS="2298" HPOS="1080"/>
+            <SP WIDTH="44" VPOS="2299" HPOS="1357"/>
+            <String WC="0.9966666698" CONTENT="die" HEIGHT="38" WIDTH="51" VPOS="2298" HPOS="1401"/>
+          </TextLine>
+          <TextLine HEIGHT="55" WIDTH="1078" VPOS="2352" HPOS="375">
+            <String WC="0.6342856884" CONTENT="Locher," HEIGHT="49" WIDTH="132" VPOS="2358" HPOS="375"/>
+            <SP WIDTH="39" VPOS="2357" HPOS="508"/>
+            <String WC="0.9240000248" CONTENT="Risse" HEIGHT="50" WIDTH="93" VPOS="2356" HPOS="548"/>
+            <SP WIDTH="28" VPOS="2368" HPOS="642"/>
+            <String WC="0.7699999809" CONTENT="und" HEIGHT="37" WIDTH="66" VPOS="2357" HPOS="671"/>
+            <SP WIDTH="28" VPOS="2355" HPOS="738"/>
+            <String WC="0.8059999943" CONTENT="Fugen" HEIGHT="50" WIDTH="120" VPOS="2354" HPOS="767"/>
+            <SP WIDTH="37" VPOS="2367" HPOS="888"/>
+            <String WC="0.6633333564" CONTENT="mit" HEIGHT="38" WIDTH="61" VPOS="2355" HPOS="926"/>
+            <SP WIDTH="26" VPOS="2354" HPOS="988"/>
+            <String WC="0.7912499905" CONTENT="Leimkitt" HEIGHT="41" WIDTH="156" VPOS="2353" HPOS="1015"/>
+            <SP WIDTH="31" VPOS="2354" HPOS="1172"/>
+            <String WC="0.6970000267" CONTENT="sorgfältig" HEIGHT="49" WIDTH="179" VPOS="2353" HPOS="1204"/>
+            <SP WIDTH="28" VPOS="2364" HPOS="1384"/>
+            <String WC="0.3050000072" CONTENT="zu" HEIGHT="37" WIDTH="40" VPOS="2364" HPOS="1413"/>
+          </TextLine>
+          <TextLine HEIGHT="56" WIDTH="1061" VPOS="2407" HPOS="376">
+            <String WC="0.9308333397" CONTENT="verstreichen" HEIGHT="52" WIDTH="213" VPOS="2411" HPOS="376"/>
+            <SP WIDTH="29" VPOS="2412" HPOS="590"/>
+            <String WC="0.6159999967" CONTENT="bezw." HEIGHT="49" WIDTH="98" VPOS="2411" HPOS="620"/>
+            <SP WIDTH="31" VPOS="2422" HPOS="719"/>
+            <String WC="0.3950000107" CONTENT="zu" HEIGHT="37" WIDTH="39" VPOS="2422" HPOS="751"/>
+            <SP WIDTH="28" VPOS="2410" HPOS="791"/>
+            <String WC="0.7400000095" CONTENT="spachteln" HEIGHT="51" WIDTH="164" VPOS="2409" HPOS="820"/>
+            <SP WIDTH="441" VPOS="2438" HPOS="996"/>
+          </TextLine>
+          <TextLine HEIGHT="54" WIDTH="912" VPOS="2462" HPOS="541">
+            <String WC="1." CONTENT="7)" HEIGHT="47" WIDTH="36" VPOS="2467" HPOS="541"/>
+            <SP WIDTH="29" VPOS="2467" HPOS="578"/>
+            <String WC="0.8312500119" CONTENT="Abnehmen" HEIGHT="51" WIDTH="197" VPOS="2465" HPOS="608"/>
+            <SP WIDTH="28" VPOS="2467" HPOS="806"/>
+            <String WC="0.7699999809" CONTENT="der" HEIGHT="37" WIDTH="57" VPOS="2466" HPOS="835"/>
+            <SP WIDTH="27" VPOS="2464" HPOS="893"/>
+            <String WC="0.8799999952" CONTENT="Thüren" HEIGHT="50" WIDTH="142" VPOS="2464" HPOS="921"/>
+            <SP WIDTH="34" VPOS="2477" HPOS="1064"/>
+            <String WC="0.6299999952" CONTENT="an" HEIGHT="28" WIDTH="43" VPOS="2475" HPOS="1099"/>
+            <SP WIDTH="37" VPOS="2464" HPOS="1143"/>
+            <String WC="0.9766666889" CONTENT="dem" HEIGHT="38" WIDTH="73" VPOS="2464" HPOS="1181"/>
+            <SP WIDTH="39" VPOS="2463" HPOS="1255"/>
+            <String WC="0.8262500167" CONTENT="früheren" HEIGHT="50" WIDTH="158" VPOS="2462" HPOS="1295"/>
+          </TextLine>
+          <TextLine HEIGHT="55" WIDTH="1077" VPOS="2516" HPOS="377">
+            <String WC="0.8357895017" CONTENT="Untergerichtszimmer" HEIGHT="51" WIDTH="394" VPOS="2520" HPOS="377"/>
+            <SP WIDTH="47" VPOS="2521" HPOS="771"/>
+            <String WC="0.6299999952" CONTENT="sowie" HEIGHT="49" WIDTH="97" VPOS="2519" HPOS="818"/>
+            <SP WIDTH="47" VPOS="2520" HPOS="915"/>
+            <String WC="0.9366666675" CONTENT="der" HEIGHT="37" WIDTH="58" VPOS="2520" HPOS="962"/>
+            <SP WIDTH="43" VPOS="2531" HPOS="1020"/>
+            <String WC="0.8130000234" CONTENT="ehemaligen" HEIGHT="50" WIDTH="208" VPOS="2518" HPOS="1063"/>
+            <SP WIDTH="41" VPOS="2517" HPOS="1271"/>
+            <String WC="0.8849999905" CONTENT="Kriegs" HEIGHT="50" WIDTH="127" VPOS="2516" HPOS="1312" SUBS_TYPE="HypPart1" SUBS_CONTENT="Kriegskammer"/>
+            <HYP CONTENT="­"/>
+          </TextLine>
+          <TextLine HEIGHT="55" WIDTH="1078" VPOS="2571" HPOS="377">
+            <String WC="0.8716666698" CONTENT="kammer" HEIGHT="39" WIDTH="145" VPOS="2576" HPOS="377" SUBS_TYPE="HypPart2" SUBS_CONTENT="Kriegskammer"/>
+            <SP WIDTH="36" VPOS="2587" HPOS="523"/>
+            <String WC="0.7566666603" CONTENT="und" HEIGHT="39" WIDTH="66" VPOS="2575" HPOS="560"/>
+            <SP WIDTH="35" VPOS="2575" HPOS="627"/>
+            <String WC="0.8899999857" CONTENT="der" HEIGHT="37" WIDTH="57" VPOS="2576" HPOS="663"/>
+            <SP WIDTH="36" VPOS="2575" HPOS="721"/>
+            <String WC="0.8174999952" CONTENT="früheren" HEIGHT="49" WIDTH="159" VPOS="2574" HPOS="758"/>
+            <SP WIDTH="37" VPOS="2573" HPOS="918"/>
+            <String WC="0.8657143116" CONTENT="Gerichtskasse," HEIGHT="51" WIDTH="251" VPOS="2572" HPOS="956"/>
+            <SP WIDTH="38" VPOS="2573" HPOS="1208"/>
+            <String WC="0.9649999738" CONTENT="ferner" HEIGHT="50" WIDTH="113" VPOS="2572" HPOS="1247"/>
+            <SP WIDTH="37" VPOS="2572" HPOS="1361"/>
+            <String WC="0.6399999857" CONTENT="für" HEIGHT="47" WIDTH="56" VPOS="2572" HPOS="1399"/>
+          </TextLine>
+          <TextLine HEIGHT="55" WIDTH="1077" VPOS="2626" HPOS="377">
+            <String WC="0.9458333254" CONTENT="Ausbesserung" HEIGHT="51" WIDTH="253" VPOS="2629" HPOS="377"/>
+            <SP WIDTH="15" VPOS="2640" HPOS="631"/>
+            <String WC="0.5933333039" CONTENT="und" HEIGHT="38" WIDTH="66" VPOS="2629" HPOS="647"/>
+            <SP WIDTH="16" VPOS="2629" HPOS="714"/>
+            <String WC="0.7099999785" CONTENT="Ergänzung" HEIGHT="50" WIDTH="209" VPOS="2628" HPOS="731"/>
+            <SP WIDTH="19" VPOS="2628" HPOS="941"/>
+            <String WC="0.7699999809" CONTENT="der" HEIGHT="38" WIDTH="56" VPOS="2628" HPOS="961"/>
+            <SP WIDTH="14" VPOS="2628" HPOS="1018"/>
+            <String WC="0.7988888621" CONTENT="Holzteile" HEIGHT="51" WIDTH="170" VPOS="2627" HPOS="1033"/>
+            <SP WIDTH="13" VPOS="2638" HPOS="1204"/>
+            <String WC="0.8033333421" CONTENT="und" HEIGHT="39" WIDTH="68" VPOS="2627" HPOS="1218"/>
+            <SP WIDTH="15" VPOS="2627" HPOS="1287"/>
+            <String WC="0.887142837" CONTENT="Wieder-" HEIGHT="39" WIDTH="151" VPOS="2626" HPOS="1303"/>
+          </TextLine>
+          <TextLine HEIGHT="55" WIDTH="1076" VPOS="2680" HPOS="378">
+            <String WC="0.8709999919" CONTENT="anbringnng" HEIGHT="48" WIDTH="216" VPOS="2685" HPOS="378"/>
+            <SP WIDTH="28" VPOS="2684" HPOS="595"/>
+            <String WC="0.8133333325" CONTENT="derselben" HEIGHT="47" WIDTH="168" VPOS="2684" HPOS="624"/>
+            <SP WIDTH="28" VPOS="2691" HPOS="793"/>
+            <String WC="0.8100000024" CONTENT="vor" HEIGHT="32" WIDTH="61" VPOS="2690" HPOS="822"/>
+            <SP WIDTH="26" VPOS="2683" HPOS="884"/>
+            <String WC="0.7833333611" CONTENT="den" HEIGHT="38" WIDTH="62" VPOS="2683" HPOS="911"/>
+            <SP WIDTH="20" VPOS="2683" HPOS="974"/>
+            <String WC="0.8733333349" CONTENT="Eingängen" HEIGHT="50" WIDTH="202" VPOS="2682" HPOS="995"/>
+            <SP WIDTH="27" VPOS="2694" HPOS="1198"/>
+            <String WC="0.6399999857" CONTENT="zum" HEIGHT="36" WIDTH="76" VPOS="2693" HPOS="1226"/>
+            <SP WIDTH="28" VPOS="2682" HPOS="1303"/>
+            <String WC="0.9016666412" CONTENT="Archiv" HEIGHT="50" WIDTH="122" VPOS="2680" HPOS="1332"/>
+          </TextLine>
+          <TextLine HEIGHT="54" WIDTH="1076" VPOS="2734" HPOS="379">
+            <String WC="1." CONTENT="in" HEIGHT="37" WIDTH="33" VPOS="2740" HPOS="379"/>
+            <SP WIDTH="15" VPOS="2740" HPOS="413"/>
+            <String WC="0.9033333063" CONTENT="der" HEIGHT="37" WIDTH="57" VPOS="2740" HPOS="429"/>
+            <SP WIDTH="18" VPOS="2750" HPOS="487"/>
+            <String WC="0.9571428299" CONTENT="unteren" HEIGHT="39" WIDTH="142" VPOS="2740" HPOS="506"/>
+            <SP WIDTH="15" VPOS="2738" HPOS="649"/>
+            <String WC="0.7769230604" CONTENT="Rathaushalle," HEIGHT="51" WIDTH="264" VPOS="2736" HPOS="665"/>
+            <SP WIDTH="22" VPOS="2749" HPOS="930"/>
+            <String WC="0.6914285421" CONTENT="einschließlich" HEIGHT="51" WIDTH="234" VPOS="2735" HPOS="953"/>
+            <SP WIDTH="16" VPOS="2736" HPOS="1188"/>
+            <String WC="0.8281818032" CONTENT="Veränderung" HEIGHT="48" WIDTH="250" VPOS="2735" HPOS="1205"/>
+          </TextLine>
+          <TextLine HEIGHT="55" WIDTH="1078" VPOS="2788" HPOS="378">
+            <String WC="0.9300000072" CONTENT="der" HEIGHT="38" WIDTH="57" VPOS="2794" HPOS="378"/>
+            <SP WIDTH="19" VPOS="2792" HPOS="435"/>
+            <String WC="0.8949999809" CONTENT="Thüröffnnngen," HEIGHT="51" WIDTH="300" VPOS="2791" HPOS="454"/>
+            <SP WIDTH="30" VPOS="2792" HPOS="754"/>
+            <String WC="0.7680000067" CONTENT="sowie" HEIGHT="50" WIDTH="100" VPOS="2790" HPOS="784"/>
+            <SP WIDTH="20" VPOS="2791" HPOS="884"/>
+            <String WC="0.8077777624" CONTENT="Reinigung" HEIGHT="49" WIDTH="198" VPOS="2791" HPOS="904"/>
+            <SP WIDTH="29" VPOS="2801" HPOS="1103"/>
+            <String WC="0.8666666746" CONTENT="und" HEIGHT="39" WIDTH="68" VPOS="2790" HPOS="1132"/>
+            <SP WIDTH="21" VPOS="2790" HPOS="1200"/>
+            <String WC="0.6974999905" CONTENT="Anstrich" HEIGHT="49" WIDTH="151" VPOS="2789" HPOS="1221"/>
+            <SP WIDTH="26" VPOS="2789" HPOS="1372"/>
+            <String WC="0.8999999762" CONTENT="der" HEIGHT="38" WIDTH="58" VPOS="2789" HPOS="1398"/>
+          </TextLine>
+          <TextLine HEIGHT="56" WIDTH="1077" VPOS="2841" HPOS="379">
+            <String WC="0.8728571534" CONTENT="Thüren," HEIGHT="51" WIDTH="160" VPOS="2846" HPOS="379"/>
+            <SP WIDTH="43" VPOS="2847" HPOS="540"/>
+            <String WC="0.9277777672" CONTENT="Lieferung" HEIGHT="49" WIDTH="181" VPOS="2846" HPOS="584"/>
+            <SP WIDTH="37" VPOS="2846" HPOS="766"/>
+            <String WC="0.926666677" CONTENT="der" HEIGHT="39" WIDTH="57" VPOS="2846" HPOS="804"/>
+            <SP WIDTH="46" VPOS="2856" HPOS="862"/>
+            <String WC="0.854285717" CONTENT="erforderlichen" HEIGHT="50" WIDTH="255" VPOS="2844" HPOS="909"/>
+            <SP WIDTH="36" VPOS="2842" HPOS="1165"/>
+            <String WC="0.7671428323" CONTENT="Gerüste" HEIGHT="50" WIDTH="144" VPOS="2842" HPOS="1202"/>
+            <SP WIDTH="42" VPOS="2855" HPOS="1347"/>
+            <String WC="0.646666646" CONTENT="und" HEIGHT="37" WIDTH="66" VPOS="2844" HPOS="1390"/>
+          </TextLine>
+          <TextLine HEIGHT="55" WIDTH="1076" VPOS="2897" HPOS="380">
+            <String WC="0.7599999905" CONTENT="Absteifungen" HEIGHT="49" WIDTH="242" VPOS="2902" HPOS="380"/>
+            <SP WIDTH="28" VPOS="2913" HPOS="623"/>
+            <String WC="0.5500000119" CONTENT="und" HEIGHT="37" WIDTH="66" VPOS="2902" HPOS="652"/>
+            <SP WIDTH="28" VPOS="2902" HPOS="719"/>
+            <String WC="0.7699999809" CONTENT="für" HEIGHT="47" WIDTH="56" VPOS="2902" HPOS="748"/>
+            <SP WIDTH="20" VPOS="2901" HPOS="805"/>
+            <String WC="0.8911764622" CONTENT="Unvorhergesehenes" HEIGHT="53" WIDTH="354" VPOS="2898" HPOS="826"/>
+            <SP WIDTH="28" VPOS="2905" HPOS="1181"/>
+            <String WC="0.646666646" CONTENT="und" HEIGHT="40" WIDTH="67" VPOS="2899" HPOS="1210"/>
+            <SP WIDTH="27" VPOS="2899" HPOS="1278"/>
+            <String WC="0.6866666675" CONTENT="zur" HEIGHT="39" WIDTH="61" VPOS="2909" HPOS="1306"/>
+            <SP WIDTH="18" VPOS="2898" HPOS="1368"/>
+            <String WC="0.4550000131" CONTENT="Ab" HEIGHT="38" WIDTH="53" VPOS="2898" HPOS="1387" SUBS_TYPE="HypPart1" SUBS_CONTENT="Abrundung"/>
+            <HYP CONTENT="­"/>
+          </TextLine>
+          <TextLine HEIGHT="52" WIDTH="1069" VPOS="2954" HPOS="379">
+            <String WC="0.7328571677" CONTENT="rundung" HEIGHT="48" WIDTH="157" VPOS="2958" HPOS="379" SUBS_TYPE="HypPart2" SUBS_CONTENT="Abrundung"/>
+            <SP WIDTH="911" VPOS="2965" HPOS="537"/>
+          </TextLine>
+        </TextBlock>
+        <TextBlock ID="Page1_Block12" HEIGHT="53" WIDTH="305" VPOS="1364" HPOS="1472" language="de" STYLEREFS="font2">
+          <Shape>
+            <Polygon POINTS="1481,1371 1786,1371 1786,1423 1481,1423 1481,1371"/>
+          </Shape>
+          <TextLine HEIGHT="42" WIDTH="292" VPOS="1369" HPOS="1478">
+            <String STYLE="italics" STYLEREFS="font3" WC="9.999999776e-003" CONTENT="Jk" HEIGHT="41" WIDTH="48" VPOS="1370" HPOS="1478"/>
+            <SP WIDTH="86" VPOS="1369" HPOS="1527"/>
+            <String WC="0.8859999776" CONTENT="750.—" HEIGHT="38" WIDTH="156" VPOS="1371" HPOS="1614"/>
+          </TextLine>
+        </TextBlock>
+        <ComposedBlock ID="Page1_Block13" HEIGHT="213" WIDTH="171" VPOS="1639" HPOS="1556" TYPE="container">
+          <Shape>
+            <Polygon POINTS="1564,1646 1734,1646 1734,1858 1564,1858 1564,1646"/>
+          </Shape>
+          <TextBlock ID="Page1_Block14" HEIGHT="49" WIDTH="170" VPOS="1639" HPOS="1556" language="de" STYLEREFS="font2">
+            <Shape>
+              <Polygon POINTS="1564,1646 1734,1646 1734,1694 1564,1694 1564,1646"/>
+            </Shape>
+            <TextLine HEIGHT="38" WIDTH="137" VPOS="1646" HPOS="1572">
+              <String WC="1." CONTENT="1" HEIGHT="36" WIDTH="20" VPOS="1647" HPOS="1572"/>
+              <SP WIDTH="18" VPOS="1646" HPOS="1593"/>
+              <String WC="1." CONTENT="400." HEIGHT="37" WIDTH="97" VPOS="1646" HPOS="1612"/>
+            </TextLine>
+          </TextBlock>
+          <TextBlock ID="Page1_Block15" HEIGHT="48" WIDTH="127" VPOS="1803" HPOS="1600" language="de" STYLEREFS="font2">
+            <Shape>
+              <Polygon POINTS="1608,1810 1734,1810 1734,1858 1608,1858 1608,1810"/>
+            </Shape>
+            <TextLine HEIGHT="36" WIDTH="96" VPOS="1810" HPOS="1615">
+              <String WC="0.8924999833" CONTENT="600." HEIGHT="36" WIDTH="96" VPOS="1810" HPOS="1615"/>
+            </TextLine>
+          </TextBlock>
+        </ComposedBlock>
+        <TextBlock ID="Page1_Block16" HEIGHT="104" WIDTH="236" VPOS="2182" HPOS="1546" language="de" STYLEREFS="font2">
+          <Shape>
+            <Polygon POINTS="1552,2189 1788,2189 1788,2292 1552,2292 1552,2189"/>
+          </Shape>
+          <TextLine HEIGHT="38" WIDTH="224" VPOS="2188" HPOS="1552">
+            <String WC="1." CONTENT="11" HEIGHT="35" WIDTH="45" VPOS="2190" HPOS="1552"/>
+            <SP WIDTH="18" VPOS="2189" HPOS="1598"/>
+            <String WC="0.7220000029" CONTENT="088.—" HEIGHT="37" WIDTH="159" VPOS="2188" HPOS="1617"/>
+          </TextLine>
+          <TextLine HEIGHT="37" WIDTH="197" VPOS="2243" HPOS="1578">
+            <String WC="1." CONTENT="1" HEIGHT="36" WIDTH="18" VPOS="2244" HPOS="1578"/>
+            <SP WIDTH="19" VPOS="2243" HPOS="1597"/>
+            <String WC="0.7760000229" CONTENT="080.—" HEIGHT="36" WIDTH="158" VPOS="2243" HPOS="1617"/>
+          </TextLine>
+        </TextBlock>
+        <TextBlock ID="Page1_Block17" HEIGHT="30" WIDTH="28" VPOS="2432" HPOS="1488" language="de" STYLEREFS="font0">
+          <TextLine HEIGHT="18" WIDTH="16" VPOS="2438" HPOS="1494">
+            <String WC="0.1400000006" CONTENT="ff" HEIGHT="18" WIDTH="16" VPOS="2438" HPOS="1494"/>
+          </TextLine>
+        </TextBlock>
+        <TextBlock ID="Page1_Block18" HEIGHT="48" WIDTH="171" VPOS="2401" HPOS="1606" language="de" STYLEREFS="font2">
+          <TextLine HEIGHT="36" WIDTH="159" VPOS="2407" HPOS="1612">
+            <String WC="0.8379999995" CONTENT="550.—" HEIGHT="36" WIDTH="159" VPOS="2407" HPOS="1612"/>
+          </TextLine>
+        </TextBlock>
+        <TextBlock ID="Page1_Block19" HEIGHT="118" WIDTH="614" VPOS="2943" HPOS="1500" language="de" STYLEREFS="font2">
+          <Shape>
+            <Polygon POINTS="1503,2952 2116,2952 2116,3067 1503,3067 1503,2952"/>
+          </Shape>
+          <TextLine HEIGHT="59" WIDTH="542" VPOS="2950" HPOS="1506">
+            <String WC="0.5099999905" CONTENT="„" HEIGHT="18" WIDTH="16" VPOS="2983" HPOS="1506"/>
+            <SP WIDTH="61" VPOS="2952" HPOS="1523"/>
+            <String WC="0.6100000143" CONTENT="1" HEIGHT="38" WIDTH="19" VPOS="2951" HPOS="1585"/>
+            <SP WIDTH="17" VPOS="2951" HPOS="1605"/>
+            <String WC="0.8560000062" CONTENT="532.—" HEIGHT="37" WIDTH="158" VPOS="2951" HPOS="1623"/>
+            <SP WIDTH="264" VPOS="3004" HPOS="1784"/>
+          </TextLine>
+          <TextLine HEIGHT="44" WIDTH="592" VPOS="3011" HPOS="1516">
+            <String WC="0.69599998" CONTENT="Summa" HEIGHT="40" WIDTH="154" VPOS="3015" HPOS="1516"/>
+            <SP WIDTH="40" VPOS="3027" HPOS="1670"/>
+            <String WC="0.6600000262" CONTENT="." HEIGHT="5" WIDTH="5" VPOS="3045" HPOS="1711"/>
+            <SP WIDTH="21" VPOS="3045" HPOS="1717"/>
+            <String WC="1." CONTENT="." HEIGHT="6" WIDTH="5" VPOS="3045" HPOS="1739"/>
+            <SP WIDTH="19" VPOS="3045" HPOS="1745"/>
+            <String WC="1." CONTENT="." HEIGHT="6" WIDTH="6" VPOS="3045" HPOS="1765"/>
+            <SP WIDTH="28" VPOS="3014" HPOS="1771"/>
+            <String STYLE="italics" STYLEREFS="font3" WC="0.5149999857" CONTENT="Jk" HEIGHT="39" WIDTH="48" VPOS="3013" HPOS="1799"/>
+            <SP WIDTH="33" VPOS="3012" HPOS="1847"/>
+            <String WC="0.4950000048" CONTENT="17" HEIGHT="35" WIDTH="48" VPOS="3013" HPOS="1880"/>
+            <SP WIDTH="18" VPOS="3013" HPOS="1928"/>
+            <String WC="0.8000000119" CONTENT="000.—" HEIGHT="37" WIDTH="162" VPOS="3012" HPOS="1946"/>
+          </TextLine>
+        </TextBlock>
+        <GraphicalElement ID="Page1_Block20" HEIGHT="7" WIDTH="432" VPOS="735" HPOS="1337"/>
+        <GraphicalElement ID="Page1_Block21" HEIGHT="8" WIDTH="757" VPOS="925" HPOS="1339"/>
+        <GraphicalElement ID="Page1_Block22" HEIGHT="8" WIDTH="734" VPOS="3002" HPOS="1372"/>
+        <GraphicalElement ID="Page1_Block23" HEIGHT="8" WIDTH="196" VPOS="386" HPOS="1235"/>
+        <GraphicalElement ID="Page1_Block24" HEIGHT="8" WIDTH="114" VPOS="441" HPOS="1318"/>
+        <GraphicalElement ID="Page1_Block25" HEIGHT="14" WIDTH="1306" VPOS="1021" HPOS="447"/>
+        <GraphicalElement ID="Page1_Block26" HEIGHT="7" WIDTH="304" VPOS="1677" HPOS="1132"/>
+        <GraphicalElement ID="Page1_Block27" HEIGHT="11" WIDTH="737" VPOS="2219" HPOS="705"/>
+        <GraphicalElement ID="Page1_Block28" HEIGHT="10" WIDTH="442" VPOS="2437" HPOS="995"/>
+        <GraphicalElement ID="Page1_Block29" HEIGHT="11" WIDTH="899" VPOS="2983" HPOS="549"/>
+      </PrintSpace>
+    </Page>
+  </Layout>
+</alto>

@@ -32,6 +32,11 @@ jobs:
       - name: Run tests
         run: >-
           pytest --cov=src/ --cov-report term-missing --doctest-modules tests
+      - name: Test cli command
+        run: >-
+          cat tests/data/PPN720183197-PHYS_0004.xml | alto-tools -t -
+          | grep -i 'stille gedanken'
+        shell: bash
       - name: Build package
         run: python3 -m pip install --upgrade build && python3 -m build
 

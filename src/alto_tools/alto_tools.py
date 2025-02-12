@@ -2,12 +2,14 @@
 
 """ ALTO Tools: simple tools for performing various operations on ALTO xml files """
 
+from __future__ import annotations
 import argparse
 import codecs
 import io
 import os
 import re
 import sys
+from typing import Callable, Iterable
 import xml.etree.ElementTree as ET
 
 __version__ = "0.1.0"
@@ -253,7 +255,10 @@ def parse_arguments():
     return args
 
 
-def walker(inputs, fnfilter=lambda fn: True):
+def walker(
+    inputs: Iterable[str],
+    fnfilter: Callable[[str], bool] = lambda fn: True,
+) -> Iterable[str]:
     """
     Returns all file names in inputs, and recursively for directories.
 
@@ -266,12 +271,64 @@ def walker(inputs, fnfilter=lambda fn: True):
             yield i
         else:
             for root, _, files in os.walk(i):
-                for f in files:
-                    if fnfilter(f):
-                        yield os.path.join(root, f)
+                for f in filter(fnfilter, files):
+                    yield os.path.join(root, f)
 
 
-def main():
+def open_input_file(
+    filename: str,
+    args: argparse.Namespace,
+) -> tuple[io.TextIOWrapper | str, ET.ElementTree, dict[str, str] | str] | None:
+    try:
+        if args.xml_encoding:
+            xml_encoding = args.xml_encoding
+            if xml_encoding == "auto":
+                with open(filename, "rb") as f:
+                    m = re.search('encoding="(.*?)"', f.read(45).decode("utf-8"))
+                    xml_encoding = m.group(1)
+            xmlp = ET.XMLParser(encoding=xml_encoding)
+            alto, xml, xmlns = alto_parse(filename, parser=xmlp)
+        else:
+            with open(filename, "r", encoding=args.file_encoding) as alto:
+                alto, xml, xmlns = alto_parse(alto)
+    except IndexError:
+        return None
+    except ET.ParseError as e:
+        print("Error parsing %s" % filename, file=sys.stderr)
+        raise e
+    return alto, xml, xmlns
+
+
+def _read_from_stdin() -> (
+    Iterable[tuple[io.TextIOWrapper | str, ET.ElementTree, dict[str, str] | str]]
+):
+    if os.isatty(0):
+        return
+    assert isinstance(sys.stdin, io.TextIOWrapper)
+    parsing_result = alto_parse(sys.stdin)
+    if not parsing_result:
+        return
+    yield parsing_result
+
+
+def open_input_files(
+    args: argparse.Namespace,
+) -> Iterable[tuple[io.TextIOWrapper | str, ET.ElementTree, dict[str, str] | str]]:
+    if "-" in args.INPUT:
+        yield from _read_from_stdin()
+    fnfilter = lambda fn: fn.endswith(".xml") or fn.endswith(".alto")
+    for filename in walker(args.INPUT, fnfilter):
+        parsing_result = open_input_file(filename, args)
+        if not parsing_result:
+            continue
+        alto, xml, xmlns = parsing_result
+        yield (alto, xml, xmlns)
+        if isinstance(alto, str):
+            continue
+        alto.close()
+
+
+def main() -> None:
     if sys.version_info < (3, 0):
         sys.stdout.write("Python 3 is required.\n")
         sys.exit(-1)
@@ -282,28 +339,10 @@ def main():
         os.system("python alto_tools.py -h")
         sys.exit(-1)
     else:
-        fnfilter = lambda fn: fn.endswith(".xml") or fn.endswith(".alto")
-        confidence_sum = 0
-        for filename in walker(args.INPUT, fnfilter):
-            try:
-                if args.xml_encoding:
-                    xml_encoding = args.xml_encoding
-                    if xml_encoding == "auto":
-                        with open(filename, "rb") as f:
-                            m = re.search(
-                                'encoding="(.*?)"', f.read(45).decode("utf-8")
-                            )
-                            xml_encoding = m.group(1)
-                    xmlp = ET.XMLParser(encoding=xml_encoding)
-                    alto, xml, xmlns = alto_parse(filename, parser=xmlp)
-                else:
-                    with open(filename, "r", encoding=args.file_encoding) as alto:
-                        alto, xml, xmlns = alto_parse(alto)
-            except IndexError:
-                continue
-            except ET.ParseError as e:
-                print("Error parsing %s" % filename, file=sys.stderr)
-                raise e
+        confidence_sum = 0.
+        number_of_files = 0
+        for alto, xml, xmlns in open_input_files(args):
+            number_of_files += 1
             if args.confidence:
                 confidence_sum += alto_confidence(alto, xml, xmlns)
             if args.text:
@@ -314,12 +353,10 @@ def main():
                 alto_graphics(alto, xml, xmlns)
             if args.statistics:
                 alto_statistics(alto, xml, xmlns)
-        number_of_files = len(list(walker(args.INPUT, fnfilter)))
-        if number_of_files >= 2:
-            if args.confidence:
-                print(
-                    f"\n\nConfidence of folder: {round(confidence_sum / number_of_files, 2)}"
-                )
+        if number_of_files >= 2 and args.confidence:
+            print(
+                f"\n\nConfidence of folder: {round(confidence_sum / number_of_files, 2)}"
+            )
 
 
 if __name__ == "__main__":
