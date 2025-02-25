@@ -324,7 +324,7 @@ def open_input_files(
         if not parsing_result:
             continue
         alto, xml, xmlns = parsing_result
-        yield (alto, xml, xmlns)
+        yield alto, xml, xmlns
         if isinstance(alto, str):
             continue
         alto.close()
