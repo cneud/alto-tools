@@ -24,16 +24,23 @@ def alto_parse(alto, **kargs):
         print(f"Parser Error in file '{alto}': {e}")
     # Register ALTO namespaces
     namespace = {
+        # ALTO @ CCS Content Conversion Specialists GmbH
+        # https://content-conversion.com/mets-alto/
         "alto-1": "http://schema.ccs-gmbh.com/ALTO",
         "alto-1-xsd": "http://schema.ccs-gmbh.com/ALTO/alto-1-4.xsd",
+        # ALTO @ Bibliothèque nationale de France
+        # https://bibnum.bnf.fr/alto_prod/documentation/alto_prod.html
+        "alto-bnf": "http://bibnum.bnf.fr/ns/alto_prod",
+        "alto-bnf-xsd": "http://bibnum.bnf.fr/ns/alto_prod.xsd",
+        # ALTO @ Library of Congress
+        # https://www.loc.gov/standards/alto/
+        # https://altoxml.github.io/
         "alto-2": "http://www.loc.gov/standards/alto/ns-v2#",
         "alto-2-xsd": "https://www.loc.gov/standards/alto/alto.xsd",
         "alto-3": "http://www.loc.gov/standards/alto/ns-v3#",
         "alto-3-xsd": "http://www.loc.gov/standards/alto/v3/alto.xsd",
         "alto-4": "http://www.loc.gov/standards/alto/ns-v4#",
         "alto-4-xsd": "http://www.loc.gov/standards/alto/v4/alto.xsd",
-        "alto-bnf": "http://bibnum.bnf.fr/ns/alto_prod",
-        "alto-bnf-xsd": "http://bibnum.bnf.fr/ns/alto_prod.xsd",
     }
     # Extract namespace from document root
     if "http://" in str(xml.getroot().tag.split("}")[0].strip("{")):
