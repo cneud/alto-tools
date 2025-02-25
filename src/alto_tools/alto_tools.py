@@ -170,11 +170,13 @@ def alto_statistics(alto, xml, xmlns):
     sys.stdout.write(f"\n# of <Glyph> elements: {no_glyphs}")
     sys.stdout.write(f"\n# of <Illustration> elements: {no_illustrations}")
     sys.stdout.write(f"\n# of <GraphicalElement> elements: {no_graphics}")
-    return no_textlines
-    return no_strings
-    return no_glyphs
-    return no_illustrations
-    return no_graphics
+    return {
+        'textlines': no_textlines,
+        'strings': no_strings,
+        'glyphs': no_glyphs,
+        'illustrations': no_illustrations,
+        'graphics': no_graphics
+    }
 
 
 def parse_arguments():
