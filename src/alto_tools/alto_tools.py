@@ -22,9 +22,6 @@ def alto_parse(alto, **kargs):
     except ET.ParseError as e:
         print(f"Parser Error in file '{alto}': {e}")
     # Register ALTO namespaces
-    # https://www.loc.gov/standards/alto/ | https://github.com/altoxml
-    # alto-bnf (unofficial) BnF ALTO dialect - for further info see
-    # http://bibnum.bnf.fr/alto_prod/documentation/alto_prod.html
     namespace = {
         "alto-1": "http://schema.ccs-gmbh.com/ALTO",
         "alto-1-xsd": "http://schema.ccs-gmbh.com/ALTO/alto-1-4.xsd",
@@ -35,6 +32,7 @@ def alto_parse(alto, **kargs):
         "alto-4": "http://www.loc.gov/standards/alto/ns-v4#",
         "alto-4-xsd": "http://www.loc.gov/standards/alto/v4/alto.xsd",
         "alto-bnf": "http://bibnum.bnf.fr/ns/alto_prod",
+        "alto-bnf-xsd": "http://bibnum.bnf.fr/ns/alto_prod.xsd",
     }
     # Extract namespace from document root
     if "http://" in str(xml.getroot().tag.split("}")[0].strip("{")):
