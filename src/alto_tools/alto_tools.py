@@ -17,7 +17,6 @@ __version__ = "0.1.0"
 
 def alto_parse(alto, **kargs):
     """Convert ALTO xml file to element tree"""
-    xml = None
     try:
         xml = ET.parse(alto, **kargs)
     except ET.ParseError as e:
@@ -64,7 +63,6 @@ def alto_parse(alto, **kargs):
 
 def alto_text(xml, xmlns):
     """Extract text content from ALTO xml file"""
-    text = None
     # Ensure use of UTF-8
     if isinstance(sys.stdout, io.TextIOWrapper) and sys.stdout.encoding != "UTF-8":
         sys.stdout = codecs.getwriter("utf-8")(sys.stdout.buffer, "strict")
