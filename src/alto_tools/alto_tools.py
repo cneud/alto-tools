@@ -21,6 +21,7 @@ def alto_parse(alto, **kargs):
         xml = ET.parse(alto, **kargs)
     except ET.ParseError as e:
         print(f"Parser Error in file '{alto}': {e}")
+        return None
     # Register ALTO namespaces
     namespace = {
         # ALTO @ CCS Content Conversion Specialists GmbH
@@ -59,6 +60,7 @@ def alto_parse(alto, **kargs):
         sys.stdout.write(
             f'\nERROR: File "{alto.name}": namespace {xmlns} is not registered.\n'
         )
+        return None
 
 
 def alto_text(xml, xmlns, dehyphenate=False, detect_hyphens="", pb="\n", lb="\n"):
@@ -363,9 +365,14 @@ def open_input_file(
                 alto, xml, xmlns = alto_parse(alto)
     except IndexError:
         return None
+    except TypeError:
+        # alto_parse returned None (e.g. unknown namespace) and could not be unpacked
+        return None
     except ET.ParseError as e:
         print("Error parsing %s" % filename, file=sys.stderr)
         raise e
+    if alto is None or xml is None or xmlns is None:
+        return None
     return alto, xml, xmlns
 
 
