@@ -59,8 +59,10 @@ def test_invalid_input_file(capsys: pytest.CaptureFixture[str]) -> None:
     with tempfile.TemporaryDirectory() as tmpdir:
         create_empty_file(os.path.join(tmpdir, "empty.xml"))
         sys.argv = argv(f"{tmpdir}/empty.xml -t")
-        with pytest.raises(UnboundLocalError):
-            alto_tools.main()
+        # Empty/invalid XML should be reported and skipped, not crash
+        alto_tools.main()
+        out = capsys.readouterr().out
+        assert "Parser Error" in out
 
 
 def test_single_file_confidence(capsys: pytest.CaptureFixture[str]) -> None:
