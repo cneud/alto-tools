@@ -209,15 +209,15 @@ def alto_statistics(alto, xml, xmlns):
     no_glyphs = 0
     no_illustrations = 0
     no_graphics = 0
-    for textlines in xml.iterfind(".//{%s}TextLine" % xmlns):
+    for _ in xml.iterfind(".//{%s}TextLine" % xmlns):
         no_textlines += 1
-    for strings in xml.iterfind(".//{%s}String" % xmlns):
+    for _ in xml.iterfind(".//{%s}String" % xmlns):
         no_strings += 1
-    for glyphs in xml.iterfind(".//{%s}Glyph" % xmlns):
+    for _ in xml.iterfind(".//{%s}Glyph" % xmlns):
         no_glyphs += 1
-    for illustrations in xml.iterfind(".//{%s}Illustration" % xmlns):
+    for _ in xml.iterfind(".//{%s}Illustration" % xmlns):
         no_illustrations += 1
-    for graphics in xml.iterfind(".//{%s}GraphicalElement" % xmlns):
+    for _ in xml.iterfind(".//{%s}GraphicalElement" % xmlns):
         no_graphics += 1
     sys.stdout.write(f"\nFile: {alto.name}, Statistics:")
     sys.stdout.write(f"\n# of <TextLine> elements: {no_textlines}")
