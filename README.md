@@ -1,8 +1,8 @@
-<h3 style="text-align: center;">ALTO Tools</h3>
-<p style="text-align:center;">
+<h3 align="center">ALTO Tools</h3>
+<p align="center">
   <a href="https://www.python.org/">Python</a> tools for performing various operations on <a href="https://www.loc.gov/standards/alto/">ALTO</a> XML files
 </p>
-<p style="text-align:center;">
+<p align="center">
   <a href="https://www.python.org/downloads/"><img alt="Python Version 3.8+" src="https://img.shields.io/badge/python-3.8+-blue.svg" title="Python Version"></a>
   <a href="https://pypi.org/project/alto-tools/"><img alt="PyPI Project" src="https://img.shields.io/pypi/v/alto-tools.svg" title="PyPI Version"></a>
   <a href="https://github.com/cneud/alto-tools/actions/workflows/tests.yml"><img alt="GitHub Action Test Status" src="https://github.com/cneud/alto-tools/actions/workflows/tests.yml/badge.svg" title="GitHub Actions Tests Status"></a>
